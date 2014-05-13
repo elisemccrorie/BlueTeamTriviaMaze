@@ -58,9 +58,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database.cs" />
+    <Compile Include="Maze.cs" />
     <Compile Include="MazeWindow.xaml.cs">
       <DependentUpon>MazeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="QuestionDB.cs" />
     <Compile Include="QuestionWindow.xaml.cs">
       <DependentUpon>QuestionWindow.xaml</DependentUpon>

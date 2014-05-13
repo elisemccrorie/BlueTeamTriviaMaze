@@ -1,0 +1,14 @@
+﻿<Window x:Class="BlueTeamTriviaMaze.MazeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Maze" Height="300" Width="643.933">
+    <Grid>
+        <Canvas x:Name="myCanvas" HorizontalAlignment="Left" Height="270" VerticalAlignment="Top" Width="636">
+            <Button x:Name="btnQuestion" Content="Question" HorizontalAlignment="Left" Margin="105,191,0,0" VerticalAlignment="Top" Width="75" Click="btnQuestion_Click"/>
+            <Label x:Name="lblAnswerLbl" Content="Answer was:" HorizontalAlignment="Left" Margin="30,218,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblAnswerVal" Content="" HorizontalAlignment="Left" Margin="105,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,-0.615"/>
+            <Rectangle x:Name="rect" Fill="#FFF4F4F5" Height="30" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="30"/>
+        </Canvas>
+
+    </Grid>
+</Window>

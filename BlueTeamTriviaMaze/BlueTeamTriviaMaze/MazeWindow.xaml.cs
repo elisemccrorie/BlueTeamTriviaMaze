@@ -51,16 +51,24 @@ namespace BlueTeamTriviaMaze
 
         private void displayAnswer(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (_questionWindow.Answer == QuestionWindow.ANSWER_CANCELLED)
                 lblAnswerVal.Content = "Cancelled!";
             else if (_questionWindow.Answer == QuestionWindow.ANSWER_INCORRECT)
                 lblAnswerVal.Content = "Incorrect!";
+=======
+            lblAnswerVal.Content = "Incorrect";
+>>>>>>> 290a930ac3bb71ff9d05d73fea704895edde3155
 
             else
             {
+<<<<<<< HEAD
                 lblAnswerVal.Content = "Correct!";
 
                 // animation
+=======
+                lblAnswerVal.Content = "Correct";
+>>>>>>> 290a930ac3bb71ff9d05d73fea704895edde3155
                 double left = Canvas.GetLeft(rect);
                 Anim = new DoubleAnimation(left, 120 + left, new Duration(TimeSpan.FromSeconds(3)));
                 rect.BeginAnimation(Canvas.LeftProperty, Anim);

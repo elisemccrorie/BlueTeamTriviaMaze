@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace BlueTeamTriviaMaze
 {
@@ -13,7 +15,11 @@ namespace BlueTeamTriviaMaze
 
 
 
-    class Player
+    public class Player : Image
     {
+        public Player()
+        {
+            
+        }
     }
 }

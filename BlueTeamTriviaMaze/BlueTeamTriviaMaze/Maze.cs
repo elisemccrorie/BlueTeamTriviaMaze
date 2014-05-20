@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace BlueTeamTriviaMaze
 {
@@ -15,7 +16,8 @@ namespace BlueTeamTriviaMaze
     
 
 
-    class Maze : UIElement
+
+    public class Maze : Canvas
     {
         private int _width, _height;
 

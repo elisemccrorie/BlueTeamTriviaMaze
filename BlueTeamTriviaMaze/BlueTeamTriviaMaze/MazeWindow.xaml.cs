@@ -21,17 +21,40 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class MazeWindow : Window
     {
+        private static MazeWindow _instance;
+        public static MazeWindow GetInstance()
+        {
+            return _instance; 
+        }
+
         private QuestionWindow _questionWindow;
         private DoubleAnimation Anim;
         private Maze _maze;
 
+        public Maze GetMaze()
+        {
+            return _maze;
+        }
+
         public MazeWindow(int maze_width, int maze_height)
         {
+            _instance = this;
+
             InitializeComponent();
 
             _maze = new Maze(maze_width, maze_height);
 
             this.myCanvas.Children.Add(_maze);
+        }
+
+        public void Win()
+        {
+            
+        }
+
+        public void Lose()
+        {
+            
         }
 
         private void btnQuestion_Click(object sender, RoutedEventArgs e)

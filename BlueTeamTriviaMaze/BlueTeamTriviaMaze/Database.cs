@@ -25,7 +25,7 @@ using System.IO;
 
 namespace BlueTeamTriviaMaze
 {
-    interface Database
+    public interface Database
     {
         bool Close();
         bool Connect();

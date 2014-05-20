@@ -19,7 +19,7 @@ using System.IO;
 
 namespace BlueTeamTriviaMaze
 {
-    class QuestionDB : Database
+    public class QuestionDB : Database
     {
         private readonly string _dbTable = "questions";
         private SQLiteConnection _dbConn;

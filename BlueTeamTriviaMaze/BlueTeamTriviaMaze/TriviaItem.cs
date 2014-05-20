@@ -18,7 +18,7 @@ using System.IO;
 
 namespace BlueTeamTriviaMaze
 {
-    class TriviaItem
+    public class TriviaItem
     {
         private QuestionDB DB;
         public int Id { get; private set; }

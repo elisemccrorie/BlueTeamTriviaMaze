@@ -19,23 +19,39 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class QuestionWindow : Window
     {
+        public static int ANSWER_CANCELLED = -1,
+            ANSWER_INCORRECT = 0,
+            ANSWER_CORRECT = 1;
+
+        public static int TYPE_TRUE_FALSE = 0,
+            TYPE_MULTIPLE_CHOICE = 1;
+
+
+
         private string _guess;
         TriviaItem _triviaItem;
-        public bool Answer { get; private set; }
+
+        public int Answer { get; private set; }
+
+
 
         public QuestionWindow()
         {
             InitializeComponent();
+
+            Answer = ANSWER_CANCELLED;
+            
             _triviaItem = new TriviaItem();
+            
             questionLayout();
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (_guess == _triviaItem.Answer)
-                Answer = true;
+            if (_guess.Equals(_triviaItem.Answer))
+                Answer = ANSWER_CORRECT;
             else
-                Answer = false;
+                Answer = ANSWER_INCORRECT;
 
             this.Close();
         }
@@ -45,6 +61,8 @@ namespace BlueTeamTriviaMaze
             RadioButton rb = (RadioButton)sender;
             if (rb.IsChecked.Value)
                 _guess = (string)rb.Content;
+
+            btnSubmit.IsEnabled = true;
         }
 
         private void questionLayout()
@@ -55,7 +73,7 @@ namespace BlueTeamTriviaMaze
             rbOptionThree.Content = _triviaItem.DummyAnswer[1];
             rbOptionFour.Content = _triviaItem.DummyAnswer[2];
 
-            if (_triviaItem.Type == 0)
+            if (_triviaItem.Type == TYPE_TRUE_FALSE)
             {
                 cvsQuestion.Children.Remove(rbOptionThree);
                 cvsQuestion.Children.Remove(rbOptionFour);

@@ -1,10 +1,10 @@
 ﻿<Window x:Class="BlueTeamTriviaMaze.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Trivia Maze" Height="350" Width="525">
+        Title="Trivia Maze" Height="176" Width="227">
     <Grid>
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="215,146,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.053,-0.136" Click="btnStart_Click"/>
-        <Label Content="Trivia Maze" HorizontalAlignment="Left" Margin="215,90,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="54,86,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.053,-0.136" Click="btnStart_Click" Height="45"/>
+        <Label Content="Trivia Maze" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Width="219" RenderTransformOrigin="0.92,0.538" FontSize="36" FontFamily="Tekton Pro" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

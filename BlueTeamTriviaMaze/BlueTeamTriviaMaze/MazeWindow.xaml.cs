@@ -21,24 +21,27 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class MazeWindow : Window
     {
-        private QuestionWindow question;
+        private QuestionWindow _questionWindow;
         private DoubleAnimation Anim;
+        private Maze _maze;
 
-        public MazeWindow()
+        public MazeWindow(int maze_width, int maze_height)
         {
             InitializeComponent();
-            this.Closing += new CancelEventHandler(exit);
+
+            _maze = new Maze(maze_width, maze_height);
+
+            this.myCanvas.Children.Add(_maze);
         }
 
         private void btnQuestion_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                question = new QuestionWindow();
-                question.Closed += new EventHandler(displayAnswer);
-                //RemoveVisualChild(question);
-                //AddVisualChild(question);   //problems
-                question.ShowDialog();
+                _questionWindow = new QuestionWindow();
+                _questionWindow.Closed += new EventHandler(displayAnswer);
+
+                _questionWindow.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -48,21 +51,22 @@ namespace BlueTeamTriviaMaze
 
         private void displayAnswer(object sender, EventArgs e)
         {
-            lblAnswerVal.Content = question.Answer.ToString();
+            if (_questionWindow.Answer == QuestionWindow.ANSWER_CANCELLED)
+                lblAnswerVal.Content = "Cancelled!";
+            else if (_questionWindow.Answer == QuestionWindow.ANSWER_INCORRECT)
+                lblAnswerVal.Content = "Incorrect!";
 
-            if (question.Answer)
+            else
             {
+                lblAnswerVal.Content = "Correct!";
+
+                // animation
                 double left = Canvas.GetLeft(rect);
                 Anim = new DoubleAnimation(left, 120 + left, new Duration(TimeSpan.FromSeconds(3)));
                 rect.BeginAnimation(Canvas.LeftProperty, Anim);
             }
 
-            question = null;
-        }
-
-        private void exit(object sender, CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
+            _questionWindow = null;
         }
     }
 }

@@ -20,19 +20,17 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SettingsWindow settings;
+        private SettingsWindow _settingsWindow;
 
         public MainWindow()
         {
             InitializeComponent();
-            QuestionDB q = new QuestionDB();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            settings = new SettingsWindow();
-            settings.Show();
-            this.Hide();
+            _settingsWindow = new SettingsWindow();
+            _settingsWindow.Show();
         }
     }
 }

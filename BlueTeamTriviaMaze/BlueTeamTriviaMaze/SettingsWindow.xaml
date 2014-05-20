@@ -1,9 +1,14 @@
 ﻿<Window x:Class="BlueTeamTriviaMaze.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Settings" Height="300" Width="300">
+        Title="Settings" Height="198" Width="320">
     <Grid>
-        <Button x:Name="btnEnterMaze" Content="Enter Maze" HorizontalAlignment="Left" Margin="102,133,0,0" VerticalAlignment="Top" Width="75" Click="btnEnterMaze_Click"/>
+        <Button x:Name="btnEnterMaze" Content="Enter Maze" HorizontalAlignment="Left" Margin="58,117,0,0" VerticalAlignment="Top" Width="178" Click="btnEnterMaze_Click" RenderTransformOrigin="1.12,0.409" Height="32"/>
+        <Slider x:Name="sldWidth" HorizontalAlignment="Left" Margin="97,47,0,0" VerticalAlignment="Top" Width="185" Maximum="6" Minimum="4" SmallChange="1" Value="4" TickPlacement="Both" IsSnapToTickEnabled="True"/>
+        <Label Content="Maze Width:" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" VerticalAlignment="Top" Width="87"/>
+        <Slider x:Name="sldHeight" HorizontalAlignment="Left" Margin="97,82,0,0" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.5,0.5" Maximum="6" Minimum="4" SmallChange="1" Value="4" TickPlacement="Both" IsSnapToTickEnabled="True"/>
+        <Label Content="Maze Height" HorizontalAlignment="Left" Height="30" Margin="10,74,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="Easy                            Hard" HorizontalAlignment="Left" Height="36" Margin="97,10,0,0" VerticalAlignment="Top" Width="185" FontWeight="Bold" FontSize="14"/>
 
     </Grid>
 </Window>

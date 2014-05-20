@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BlueTeamTriviaMaze
 {
@@ -14,7 +15,17 @@ namespace BlueTeamTriviaMaze
     
 
 
-    class Maze
+    class Maze : UIElement
     {
+        private int _width, _height;
+
+        private Door[] _doors;
+        private Room[,] _rooms;
+
+        public Maze(int width, int height)
+        {
+            _width = width;
+            _height = height;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        private MazeWindow maze;
+        private MazeWindow _mazeWindow;
 
         public SettingsWindow()
         {
@@ -28,9 +28,8 @@ namespace BlueTeamTriviaMaze
 
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
         {
-            maze = new MazeWindow();
-            maze.Show();
-            this.Hide();
+            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value);
+            _mazeWindow.Show();
         }
     }
 }

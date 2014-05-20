@@ -48,10 +48,11 @@ namespace BlueTeamTriviaMaze
 
         private void displayAnswer(object sender, EventArgs e)
         {
-            lblAnswerVal.Content = question.Answer.ToString();
+            lblAnswerVal.Content = "Incorrect";
 
             if (question.Answer)
             {
+                lblAnswerVal.Content = "Correct";
                 double left = Canvas.GetLeft(rect);
                 Anim = new DoubleAnimation(left, 120 + left, new Duration(TimeSpan.FromSeconds(3)));
                 rect.BeginAnimation(Canvas.LeftProperty, Anim);

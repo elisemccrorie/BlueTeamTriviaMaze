@@ -28,7 +28,7 @@ namespace BlueTeamTriviaMaze
 
         public QuestionDB()
         {
-            DBFile = "TriviaMaze.db";
+            DBFile = @"..\..\TriviaMaze.db";
             Connect();
             CreateTable();
         }

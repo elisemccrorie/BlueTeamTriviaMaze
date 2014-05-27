@@ -1,0 +1,63 @@
+105,1,MC,In 2013 which Disney film won the Academy Award for Animated Feature Film?,Frozen,Despicable Me 2,Tangled,The Croods,0,Movies,1
+106,1,MC,How many Oscars did the film 'Gravity' win?,7,9,8,5,0,Movies,1
+107,1,MC,Which film won Best Picture at the 2013 Academy Awards?,12 Years a Slave,American Hustle,Captain Phillips,Gravity,0,Movies,1
+108,1,MC,Which film won Best Picture at the 2011 Academy Awards?,The Artist,Hugo,Moneyball,The Help,0,Movies,1
+109,1,MC,Which film won Best Animated Feature Film at the 2012 Oscars?,Brave,Wreck-It Ralph,ParaNorman,Frankenweenie,0,Movies,1
+110,1,MC,Which film won Best Animated Feature Film at the 2011,Rango,Puss in Boots,Kung Fu Panda 2,A Cat in Paris,0,Movies,1
+111,1,MC,Which film won Best Animated Feature Film at the 2010 ,Toy Story 3,The Illusionist,How to Train Your Dragon,Pocahontas,0,Movies,1
+112,1,MC,Which film won Best Animated Feature Film at the 2009 ,Up,The Princess and the Frog,Coraline,Fantastic Mr. Fox,0,Movies,1
+113,1,MC,Which film won Best Animated Feature Film at the 2008 ,WALL-E,Kung Fu Panda,Bolt,Cinderella,0,Movies,1
+114,1,MC,Which film won Best Animated Feature Film at the 2006 ,Happy Feet,Cars,Monster House,Pinocchio,0,Movies,1
+115,1,MC,Which film won Best Animated Feature Film at the 2004 ,The Incredibles,Shark Tale,Shrek 2,Tangled,0,Movies,1
+116,1,MC,Which film won Best Animated Feature Film at the 2003 ,Finding Nemo,Brother Bear,Snow White,Sword in the Stone,0,Movies,1
+117,1,MC,Which film won Best Animated Feature Film at the 2002,Spirited Away,Ice Age,Treasure Planet,Lilo & Stitch,0,Movies,1
+118,1,MC,Which film won Best Animated Feature Film at the 2001,Shrek ,"Monsters, Inc.",Jimmy Neutron,Tarzan,0,Movies,1
+119,1,MC,What movie won the Academy Award for Best Picture in 2012?,Argo,Amour,Les Miserables,Life of Pi,0,Movies,1
+120,1,MC,What movie won the Academy Award for Best Picture in 2010?,The King's Speech,127 Hours,Inception,Black Swan,0,Movies,1
+121,1,MC,What movie won the Academy Award for Best Picture in 2009 ?,The Hurt Locker,Avatar,The Blind Side,District 9,0,Movies,1
+122,1,MC,What movie won the Academy Award for Best Picture in 2008 ?,Slumdog Millionaire,Frost/Nixon,Milk,The Reader,0,Movies,1
+123,1,MC,What movie won the Academy Award for Best Picture in 2007 ?,No Country for Old Men,Atonement,Juno,There Will Be Blood,0,Movies,1
+124,1,MC,What movie won the Academy Award for Best Picture in 2006 ?,The Departed,Babel,The Queen,Little Miss Sunshine,0,Movies,1
+125,1,MC,What movie won the Academy Award for Best Picture in 2005 ?,Crash,Munich,Capote,Brokeback Mountain,0,Movies,1
+126,1,MC,What movie won the Academy Award for Best Picture in 2004 ?,Million Dollar Baby,Ray,Sideways,The Aviator,0,Movies,1
+127,1,MC,What movie won the Academy Award for Best Picture in 2002 ?,Chicago,Gangs of New York,The Pianist,The Lord of the Rings: The Two Towers,0,Movies,1
+128,1,MC,What movie won the Academy Award for Best Picture in 2003 ?,The Lord of the Rings: The Return of the King,Master and Commander,Mystic River,Seabiscuit,0,Movies,1
+129,1,MC,What movie won the Academy Award for Best Picture in 2001 ?,A Beautiful Mind,Moulin Rouge,In the Bedroom,Gosford Park,0,Movies,1
+130,1,MC,What movie won the Academy Award for Best Picture in 2000 ?,Gladiator,Chocolat,Erin Brockovich,Traffic,0,Movies,1
+131,1,MC,"In The Wolf of Wallstreet, approximately how many times is the F-word used?",500,400,600,300,0,Movies,1
+132,1,MC,How many Oscars did 'The Lord of the Rings: The Return of the King' win?,11,10,9,8,0,Movies,1
+133,1,MC,How many times can the f-word be used in a PG-13 film (without going through an appeal process)?,1,0,2,3,0,Movies,1
+134,1,MC,The movie 'The Shawshank Redemption' is based on a novella writen by whom?,Stephen King,Tom Clancy,Dean Koontz,John Grisham,0,Movies,1
+135,1,MC,What was Quentin Tarantino's directorial debut?,Resevoir Dogs,Pulp Fiction,Kill Bill: Vol 1,Inglourious Basterds,0,Movies,1
+136,1,MC,"Leonardo DiCaprio has been nominated for 5 Academy Awards, how many has he won?",0,5,3,2,0,Movies,1
+137,1,MC,Which film won Best Picture at the 1990 Academy Awards?,Dances with Wolves,Ghost,Good Fellas,"The Godfather, Part III",0,Movies,1
+138,1,MC,Which film won Best Picture at the 1991 Academy Awards?,The Silence of the Lambs,The Prince of Tides,JFK,Bugsy,0,Movies,1
+139,1,MC,Which film won Best Picture at the 1992 Academy Awards?,Unforgiven,Scent of a Woman,A Few Good Men,Howards End,0,Movies,1
+140,1,MC,Which film won Best Picture at the 1993 Academy Awards?,Schindler's List,The Fugitive,The Piano,Psycho,0,Movies,1
+141,1,MC,Which film won Best Picture at the 1994 Academy Awards?,Forest Gump,Pulp Fiction,The Shawshank Redemption,Four Weddings and a Funeral,0,Movies,1
+142,1,MC,Which film won Best Picture at the 1995 Academy Awards?,Braveheart,Apollo 13,Sense and Sensibility,Babe,0,Movies,1
+143,1,MC,Which film won Best Picture at the 1997 Academy Awards?,Titanic,Good Will Hunting,The Full Monty,L.A. Confidential,0,Movies,1
+144,1,MC,Which film won Best Picture at the 1998 Academy Awards?,Shakespeare in Love,Saving Private Ryan,Elizabeth,The Thin Red Line,0,Movies,1
+145,1,MC,Which film won Best Picture at the 1999 Academy Awards?,American Beauty,The Green Mile,The Sixth Sense,The Insider,0,Movies,1
+146,0,TF,The Willhelm Scream has been used in over 200 movies.,TRUE,FALSE,,,0,Movies,1
+147,0,TF,The Wolf of Wallstreet broke the record for number of times the F-word is used,TRUE,FALSE,,,0,Movies,1
+148,0,TF,The Lord of the Rings: The Return of the King won every Oscar it was nominated for,TRUE,FALSE,,,0,Movies,1
+149,0,TF,Each movie in the Lord of the Rings Trillogy won the Academy Award for Visual Effects,TRUE,FALSE,,,0,Movies,1
+150,0,TF,Star Wars was originally prefixed by the article 'The'.,TRUE,FALSE,,,0,Movies,1
+151,0,TF,George Lucas' dog was named Luke,FALSE,TRUE,,,0,Movies,1
+152,0,TF,Forest Gump was based on a novel of the same title,TRUE,FALSE,,,0,Movies,1
+153,0,TF,The first Rambo movie was based on a book,TRUE,FALSE,,,0,Movies,1
+154,0,TF,The Movie Die Hard is loosly based on a novel titled 'Nothing Lasts Forever',TRUE,FALSE,,,0,Movies,1
+155,0,TF,James Cameron drew the nude picture of Kate Winslet that appears in 'Titanic',TRUE,FALSE,,,0,Movies,1
+156,0,TF,Catch Me If You Can' is based on a true story,TRUE,FALSE,,,0,Movies,1
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,

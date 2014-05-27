@@ -20,49 +20,23 @@ namespace BlueTeamTriviaMaze
 {
     public class TriviaItem
     {
-        private QuestionDB DB;
-        public int Id { get; private set; }
-        public int Type { get; private set; }
-        public string Question { get; private set; }
-        public string Answer { get; private set; }
-        public string[] DummyAnswer { get; private set; }
-        public string Category { get; private set; }
-
-        private void getDBQuestion()
-        {
-            //get question from database
-            //Question = question column from db
-            //Answer = answer column from db
-            //...and so on
-            try
-            {
-                DB = new QuestionDB();
-                Hashtable query = DB.Query();
-                Id = Convert.ToInt32(query["id"]);   
-                Type = Convert.ToInt32(query["type"]); 
-                Question = (string)query["question"];
-                Answer = (string)query["answer"];
-
-                if (Type == 0)    //true/false question
-                    DummyAnswer = new string[] { (string)query["dummy_1"] , null, null};
-                else
-                {
-                    DummyAnswer = new string[] { (string)query["dummy_1"], (string)query["dummy_2"], (string)query["dummy_3"] };
-                }
-
-                Category = (string)query["category_disp"];
-
-                DB.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
+        public int Id { get; set; }
+        public int Type { get; set; }
+        public string Question { get; set; }
+        public string Answer { get; set; }
+        public string[] DummyAnswer { get; set; }
+        public string Category { get; set; }
 
         public TriviaItem()
         {
-            getDBQuestion();
+            //default constructor
+            //TriviaItem is a container filled by
+            //the TriviaItemFactory
+        }
+
+        public bool CheckAnswer(String choice) 
+        {
+            return choice == Answer;
         }
     }
 }

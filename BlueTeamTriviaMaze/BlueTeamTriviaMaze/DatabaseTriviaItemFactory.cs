@@ -19,14 +19,14 @@ using System.IO;
 
 namespace BlueTeamTriviaMaze
 {
-    public class QuestionDB : Database
+    public class DatabaseTriviaItemFactory : Database, TriviaItemFactory
     {
         private readonly string _dbTable = "questions";
         private SQLiteConnection _dbConn;
         public bool IsAlive{ get; private set; }
         public string DBFile { get; private set; }
 
-        public QuestionDB()
+        public DatabaseTriviaItemFactory()
         {
             DBFile = @"..\..\TriviaMaze.db";
             Connect();
@@ -56,7 +56,7 @@ namespace BlueTeamTriviaMaze
             return IsAlive;
         }
 
-        public bool Close()
+        public bool Disconnect()
         {
             try
             {
@@ -105,7 +105,7 @@ namespace BlueTeamTriviaMaze
             }
         }
 
-        public Hashtable Query()
+        private Hashtable Query(ArrayList usedID)
         {
             if (!IsAlive)
             {
@@ -116,8 +116,12 @@ namespace BlueTeamTriviaMaze
 
             try
             {
-                //string sql = String.Format("select * from {0} where type={1} order by random() limit 1", _dbTable, type);
-                string sql = String.Format("select * from {0} order by random() limit 1", _dbTable);
+                string notlist = ",";
+                foreach (string u in usedID)
+                    notlist += String.Format("{0},", u);
+                notlist = notlist.Substring(0, notlist.Length - 1); //strip last comma
+
+                string sql = String.Format("select * from {0} where id not in (0{1}) order by random() limit 1", _dbTable, notlist);
 
                 SQLiteCommand command = new SQLiteCommand(sql, _dbConn);
                 SQLiteDataReader dr = command.ExecuteReader();
@@ -139,6 +143,36 @@ namespace BlueTeamTriviaMaze
             }
 
             return null;
+        }
+
+        public TriviaItem GenerateTriviaItem(ArrayList usedID)
+        {
+            TriviaItem _triviaItem = new TriviaItem();
+            try
+            {
+                Hashtable query = Query(usedID);    //whose responsibility to remember used question ids?
+                _triviaItem.Id = Convert.ToInt32(query["id"]);
+                _triviaItem.Type = Convert.ToInt32(query["type"]);
+                _triviaItem.Question = (string)query["question"];
+                _triviaItem.Answer = (string)query["answer"];
+
+                if (_triviaItem.Type == 0)    //true/false question
+                    _triviaItem.DummyAnswer = new string[] { (string)query["dummy_1"], null, null };
+                else
+                {
+                    _triviaItem.DummyAnswer = new string[] { (string)query["dummy_1"], (string)query["dummy_2"], (string)query["dummy_3"] };
+                }
+
+                _triviaItem.Category = (string)query["category_disp"];
+
+                Disconnect();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+            return _triviaItem;
         }
     }
 }

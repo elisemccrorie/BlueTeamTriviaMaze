@@ -27,8 +27,8 @@ namespace BlueTeamTriviaMaze
 {
     public interface Database
     {
-        bool Disconnect();
         bool Connect();
+        bool Disconnect();
         bool CreateTable();
     }
 }

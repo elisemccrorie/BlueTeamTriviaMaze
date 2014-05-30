@@ -20,6 +20,10 @@ namespace BlueTeamTriviaMaze
     public partial class SettingsWindow : Window
     {
         private MazeWindow _mazeWindow;
+        private string _themeImg = null;
+        private string _playerImg = null;
+        private double _startOpacity = 0.4, _pickedOpacity = 1.0;
+
 
         public SettingsWindow()
         {
@@ -28,8 +32,36 @@ namespace BlueTeamTriviaMaze
 
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
         {
-            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value);
+            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _themeImg, _playerImg);
             _mazeWindow.Show();
+        }
+
+        private void setTheme_Click(object sender, MouseButtonEventArgs e)
+        {
+            ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
+            int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
+            int stop = ((Image) sender).Source.ToString().LastIndexOf("4");
+            _themeImg = ((Image)sender).Source.ToString().Substring(start, stop - start);
+
+            if (_themeImg != null && _playerImg != null)
+            {
+                lblEnterMaze.Opacity = 1.0;
+                lblEnterMaze.IsEnabled = true;
+            }
+        }
+
+        private void setPlayer_Click(object sender, MouseButtonEventArgs e)
+        {
+            ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
+            int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
+            int stop = ((Image)sender).Source.ToString().IndexOf(@".");
+            _playerImg = ((Image)sender).Source.ToString().Substring(start, stop - start);
+
+            if (_themeImg != null && _playerImg != null)
+            {
+                lblEnterMaze.Opacity = 1.0;
+                lblEnterMaze.IsEnabled = true;
+            }
         }
     }
 }

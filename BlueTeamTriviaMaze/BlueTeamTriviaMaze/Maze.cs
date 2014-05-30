@@ -19,7 +19,7 @@ namespace BlueTeamTriviaMaze
     
 
 
-    [Serializable]
+   
     public class Maze : Canvas
     {
         private Room[,] _rooms;
@@ -66,7 +66,7 @@ namespace BlueTeamTriviaMaze
 
 
                     // NORTH DOOR
-                    Door northDoor = new Door(0,0,theme);
+                    Door northDoor = null;
                     if (y > 0) // omit north doors on top-most rooms
                     {
                         neighbor = GetRoom(x, y - 1);  // (0,0) is the top-left most room, so y-1 means get the neighboring room 'north' of here
@@ -145,7 +145,7 @@ namespace BlueTeamTriviaMaze
             //
             // Note: this is done LAST like this so the Doors are drawn on top the Rooms
             foreach (Door door in _doorsList)
-                Children.Add(door.Drawable);
+                Children.Add(door);
 
 
 

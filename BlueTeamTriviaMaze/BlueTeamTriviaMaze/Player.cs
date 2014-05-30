@@ -159,14 +159,14 @@ namespace BlueTeamTriviaMaze
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
             //Door clicked_door = new Door();
-            Rectangle clicked_door = (Rectangle)sender;
+            Door clicked_door = (Door)sender;
             MoveDirection move_direction = MoveDirection.West;        // Default as western door
 
-            if (clicked_door == _currentRoom.NorthDoor.Drawable)               // This Door was clicked as a North Door
+            if (clicked_door == _currentRoom.NorthDoor)               // This Door was clicked as a North Door
                 move_direction = Player.MoveDirection.North;
-            else if (clicked_door == _currentRoom.SouthDoor.Drawable)          // This Door was clicked as a South Door
+            else if (clicked_door == _currentRoom.SouthDoor)          // This Door was clicked as a South Door
                 move_direction = Player.MoveDirection.South;
-            else if (clicked_door == _currentRoom.EastDoor.Drawable)           // This Door was clicked as an East Door
+            else if (clicked_door == _currentRoom.EastDoor)           // This Door was clicked as an East Door
                 move_direction = Player.MoveDirection.East;
 
             if (e.ChangedButton == MouseButton.Left)
@@ -177,6 +177,34 @@ namespace BlueTeamTriviaMaze
 
                 if (q.Answer == QuestionWindow.ANSWER_CORRECT)
                     TryToMove(move_direction);
+                else if (q.Answer == QuestionWindow.ANSWER_INCORRECT)
+                {
+                    //((Door)sender).SetState(Door.State.Locked);
+                    //((Door)sender).IsEnabled = false;
+                    if (clicked_door == _currentRoom.NorthDoor)
+                    {
+                        _currentRoom.NorthDoor.SetState(Door.State.Locked);
+                        _currentRoom.NorthDoor.IsEnabled = false;
+                    }
+                        
+                    else if (clicked_door == _currentRoom.SouthDoor)  
+                    {// This Door was clicked as a South Door
+                        _currentRoom.SouthDoor.SetState(Door.State.Locked);
+                        _currentRoom.SouthDoor.IsEnabled = false;
+                    }
+                    else if (clicked_door == _currentRoom.EastDoor)  
+                    {// This Door was clicked as an East Door
+                        _currentRoom.EastDoor.SetState(Door.State.Locked);
+                        _currentRoom.EastDoor.IsEnabled = false;
+                    }
+                    else
+                    {
+                        _currentRoom.WestDoor.SetState(Door.State.Locked);
+                        _currentRoom.WestDoor.IsEnabled = false;
+                    }
+                }
+                    
+               
 
                 return;
             }
@@ -184,6 +212,7 @@ namespace BlueTeamTriviaMaze
             if (e.ChangedButton == MouseButton.Middle)
             {
                 //lock the door
+                ((Door)sender).SetState(Door.State.Locked);
                 return;
             }
 

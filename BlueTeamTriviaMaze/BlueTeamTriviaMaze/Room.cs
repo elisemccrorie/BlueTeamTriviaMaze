@@ -14,7 +14,7 @@ using System.Runtime.Serialization;
 
 namespace BlueTeamTriviaMaze
 {
-    [Serializable]
+   
     public class Room
     {
         public static int ROOM_SIZE = 100;
@@ -44,33 +44,33 @@ namespace BlueTeamTriviaMaze
             if (_state == State.Visited)
             {
                 Drawable.StrokeThickness = 0;
-                if (WestDoor != null) WestDoor.Drawable.Opacity = 1;
-                if (EastDoor != null) EastDoor.Drawable.Opacity = 1;
-                if (NorthDoor != null) NorthDoor.Drawable.Opacity = 1;
-                if (SouthDoor != null) SouthDoor.Drawable.Opacity = 1;
+                if (WestDoor != null) WestDoor.Opacity = 1;
+                if (EastDoor != null) EastDoor.Opacity = 1;
+                if (NorthDoor != null) NorthDoor.Opacity = 1;
+                if (SouthDoor != null) SouthDoor.Opacity = 1;
             }
 
             else if (_state == State.NotVisited)
             {
                 Drawable.StrokeThickness = 50;
                 Drawable.Stroke = Brushes.Black;
-                if (WestDoor != null) WestDoor.Drawable.Opacity = 0;
-                if (EastDoor != null) EastDoor.Drawable.Opacity = 0;
-                if (NorthDoor != null) NorthDoor.Drawable.Opacity = 0;
-                if (SouthDoor != null) SouthDoor.Drawable.Opacity = 0;
+                if (WestDoor != null) WestDoor.Opacity = 0;
+                if (EastDoor != null) EastDoor.Opacity = 0;
+                if (NorthDoor != null) NorthDoor.Opacity = 0;
+                if (SouthDoor != null) SouthDoor.Opacity = 0;
             }
         }
 
         public void SetDoorsEnabled(bool enabled)
         {
             if (NorthDoor != null)
-                NorthDoor.Drawable.IsEnabled = enabled;
+                NorthDoor.IsEnabled = enabled;
             if (SouthDoor != null)
-                SouthDoor.Drawable.IsEnabled = enabled;
+                SouthDoor.IsEnabled = enabled;
             if (EastDoor != null)
-                EastDoor.Drawable.IsEnabled = enabled;
+                EastDoor.IsEnabled = enabled;
             if (WestDoor != null)
-                WestDoor.Drawable.IsEnabled = enabled;
+                WestDoor.IsEnabled = enabled;
         }
 
         public Room(int x, int y, Type type, Door north, Door south, Door east, Door west, string theme)

@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 namespace BlueTeamTriviaMaze
@@ -28,6 +29,7 @@ namespace BlueTeamTriviaMaze
         public SettingsWindow()
         {
             InitializeComponent();
+            lblEnterMaze.IsEnabled = false;
         }
 
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
@@ -61,6 +63,17 @@ namespace BlueTeamTriviaMaze
             {
                 lblEnterMaze.Opacity = 1.0;
                 lblEnterMaze.IsEnabled = true;
+            }
+        }
+
+        private void lblEnterMaze_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (lblEnterMaze.IsEnabled == true)
+            {
+                DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(1)));
+                dblanim.RepeatBehavior = RepeatBehavior.Forever;
+                dblanim.AutoReverse = true;
+                lblEnterMaze.BeginAnimation(OpacityProperty, dblanim);
             }
         }
     }

@@ -22,13 +22,14 @@ namespace BlueTeamTriviaMaze
     public partial class MainWindow : Window
     {
         private SettingsWindow _settingsWindow;
+        private LoadWindow _loadWindow;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void btnStart_Click(object sender, MouseButtonEventArgs e)
+        private void lblStart_Click(object sender, MouseButtonEventArgs e)
         {
             _settingsWindow = new SettingsWindow();
             _settingsWindow.Show();
@@ -42,6 +43,10 @@ namespace BlueTeamTriviaMaze
             lblStart.BeginAnimation(OpacityProperty, dblanim);
         }
 
-
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            _loadWindow = new LoadWindow();
+            _loadWindow.Show();
+        }
     }
 }

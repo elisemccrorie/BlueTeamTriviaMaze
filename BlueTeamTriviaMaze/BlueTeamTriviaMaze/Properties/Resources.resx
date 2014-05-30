@@ -118,44 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Door1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Door1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Triforce" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Triforce.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlueRoom2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoom2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlueRoom3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoom3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlueRoom4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoom4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlueRoomDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoomDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_2DoorRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2DoorRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_2DoorRoomBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2DoorRoomBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3DoorRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3DoorRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_3DoorRoomBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3DoorRoomBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_4DoorRoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4DoorRoom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_4DoorRoomBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4DoorRoomBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StartPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StartPage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BlueRoomStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoomStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cave2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cave2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,73 +145,148 @@
   <data name="Cave4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cave4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CaveDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CaveExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CaveExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dungeon2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dungeon2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CaveStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dungeon3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dungeon3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Character" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Character.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dungeon4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dungeon4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Dungeon2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dungeon2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dungeon3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dungeon3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dungeon4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dungeon4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DungeonDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DungeonDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dungeonExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dungeonExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DungeonDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DungeonDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dungeonExit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dungeonExit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DungeonExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DungeonExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DungeonLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DungeonLayout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DungeonStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DungeonStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Grass2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Grass2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Easy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Easy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Grass3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Grass3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EnterMaze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EnterMaze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Grass4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Grass4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Forest2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forest2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="JonnyBravo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JonnyBravo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Forest3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forest3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Forest4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forest4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="player5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ForestExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sailboat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sailboat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ForestStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Water2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Water2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GreyRoom2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoom2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Water3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Water3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GreyRoom3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoom3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Water4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Water4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GreyRoom4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoom4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WaterExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WaterExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GreyRoomDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoomDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WaterLayout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WaterLayout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GreyRoomStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoomStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WaterStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WaterStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Hard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Yoshi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Yoshi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Height" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Height.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Triforce" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Triforce.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="JohnnyBravo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JohnnyBravo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Load" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Load.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PurplePlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PurplePlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RedPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SailboatPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SailboatPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sea2Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sea2Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sea3Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sea3Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sea4Door" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sea4Door.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeaDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SeaDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeaDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SeaDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeaExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SeaExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SeaStart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SeaStart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartPage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartPage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Width" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Width.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YellowPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YoshiPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YoshiPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlueRoomExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoomExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreyRoomExit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoomExit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

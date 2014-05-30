@@ -9,9 +9,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media;
 using Image = System.Drawing.Image;
+using System.Runtime.Serialization;
+
 
 namespace BlueTeamTriviaMaze
 {
+    [Serializable]
     public class Room
     {
         public static int ROOM_SIZE = 100;
@@ -41,33 +44,33 @@ namespace BlueTeamTriviaMaze
             if (_state == State.Visited)
             {
                 Drawable.StrokeThickness = 0;
-                if (WestDoor != null) WestDoor.Opacity = 1;
-                if (EastDoor != null) EastDoor.Opacity = 1;
-                if (NorthDoor != null) NorthDoor.Opacity = 1;
-                if (SouthDoor != null) SouthDoor.Opacity = 1;
+                if (WestDoor != null) WestDoor.Drawable.Opacity = 1;
+                if (EastDoor != null) EastDoor.Drawable.Opacity = 1;
+                if (NorthDoor != null) NorthDoor.Drawable.Opacity = 1;
+                if (SouthDoor != null) SouthDoor.Drawable.Opacity = 1;
             }
 
             else if (_state == State.NotVisited)
             {
                 Drawable.StrokeThickness = 50;
                 Drawable.Stroke = Brushes.Black;
-                if (WestDoor != null) WestDoor.Opacity = 0;
-                if (EastDoor != null) EastDoor.Opacity = 0;
-                if (NorthDoor != null) NorthDoor.Opacity = 0;
-                if (SouthDoor != null) SouthDoor.Opacity = 0;
+                if (WestDoor != null) WestDoor.Drawable.Opacity = 0;
+                if (EastDoor != null) EastDoor.Drawable.Opacity = 0;
+                if (NorthDoor != null) NorthDoor.Drawable.Opacity = 0;
+                if (SouthDoor != null) SouthDoor.Drawable.Opacity = 0;
             }
         }
 
         public void SetDoorsEnabled(bool enabled)
         {
             if (NorthDoor != null)
-                NorthDoor.IsEnabled = enabled;
+                NorthDoor.Drawable.IsEnabled = enabled;
             if (SouthDoor != null)
-                SouthDoor.IsEnabled = enabled;
+                SouthDoor.Drawable.IsEnabled = enabled;
             if (EastDoor != null)
-                EastDoor.IsEnabled = enabled;
+                EastDoor.Drawable.IsEnabled = enabled;
             if (WestDoor != null)
-                WestDoor.IsEnabled = enabled;
+                WestDoor.Drawable.IsEnabled = enabled;
         }
 
         public Room(int x, int y, Type type, Door north, Door south, Door east, Door west, string theme)
@@ -146,8 +149,8 @@ namespace BlueTeamTriviaMaze
                 Drawable.Fill = new ImageBrush(rotate(room, 270));
             }
 
-            if (NorthDoor == null && WestDoor == null)
-                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}2Door.png", theme))));
+            if (NorthDoor == null && WestDoor == null)  //start door
+                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Start.png", theme))));
 
             if (NorthDoor == null && EastDoor == null)
             {
@@ -155,11 +158,8 @@ namespace BlueTeamTriviaMaze
                 Drawable.Fill = new ImageBrush(rotate(room, 90));
             }
 
-            if (SouthDoor == null && EastDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}2Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 180));
-            }
+            if (SouthDoor == null && EastDoor == null)  //exit door
+                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Exit.png", theme))));
 
             if (SouthDoor == null && WestDoor == null)
             {

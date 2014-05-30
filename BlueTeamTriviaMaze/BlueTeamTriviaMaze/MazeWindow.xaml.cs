@@ -34,7 +34,24 @@ namespace BlueTeamTriviaMaze
 
         public Maze GetMaze() { return _maze; }
 
+        public MazeWindow(Maze maze) 
+        {
+            InitializeComponent();
+            _instance = this;
+            _maze = maze;
 
+            Title = "Maze - " + _maze.Rows + "x" + _maze.Columns;
+            _theme = _maze.Theme;
+            _player = _maze.Player;
+
+            // size the canvas(es) to the maze size
+            cvsMaze.Width = _maze.Columns * Room.ROOM_SIZE;
+            cvsMaze.Height = cvsInformation.Height = _maze.Rows * Room.ROOM_SIZE;
+
+
+            //add the maze to its canvas
+            cvsMaze.Children.Add(_maze);
+        }
 
         public MazeWindow(int maze_width, int maze_height, string theme, string player)
         {
@@ -131,6 +148,13 @@ namespace BlueTeamTriviaMaze
 
 
             //_questionWindow = null;
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            DatabaseSavedGames db = new DatabaseSavedGames();
+            db.Save("Zak", _maze);
+            db.Disconnect();
         }
     }
 }

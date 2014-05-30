@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Collections;
+using System.Runtime.Serialization;
 
 namespace BlueTeamTriviaMaze
 {
@@ -18,12 +19,18 @@ namespace BlueTeamTriviaMaze
     
 
 
-
+    [Serializable]
     public class Maze : Canvas
     {
         private Room[,] _rooms;
         private Player _player;
         private ArrayList _doorsList;
+
+        //necessary for loading a saved maze
+        public int Rows { get; private set; }
+        public int Columns { get; private set; }
+        public string Theme { get; private set; }
+        public string Player { get; private set; }
 
         public Player GetPlayer() { return _player; }
 
@@ -33,7 +40,12 @@ namespace BlueTeamTriviaMaze
         {
             // Create and add the Player to the maze
             CreatePlayer(3, player); // num keys, player image source
-
+            
+            //necessary for loading in a saved maze
+            Rows = height;
+            Columns = width;
+            Theme = theme;
+            Player = player;
 
 
             // create each of the rooms
@@ -54,7 +66,7 @@ namespace BlueTeamTriviaMaze
 
 
                     // NORTH DOOR
-                    Door northDoor = null;
+                    Door northDoor = new Door(0,0,theme);
                     if (y > 0) // omit north doors on top-most rooms
                     {
                         neighbor = GetRoom(x, y - 1);  // (0,0) is the top-left most room, so y-1 means get the neighboring room 'north' of here
@@ -74,7 +86,7 @@ namespace BlueTeamTriviaMaze
                         southDoor = neighbor != null ? neighbor.NorthDoor : new Door(x, y + 0.5f, theme); // position door south = y+0.5
                         
                         //south doors need to be rotated 90 degrees
-                        southDoor.LayoutTransform = new RotateTransform(90);
+                        //southDoor.LayoutTransform = new RotateTransform(90);
 
                         if (neighbor == null)
                             _doorsList.Add(southDoor);
@@ -133,7 +145,7 @@ namespace BlueTeamTriviaMaze
             //
             // Note: this is done LAST like this so the Doors are drawn on top the Rooms
             foreach (Door door in _doorsList)
-                Children.Add(door);
+                Children.Add(door.Drawable);
 
 
 

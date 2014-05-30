@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows;
+using System.Runtime.Serialization;
+
 
 namespace BlueTeamTriviaMaze
 {
@@ -19,7 +21,7 @@ namespace BlueTeamTriviaMaze
     /// </summary>
 
 
-
+    [Serializable]
     public class Player
     {
         private const int PLAYER_SIZE = 25;
@@ -156,14 +158,15 @@ namespace BlueTeamTriviaMaze
         public void DoorClick(Object sender, MouseButtonEventArgs e)
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
-            Door clicked_door = (Door)sender;
+            //Door clicked_door = new Door();
+            Rectangle clicked_door = (Rectangle)sender;
             MoveDirection move_direction = MoveDirection.West;        // Default as western door
 
-            if (clicked_door == _currentRoom.NorthDoor)               // This Door was clicked as a North Door
+            if (clicked_door == _currentRoom.NorthDoor.Drawable)               // This Door was clicked as a North Door
                 move_direction = Player.MoveDirection.North;
-            else if (clicked_door == _currentRoom.SouthDoor)          // This Door was clicked as a South Door
+            else if (clicked_door == _currentRoom.SouthDoor.Drawable)          // This Door was clicked as a South Door
                 move_direction = Player.MoveDirection.South;
-            else if (clicked_door == _currentRoom.EastDoor)           // This Door was clicked as an East Door
+            else if (clicked_door == _currentRoom.EastDoor.Drawable)           // This Door was clicked as an East Door
                 move_direction = Player.MoveDirection.East;
 
             if (e.ChangedButton == MouseButton.Left)

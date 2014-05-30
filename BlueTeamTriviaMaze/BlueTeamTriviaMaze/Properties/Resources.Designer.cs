@@ -63,9 +63,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2DoorRoom {
+        internal static System.Drawing.Bitmap BlueRoom2Door {
             get {
-                object obj = ResourceManager.GetObject("_2DoorRoom", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoom2Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2DoorRoomBlue {
+        internal static System.Drawing.Bitmap BlueRoom3Door {
             get {
-                object obj = ResourceManager.GetObject("_2DoorRoomBlue", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoom3Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3DoorRoom {
+        internal static System.Drawing.Bitmap BlueRoom4Door {
             get {
-                object obj = ResourceManager.GetObject("_3DoorRoom", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoom4Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3DoorRoomBlue {
+        internal static System.Drawing.Bitmap BlueRoomDoor {
             get {
-                object obj = ResourceManager.GetObject("_3DoorRoomBlue", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoomDoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _4DoorRoom {
+        internal static System.Drawing.Bitmap BlueRoomExit {
             get {
-                object obj = ResourceManager.GetObject("_4DoorRoom", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoomExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _4DoorRoomBlue {
+        internal static System.Drawing.Bitmap BlueRoomStart {
             get {
-                object obj = ResourceManager.GetObject("_4DoorRoomBlue", resourceCulture);
+                object obj = ResourceManager.GetObject("BlueRoomStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +153,26 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CaveDoor {
+            get {
+                object obj = ResourceManager.GetObject("CaveDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CaveDoorLocked {
+            get {
+                object obj = ResourceManager.GetObject("CaveDoorLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CaveExit {
             get {
                 object obj = ResourceManager.GetObject("CaveExit", resourceCulture);
@@ -163,9 +183,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Door1 {
+        internal static System.Drawing.Bitmap CaveStart {
             get {
-                object obj = ResourceManager.GetObject("Door1", resourceCulture);
+                object obj = ResourceManager.GetObject("CaveStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +193,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dungeon2Door {
+        internal static System.Drawing.Bitmap Character {
             get {
-                object obj = ResourceManager.GetObject("dungeon2Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Character", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +203,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dungeon3Door {
+        internal static System.Drawing.Bitmap Dungeon2Door {
             get {
-                object obj = ResourceManager.GetObject("dungeon3Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Dungeon2Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +213,19 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dungeon4Door {
+        internal static System.Drawing.Bitmap Dungeon3Door {
             get {
-                object obj = ResourceManager.GetObject("dungeon4Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Dungeon3Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dungeon4Door {
+            get {
+                object obj = ResourceManager.GetObject("Dungeon4Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +243,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dungeonExit {
+        internal static System.Drawing.Bitmap DungeonDoorLocked {
             get {
-                object obj = ResourceManager.GetObject("dungeonExit", resourceCulture);
+                object obj = ResourceManager.GetObject("DungeonDoorLocked", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +253,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dungeonExit2 {
+        internal static System.Drawing.Bitmap DungeonExit {
             get {
-                object obj = ResourceManager.GetObject("dungeonExit2", resourceCulture);
+                object obj = ResourceManager.GetObject("DungeonExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +263,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DungeonLayout {
+        internal static System.Drawing.Bitmap DungeonStart {
             get {
-                object obj = ResourceManager.GetObject("DungeonLayout", resourceCulture);
+                object obj = ResourceManager.GetObject("DungeonStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,9 +273,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Grass2Door {
+        internal static System.Drawing.Bitmap Easy {
             get {
-                object obj = ResourceManager.GetObject("Grass2Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Easy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +283,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Grass3Door {
+        internal static System.Drawing.Bitmap EnterMaze {
             get {
-                object obj = ResourceManager.GetObject("Grass3Door", resourceCulture);
+                object obj = ResourceManager.GetObject("EnterMaze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +293,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Grass4Door {
+        internal static System.Drawing.Bitmap Forest2Door {
             get {
-                object obj = ResourceManager.GetObject("Grass4Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Forest2Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +303,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap JonnyBravo2 {
+        internal static System.Drawing.Bitmap Forest3Door {
             get {
-                object obj = ResourceManager.GetObject("JonnyBravo2", resourceCulture);
+                object obj = ResourceManager.GetObject("Forest3Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +313,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player {
+        internal static System.Drawing.Bitmap Forest4Door {
             get {
-                object obj = ResourceManager.GetObject("player", resourceCulture);
+                object obj = ResourceManager.GetObject("Forest4Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +323,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player1 {
+        internal static System.Drawing.Bitmap ForestDoor {
             get {
-                object obj = ResourceManager.GetObject("player1", resourceCulture);
+                object obj = ResourceManager.GetObject("ForestDoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +333,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player2 {
+        internal static System.Drawing.Bitmap ForestExit {
             get {
-                object obj = ResourceManager.GetObject("player2", resourceCulture);
+                object obj = ResourceManager.GetObject("ForestExit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +343,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player3 {
+        internal static System.Drawing.Bitmap ForestStart {
             get {
-                object obj = ResourceManager.GetObject("player3", resourceCulture);
+                object obj = ResourceManager.GetObject("ForestStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +353,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player4 {
+        internal static System.Drawing.Bitmap GreyRoom2Door {
             get {
-                object obj = ResourceManager.GetObject("player4", resourceCulture);
+                object obj = ResourceManager.GetObject("GreyRoom2Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +363,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap player5 {
+        internal static System.Drawing.Bitmap GreyRoom3Door {
             get {
-                object obj = ResourceManager.GetObject("player5", resourceCulture);
+                object obj = ResourceManager.GetObject("GreyRoom3Door", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,9 +373,179 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sailboat {
+        internal static System.Drawing.Bitmap GreyRoom4Door {
             get {
-                object obj = ResourceManager.GetObject("sailboat", resourceCulture);
+                object obj = ResourceManager.GetObject("GreyRoom4Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreyRoomDoor {
+            get {
+                object obj = ResourceManager.GetObject("GreyRoomDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreyRoomExit {
+            get {
+                object obj = ResourceManager.GetObject("GreyRoomExit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GreyRoomStart {
+            get {
+                object obj = ResourceManager.GetObject("GreyRoomStart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hard {
+            get {
+                object obj = ResourceManager.GetObject("Hard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Height {
+            get {
+                object obj = ResourceManager.GetObject("Height", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap JohnnyBravo {
+            get {
+                object obj = ResourceManager.GetObject("JohnnyBravo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Load {
+            get {
+                object obj = ResourceManager.GetObject("Load", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PurplePlayer {
+            get {
+                object obj = ResourceManager.GetObject("PurplePlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedPlayer {
+            get {
+                object obj = ResourceManager.GetObject("RedPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SailboatPlayer {
+            get {
+                object obj = ResourceManager.GetObject("SailboatPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sea2Door {
+            get {
+                object obj = ResourceManager.GetObject("Sea2Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sea3Door {
+            get {
+                object obj = ResourceManager.GetObject("Sea3Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sea4Door {
+            get {
+                object obj = ResourceManager.GetObject("Sea4Door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeaDoor {
+            get {
+                object obj = ResourceManager.GetObject("SeaDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeaDoorLocked {
+            get {
+                object obj = ResourceManager.GetObject("SeaDoorLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeaExit {
+            get {
+                object obj = ResourceManager.GetObject("SeaExit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SeaStart {
+            get {
+                object obj = ResourceManager.GetObject("SeaStart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,9 +563,29 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Start {
+            get {
+                object obj = ResourceManager.GetObject("Start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StartPage {
             get {
                 object obj = ResourceManager.GetObject("StartPage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Theme {
+            get {
+                object obj = ResourceManager.GetObject("Theme", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -383,9 +603,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Water2Door {
+        internal static System.Drawing.Bitmap Width {
             get {
-                object obj = ResourceManager.GetObject("Water2Door", resourceCulture);
+                object obj = ResourceManager.GetObject("Width", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +613,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Water3Door {
+        internal static System.Drawing.Bitmap YellowPlayer {
             get {
-                object obj = ResourceManager.GetObject("Water3Door", resourceCulture);
+                object obj = ResourceManager.GetObject("YellowPlayer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,49 +623,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Water4Door {
+        internal static System.Drawing.Bitmap YoshiPlayer {
             get {
-                object obj = ResourceManager.GetObject("Water4Door", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WaterExit {
-            get {
-                object obj = ResourceManager.GetObject("WaterExit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WaterLayout {
-            get {
-                object obj = ResourceManager.GetObject("WaterLayout", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WaterStart {
-            get {
-                object obj = ResourceManager.GetObject("WaterStart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Yoshi {
-            get {
-                object obj = ResourceManager.GetObject("Yoshi", resourceCulture);
+                object obj = ResourceManager.GetObject("YoshiPlayer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

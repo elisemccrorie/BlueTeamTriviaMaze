@@ -63,13 +63,13 @@ namespace BlueTeamTriviaMaze
 
         public void SetDoorsEnabled(bool enabled)
         {
-            if (NorthDoor != null)
+            if (NorthDoor != null && NorthDoor.GetState() != Door.State.Locked)
                 NorthDoor.IsEnabled = enabled;
-            if (SouthDoor != null)
+            if (SouthDoor != null && SouthDoor.GetState() != Door.State.Locked)
                 SouthDoor.IsEnabled = enabled;
-            if (EastDoor != null)
+            if (EastDoor != null && EastDoor.GetState() != Door.State.Locked)
                 EastDoor.IsEnabled = enabled;
-            if (WestDoor != null)
+            if (WestDoor != null && WestDoor.GetState() != Door.State.Locked)
                 WestDoor.IsEnabled = enabled;
         }
 

@@ -86,7 +86,7 @@ namespace BlueTeamTriviaMaze
                         southDoor = neighbor != null ? neighbor.NorthDoor : new Door(x, y + 0.5f, theme); // position door south = y+0.5
                         
                         //south doors need to be rotated 90 degrees
-                        //southDoor.LayoutTransform = new RotateTransform(90);
+                        southDoor.LayoutTransform = new RotateTransform(90);
 
                         if (neighbor == null)
                             _doorsList.Add(southDoor);

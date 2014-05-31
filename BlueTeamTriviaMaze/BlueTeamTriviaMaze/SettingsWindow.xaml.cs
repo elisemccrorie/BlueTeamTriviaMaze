@@ -21,31 +21,39 @@ namespace BlueTeamTriviaMaze
     public partial class SettingsWindow : Window
     {
         private MazeWindow _mazeWindow;
-        private string _themeImg = null;
-        private string _playerImg = null;
+        private string _themeName = null;
+        private string _playerName = null;
         private double _startOpacity = 0.4, _pickedOpacity = 1.0;
+        private readonly Image[] _playerImages, _themeImages;
 
 
         public SettingsWindow()
         {
             InitializeComponent();
+
+            _playerImages = new Image[] {imgPlayerYoshi, imgPlayerSailboat, imgPlayerJohnny, 
+                                                imgPlayerYellow, imgPlayerRed, imgPlayerPurple};
+
+            _themeImages = new Image[] {imgCave, imgDungeon, imgForest, imgGreyRoom, imgBlueRoom, imgSea};
+
             lblEnterMaze.IsEnabled = false;
         }
 
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
         {
-            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _themeImg, _playerImg);
+            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _themeName, _playerName);
             _mazeWindow.Show();
         }
 
         private void setTheme_Click(object sender, MouseButtonEventArgs e)
         {
+            opacityOff(_themeImages);
             ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
             int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
             int stop = ((Image) sender).Source.ToString().LastIndexOf("4");
-            _themeImg = ((Image)sender).Source.ToString().Substring(start, stop - start);
+            _themeName = ((Image)sender).Source.ToString().Substring(start, stop - start);
 
-            if (_themeImg != null && _playerImg != null)
+            if (_themeName != null && _playerName != null)
             {
                 lblEnterMaze.Opacity = 1.0;
                 lblEnterMaze.IsEnabled = true;
@@ -54,16 +62,23 @@ namespace BlueTeamTriviaMaze
 
         private void setPlayer_Click(object sender, MouseButtonEventArgs e)
         {
+            opacityOff(_playerImages);
             ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
             int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
             int stop = ((Image)sender).Source.ToString().IndexOf(@".");
-            _playerImg = ((Image)sender).Source.ToString().Substring(start, stop - start);
+            _playerName = ((Image)sender).Source.ToString().Substring(start, stop - start);
 
-            if (_themeImg != null && _playerImg != null)
+            if (_themeName != null && _playerName != null)
             {
                 lblEnterMaze.Opacity = 1.0;
                 lblEnterMaze.IsEnabled = true;
             }
+        }
+
+        private void opacityOff(Image[] images)
+        {
+            foreach (Image i in images)
+                i.Opacity = _startOpacity;
         }
 
         private void lblEnterMaze_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)

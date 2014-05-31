@@ -43,6 +43,7 @@ namespace BlueTeamTriviaMaze
                 //Background = Brushes.Transparent;
                 //Foreground = Brushes.DarkRed;
                 Source = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}DoorLocked.png", _theme)));
+                IsEnabled = false;
             }
             else if (_state == State.Opened)
             {

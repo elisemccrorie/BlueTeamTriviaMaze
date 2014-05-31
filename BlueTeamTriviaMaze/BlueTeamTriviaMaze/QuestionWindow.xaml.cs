@@ -31,19 +31,17 @@ namespace BlueTeamTriviaMaze
 
         private string _guess;
         TriviaItem _triviaItem;
-        DatabaseTriviaItemFactory _dtif;
 
         public int Answer { get; private set; }
 
 
-
-        public QuestionWindow()
+        public QuestionWindow(DatabaseTriviaItemFactory dtif)
         {
             InitializeComponent();
 
             Answer = ANSWER_CANCELLED;
-            _dtif = new DatabaseTriviaItemFactory();
-            _triviaItem = _dtif.GenerateTriviaItem(new ArrayList());
+            _triviaItem = dtif.GenerateTriviaItem(dtif.UsedQuestions);
+            //DatabaseTriviaItemFactory.Disconnect();
             
             questionLayout();
         }

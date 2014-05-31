@@ -36,6 +36,10 @@ namespace BlueTeamTriviaMaze
         public Room GetCurrentRoom() { return _currentRoom; }
         public Shape Drawable { get; private set; }
 
+        DatabaseTriviaItemFactory _dtif; //this isnt right, the player should be responsible
+                                         //for keeping track of the questions it has had
+                                         //but it will work for now
+
         public Player(int num_keys, string player)
         {
             _currentKeys = num_keys;
@@ -46,6 +50,7 @@ namespace BlueTeamTriviaMaze
             Drawable.StrokeThickness = 0;
             _playerImage = new BitmapImage(new Uri(String.Format("pack://application:,,,/Resources/{0}.png", player)));
             Drawable.Fill = new ImageBrush(_playerImage);
+            _dtif = new DatabaseTriviaItemFactory();
         }
 
         // Will 'try' to move the Player in the 'direction' given.
@@ -158,7 +163,6 @@ namespace BlueTeamTriviaMaze
         public void DoorClick(Object sender, MouseButtonEventArgs e)
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
-            //Door clicked_door = new Door();
             Door clicked_door = (Door)sender;
             MoveDirection move_direction = MoveDirection.West;        // Default as western door
 
@@ -169,10 +173,12 @@ namespace BlueTeamTriviaMaze
             else if (clicked_door == _currentRoom.EastDoor)           // This Door was clicked as an East Door
                 move_direction = Player.MoveDirection.East;
 
-            if (e.ChangedButton == MouseButton.Left)
+            if (e.ChangedButton == MouseButton.Left  && clicked_door.GetState() != Door.State.Opened)
             {
                 // move the direction of the door relative to the current room
-                QuestionWindow q = new QuestionWindow();
+                _dtif.Connect();
+                QuestionWindow q = new QuestionWindow(_dtif);
+                _dtif.Disconnect();
                 q.ShowDialog();
 
                 if (q.Answer == QuestionWindow.ANSWER_CORRECT)
@@ -185,14 +191,16 @@ namespace BlueTeamTriviaMaze
                     {
                         _currentRoom.NorthDoor.SetState(Door.State.Locked);
                         _currentRoom.NorthDoor.IsEnabled = false;
+
+                        //MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1).SouthDoor.SetState(Door.State.Locked);
+                        //MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1).SouthDoor.IsEnabled = false; ;
                     }
-                        
-                    else if (clicked_door == _currentRoom.SouthDoor)  
+                    else if (clicked_door == _currentRoom.SouthDoor)
                     {// This Door was clicked as a South Door
                         _currentRoom.SouthDoor.SetState(Door.State.Locked);
                         _currentRoom.SouthDoor.IsEnabled = false;
                     }
-                    else if (clicked_door == _currentRoom.EastDoor)  
+                    else if (clicked_door == _currentRoom.EastDoor)
                     {// This Door was clicked as an East Door
                         _currentRoom.EastDoor.SetState(Door.State.Locked);
                         _currentRoom.EastDoor.IsEnabled = false;
@@ -203,8 +211,8 @@ namespace BlueTeamTriviaMaze
                         _currentRoom.WestDoor.IsEnabled = false;
                     }
                 }
-                    
-               
+
+
 
                 return;
             }

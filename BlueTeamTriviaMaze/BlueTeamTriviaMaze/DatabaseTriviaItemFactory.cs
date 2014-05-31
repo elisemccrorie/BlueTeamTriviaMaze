@@ -23,6 +23,7 @@ namespace BlueTeamTriviaMaze
     {
         private readonly string _dbTable = "questions";
         private SQLiteConnection _dbConn;
+        public ArrayList UsedQuestions;
         public bool IsAlive{ get; private set; }
         public string DBFile { get; private set; }
 
@@ -31,6 +32,8 @@ namespace BlueTeamTriviaMaze
             DBFile = @"..\..\TriviaMaze.db";
             Connect();
             CreateTable();
+            Disconnect();
+            UsedQuestions = new ArrayList();
         }
 
         public bool Connect()
@@ -58,6 +61,13 @@ namespace BlueTeamTriviaMaze
 
         public bool Disconnect()
         {
+            if (!IsAlive)
+            {
+                MessageBox.Show("Cannot disconnect, database connection is closed!", "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return IsAlive;
+            }
+
             try
             {
                 _dbConn.Close();
@@ -75,7 +85,7 @@ namespace BlueTeamTriviaMaze
         {
             if (!IsAlive)
             {
-                MessageBox.Show("Cannot create table, database connection is closed!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Cannot CreateTable, database connection is closed!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -109,7 +119,7 @@ namespace BlueTeamTriviaMaze
         {
             if (!IsAlive)
             {
-                MessageBox.Show("Cannot perform select, database connection is closed!", "Error", MessageBoxButton.OK,
+                MessageBox.Show("Cannot perform Query, database connection is closed!", "Error", MessageBoxButton.OK,
                     MessageBoxImage.Error);
                 return null;
             }
@@ -117,8 +127,8 @@ namespace BlueTeamTriviaMaze
             try
             {
                 string notlist = ",";
-                foreach (string u in usedID)
-                    notlist += String.Format("{0},", u);
+                foreach (int u in usedID)
+                    notlist += String.Format("{0},", u.ToString());
                 notlist = notlist.Substring(0, notlist.Length - 1); //strip last comma
 
                 string sql = String.Format("select * from {0} where id not in (0{1}) order by random() limit 1", _dbTable, notlist);
@@ -147,10 +157,19 @@ namespace BlueTeamTriviaMaze
 
         public TriviaItem GenerateTriviaItem(ArrayList usedID)
         {
+            if (!IsAlive)
+            {
+                MessageBox.Show("Cannot generate TriviaItem, database connection is closed!", "Error", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+                return null;
+            }
+
             TriviaItem _triviaItem = new TriviaItem();
             try
             {
                 Hashtable query = Query(usedID);    //whose responsibility to remember used question ids?
+                UsedQuestions.Add(Convert.ToInt32(query["id"]));
+
                 _triviaItem.Id = Convert.ToInt32(query["id"]);
                 _triviaItem.Type = Convert.ToInt32(query["type"]);
                 _triviaItem.Question = (string)query["question"];
@@ -165,7 +184,7 @@ namespace BlueTeamTriviaMaze
 
                 _triviaItem.Category = (string)query["category_disp"];
 
-                Disconnect();
+                //Disconnect();
             }
             catch (Exception e)
             {

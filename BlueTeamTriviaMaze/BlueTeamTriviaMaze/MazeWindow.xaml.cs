@@ -23,7 +23,8 @@ namespace BlueTeamTriviaMaze
     {
         private static MazeWindow _instance;
         public static MazeWindow GetInstance() { return _instance; }
-        
+        public enum MoveDirection { North, South, East, West };
+
 
 
         private Maze _maze;
@@ -108,47 +109,7 @@ namespace BlueTeamTriviaMaze
             lblTime.Content = "Time:  " + TimeSpan.FromSeconds(++_currentTime).ToString(@"m\:ss");
         }
 
-        
-        private void btnQuestion_Click(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                _questionWindow = new QuestionWindow();
-                //_questionWindow.Closed += new EventHandler(displayAnswer);
 
-                _questionWindow.ShowDialog();
-
-                if (_questionWindow.Answer == QuestionWindow.ANSWER_CORRECT)
-                    _maze.GetPlayer().DoorClick(sender, e);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
-        private void displayAnswer(object sender, EventArgs e)
-        {
-            //if (_questionWindow.Answer == QuestionWindow.ANSWER_CANCELLED)
-            //    lblAnswerVal.Content = "Cancelled!";
-            //else if (_questionWindow.Answer == QuestionWindow.ANSWER_INCORRECT)
-            //    lblAnswerVal.Content = "Incorrect!";
-
-            //else
-            //{
-            //    lblAnswerVal.Content = "Correct!";
-
-            //    // animation
-            //    double left = Canvas.GetLeft(rect);
-            //    Anim = new DoubleAnimation(left, 120 + left, new Duration(TimeSpan.FromSeconds(3)));
-            //    rect.BeginAnimation(Canvas.LeftProperty, Anim);
-            //}
-
-            
-
-
-            //_questionWindow = null;
-        }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {

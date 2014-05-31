@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlueTeamTriviaMaze
 {
-    interface TriviaItemFactory
+    public interface TriviaItemFactory
     {
         TriviaItem GenerateTriviaItem(ArrayList ID);
     }

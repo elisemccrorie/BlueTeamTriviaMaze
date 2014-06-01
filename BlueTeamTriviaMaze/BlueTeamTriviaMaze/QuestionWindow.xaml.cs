@@ -40,8 +40,7 @@ namespace BlueTeamTriviaMaze
             InitializeComponent();
 
             Answer = ANSWER_CANCELLED;
-            _triviaItem = dtif.GenerateTriviaItem(dtif.UsedQuestions);
-            //DatabaseTriviaItemFactory.Disconnect();
+            _triviaItem = dtif.GenerateTriviaItem(DatabaseTriviaItemFactory.UsedQuestions);
             
             questionLayout();
         }

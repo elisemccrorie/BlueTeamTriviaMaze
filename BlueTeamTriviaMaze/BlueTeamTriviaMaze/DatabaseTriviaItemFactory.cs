@@ -23,7 +23,7 @@ namespace BlueTeamTriviaMaze
     {
         private readonly string _dbTable = "questions";
         private SQLiteConnection _dbConn;
-        public ArrayList UsedQuestions;
+        public static ArrayList UsedQuestions;
         public bool IsAlive{ get; private set; }
         public string DBFile { get; private set; }
 
@@ -127,7 +127,7 @@ namespace BlueTeamTriviaMaze
             try
             {
                 string notlist = ",";
-                foreach (int u in usedID)
+                foreach (int u in UsedQuestions)//usedID)
                     notlist += String.Format("{0},", u.ToString());
                 notlist = notlist.Substring(0, notlist.Length - 1); //strip last comma
 
@@ -167,7 +167,7 @@ namespace BlueTeamTriviaMaze
             TriviaItem _triviaItem = new TriviaItem();
             try
             {
-                Hashtable query = Query(usedID);    //whose responsibility to remember used question ids?
+                Hashtable query = Query(usedID);    //who is responsibility to remember used question ids?
                 UsedQuestions.Add(Convert.ToInt32(query["id"]));
 
                 _triviaItem.Id = Convert.ToInt32(query["id"]);

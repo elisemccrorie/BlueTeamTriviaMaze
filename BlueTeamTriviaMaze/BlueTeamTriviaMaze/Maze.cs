@@ -25,6 +25,7 @@ namespace BlueTeamTriviaMaze
         private Room[,] _rooms;
         private Player _player;
         private ArrayList _doorsList;
+        private bool _winnable = false;
 
         //necessary for loading a saved maze
         public int Rows { get; private set; }
@@ -33,7 +34,7 @@ namespace BlueTeamTriviaMaze
         public string Player { get; private set; }
 
         public Player GetPlayer() { return _player; }
-
+        
 
 
         public void Initialize(int width, int height, int entrance_x, int entrance_y, int[,] exits_xy, string theme, string player)
@@ -188,14 +189,59 @@ namespace BlueTeamTriviaMaze
         }
 
 
-
-        public void Win()
+        //This is the recursive check to see if a maze is still winnable
+        //the logic isn't quite right
+        public bool Search(int x, int y, int[,] maze)
         {
-            IsEnabled = false;
+            //MessageBox.Show(String.Format("Search in room ({0}, {1})", new_x, new_y));
 
-            MessageBox.Show("You Win!", "Winner!");
-            
-            MazeWindow.GetInstance().Close();
+            Room curr = GetRoom(x, y);
+            int[,] solveable = maze;
+
+            if (curr == GetRoom(Rows - 1, Columns - 1))
+                return true;
+
+            if (curr.EastDoor != null && curr.EastDoor.GetState() != Door.State.Locked 
+                && GetRoom(x + 1, y) != null && solveable[x + 1, y] != 1)
+            {
+                solveable[x + 1, y] = 1;
+                return Search(x + 1, y, solveable);
+            }
+
+            if (curr.SouthDoor != null && curr.SouthDoor.GetState() != Door.State.Locked
+                && GetRoom(x, y + 1) != null && solveable[x, y + 1] != 1)
+            {
+                solveable[x, y + 1] = 1;
+                return Search(x, y + 1, solveable);
+            }
+
+            if (curr.WestDoor != null && curr.WestDoor.GetState() != Door.State.Locked 
+                && GetRoom(x - 1, y) != null && solveable[x - 1, y] != 1)
+            {
+                solveable[x - 1, y] = 1;
+                return Search(x - 1, y, solveable);
+            }
+
+            if (curr.NorthDoor != null && curr.NorthDoor.GetState() != Door.State.Locked
+                && GetRoom(x, y - 1) != null && solveable[x, y - 1] != 1)
+            {
+                solveable[x, y - 1] = 1;
+                return Search(x, y - 1, solveable);
+            }
+
+            return false;
+        }
+
+        public void Win(Player player)
+        {
+            if (player.GetCurrentRoom() == GetRoom(Rows - 1, Columns - 1))
+            {
+                IsEnabled = false;
+
+                MessageBox.Show("You Win!", "Winner!");
+
+                MazeWindow.GetInstance().Close();
+            }
         }
 
         public void Lose()

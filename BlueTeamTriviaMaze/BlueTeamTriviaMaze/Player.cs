@@ -167,22 +167,22 @@ namespace BlueTeamTriviaMaze
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
             Door clicked_door = (Door)sender;
-            Room target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X - 1, _currentRoom.Y);
+            //Room target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X - 1, _currentRoom.Y);
             MoveDirection move_direction = MoveDirection.West;        // Default as western door
 
             if (clicked_door == _currentRoom.NorthDoor)
             {   // This Door was clicked as a North Door
-                target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1);
+                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1);
                 move_direction = Player.MoveDirection.North;
             }
             else if (clicked_door == _currentRoom.SouthDoor)
             {   // This Door was clicked as a South Door
-                target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y + 1);
+                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y + 1);
                 move_direction = Player.MoveDirection.South;
             }
             else if (clicked_door == _currentRoom.EastDoor)
             {   // This Door was clicked as an East Door
-                target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X + 1, _currentRoom.Y);
+                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X + 1, _currentRoom.Y);
                 move_direction = Player.MoveDirection.East;
             }
 
@@ -226,9 +226,9 @@ namespace BlueTeamTriviaMaze
                     }
                 }
 
+                checkMazeStatus();
 
-
-                //return;
+                return;
             }
 
             if (e.ChangedButton == MouseButton.Middle)
@@ -236,25 +236,32 @@ namespace BlueTeamTriviaMaze
                 //lock the door
                 ((Door)sender).SetState(Door.State.Locked);
 
-                //if (MazeWindow.GetInstance().GetMaze().Search(_currentRoom.X, _currentRoom.Y, -1, -1))
-                //    MessageBox.Show("Still winnable");
-                //else
-                //    MessageBox.Show("You've lost...");
+                checkMazeStatus();
 
-                //return;
+                return;
             }
 
-            //check for win
-            MazeWindow.GetInstance().GetMaze().Win(this);
-
-            Maze tmp = MazeWindow.GetInstance().GetMaze();
-            //see if we can still win
-            if (MazeWindow.GetInstance().GetMaze().Search(_currentRoom.X, _currentRoom.Y, new int[tmp.Rows, tmp.Columns]))
-                MessageBox.Show("Still winnable");
-            else
-                MessageBox.Show("You've lost...");
 
             TryToMove(move_direction);  //"cheat", right click to move through door without answering a question
+
+            checkMazeStatus();
+
+        }
+
+
+        private void checkMazeStatus()
+        {
+            //check for win
+            Maze maze = MazeWindow.GetInstance().GetMaze();
+            maze.Win(this);
+
+            //check if still winnable
+            int[,] mazeGrid = new int[maze.Rows, maze.Columns];
+            mazeGrid[_currentRoom.X, _currentRoom.Y] = 1;
+            bool flag = false;
+            MazeWindow.GetInstance().GetMaze().Search(_currentRoom.X, _currentRoom.Y, mazeGrid, ref flag);
+            if (!flag)
+                maze.Lose();
         }
     }
 }

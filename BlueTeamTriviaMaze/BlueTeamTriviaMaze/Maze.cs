@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,6 @@ namespace BlueTeamTriviaMaze
         private Room[,] _rooms;
         private Player _player;
         private ArrayList _doorsList;
-        private bool _winnable = false;
 
         //necessary for loading a saved maze
         public int Rows { get; private set; }
@@ -191,45 +191,37 @@ namespace BlueTeamTriviaMaze
 
         //This is the recursive check to see if a maze is still winnable
         //the logic isn't quite right
-        public bool Search(int x, int y, int[,] maze)
+        public void Search(int x, int y, int[,] maze, ref bool winnable)
         {
-            //MessageBox.Show(String.Format("Search in room ({0}, {1})", new_x, new_y));
-
             Room curr = GetRoom(x, y);
             int[,] solveable = maze;
+            solveable[x, y] = 1;
 
-            if (curr == GetRoom(Rows - 1, Columns - 1))
-                return true;
-
-            if (curr.EastDoor != null && curr.EastDoor.GetState() != Door.State.Locked 
-                && GetRoom(x + 1, y) != null && solveable[x + 1, y] != 1)
+            if (solveable[Rows - 1, Columns - 1] == 1)
             {
-                solveable[x + 1, y] = 1;
-                return Search(x + 1, y, solveable);
+                winnable = true;
+                return;
             }
 
-            if (curr.SouthDoor != null && curr.SouthDoor.GetState() != Door.State.Locked
-                && GetRoom(x, y + 1) != null && solveable[x, y + 1] != 1)
+            for (int i = 0; i < 4; i++ )
             {
-                solveable[x, y + 1] = 1;
-                return Search(x, y + 1, solveable);
+                if (i == 0 && curr.EastDoor != null && curr.EastDoor.GetState() != Door.State.Locked
+                    && GetRoom(x + 1, y) != null && solveable[x + 1, y] != 1)
+                    Search(x + 1, y, solveable, ref winnable);
+
+                if (i == 1 && curr.SouthDoor != null && curr.SouthDoor.GetState() != Door.State.Locked
+                    && GetRoom(x, y + 1) != null && solveable[x, y + 1] != 1)
+                    Search(x, y + 1, solveable, ref winnable);
+
+                if (i == 2 && curr.WestDoor != null && curr.WestDoor.GetState() != Door.State.Locked
+                    && GetRoom(x - 1, y) != null && solveable[x - 1, y] != 1)
+                    Search(x - 1, y, solveable, ref winnable);
+
+                if (i == 3 && curr.NorthDoor != null && curr.NorthDoor.GetState() != Door.State.Locked
+                    && GetRoom(x, y - 1) != null && solveable[x, y - 1] != 1)
+                    Search(x, y - 1, solveable, ref winnable);
             }
 
-            if (curr.WestDoor != null && curr.WestDoor.GetState() != Door.State.Locked 
-                && GetRoom(x - 1, y) != null && solveable[x - 1, y] != 1)
-            {
-                solveable[x - 1, y] = 1;
-                return Search(x - 1, y, solveable);
-            }
-
-            if (curr.NorthDoor != null && curr.NorthDoor.GetState() != Door.State.Locked
-                && GetRoom(x, y - 1) != null && solveable[x, y - 1] != 1)
-            {
-                solveable[x, y - 1] = 1;
-                return Search(x, y - 1, solveable);
-            }
-
-            return false;
         }
 
         public void Win(Player player)

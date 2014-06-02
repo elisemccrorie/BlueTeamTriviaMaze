@@ -37,7 +37,7 @@ namespace BlueTeamTriviaMaze
         
 
 
-        public void Initialize(int width, int height, int entrance_x, int entrance_y, int[,] exits_xy, string theme, string player)
+        public void Initialize(int width, int height, int entrance_x, int entrance_y, int exit_x, int exit_y, string theme, string player)
         {
             // Create and add the Player to the maze
             CreatePlayer(3, player); // num keys, player image source
@@ -51,7 +51,6 @@ namespace BlueTeamTriviaMaze
 
             // create each of the rooms
             _rooms = new Room[height, width];
-            _doorsList = new ArrayList();
 
 
             for (int y = 0; y < height; ++y)
@@ -73,8 +72,8 @@ namespace BlueTeamTriviaMaze
                         neighbor = GetRoom(x, y - 1);  // (0,0) is the top-left most room, so y-1 means get the neighboring room 'north' of here
                         northDoor = neighbor != null ? neighbor.SouthDoor : new Door(x, y - 0.5f, theme);
 
-                        if (neighbor == null)          // if a new door was just created, add the door to the temporary collection.
-                            _doorsList.Add(northDoor);  // it will be added to the Maze later (for painting)
+                        if (neighbor == null)          // if a new door was just created, add the door 
+                            Children.Add(northDoor);  
                     }
 
 
@@ -90,7 +89,7 @@ namespace BlueTeamTriviaMaze
                         southDoor.LayoutTransform = new RotateTransform(90);
 
                         if (neighbor == null)
-                            _doorsList.Add(southDoor);
+                            Children.Add(southDoor);
                     }
 
 
@@ -103,7 +102,7 @@ namespace BlueTeamTriviaMaze
                         eastDoor = neighbor != null ? neighbor.WestDoor : new Door(x + 0.5f, y, theme); // position door east = x+0.5
                         
                         if (neighbor == null)
-                            _doorsList.Add(eastDoor);
+                            Children.Add(eastDoor);
                     }
 
 
@@ -116,7 +115,7 @@ namespace BlueTeamTriviaMaze
                         westDoor = neighbor != null ? neighbor.EastDoor : new Door(x - 0.5f, y, theme); // position door west = x-0.5
 
                         if (neighbor == null)
-                            _doorsList.Add(westDoor);
+                            Children.Add(westDoor);
                     }
 
 
@@ -127,10 +126,8 @@ namespace BlueTeamTriviaMaze
                     if (x == entrance_x && y == entrance_y) // check if its the entrance
                         room_type = Room.Type.Entrance;
                     
-                    else // check if this Room is an exit room
-                        for (int i = 0; i < exits_xy.GetLength(0) && room_type == Room.Type.Normal; ++i)
-                            if (x == exits_xy[i, 0] && y == exits_xy[i, 1])
-                                room_type = Room.Type.Exit;
+                    else if (x == exit_x && y == exit_y)  // check if this Room is the exit room
+                        room_type = Room.Type.Exit;
 
 
 
@@ -139,15 +136,6 @@ namespace BlueTeamTriviaMaze
 
                 } // end for (width)
             } // end for (height)
-
-
-
-            // Add all the doors as children of the Maze (canvas) for drawing
-            //
-            // Note: this is done LAST like this so the Doors are drawn on top the Rooms
-            foreach (Door door in _doorsList)
-                Children.Add(door);
-
 
 
             // Move the player to the entrance
@@ -176,6 +164,7 @@ namespace BlueTeamTriviaMaze
 
             // add that new Room as a child of the Maze (canvas) so it may be drawn
             Children.Add(_rooms[y, x].Drawable);
+            Canvas.SetZIndex(_rooms[y, x].Drawable, -99); // move the rooms behind the doors
         }
 
 

@@ -180,25 +180,5 @@ namespace BlueTeamTriviaMaze
             Children.Add(_player.Drawable);
             Canvas.SetZIndex(_player.Drawable, 99);
         }
-
-
-
-        public void Win()
-        {
-            IsEnabled = false;
-
-            MessageBox.Show("You Win!", "Winner!");
-
-            MazeWindow.GetInstance().Close();
-        }
-
-        public void Lose()
-        {
-            IsEnabled = false;
-
-            MessageBox.Show("You Lose!", "Loser!");
-
-            MazeWindow.GetInstance().Close();
-        }
     }
 }

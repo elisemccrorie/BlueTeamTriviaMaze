@@ -190,7 +190,7 @@ namespace BlueTeamTriviaMaze
         {
             // check if we won
             if (_currentRoom.GetType() == Room.Type.Exit)
-                MazeWindow.GetInstance().GetMaze().Win();
+                MazeWindow.GetInstance().Win();
 
             else // check if we lost
             {

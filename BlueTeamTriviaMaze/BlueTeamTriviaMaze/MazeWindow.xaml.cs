@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace BlueTeamTriviaMaze
 {
@@ -29,6 +30,7 @@ namespace BlueTeamTriviaMaze
 
         private Maze _maze;
         private int _currentTime;
+        private DispatcherTimer _timer;
         private string _theme;
         private string _player;
 
@@ -96,10 +98,10 @@ namespace BlueTeamTriviaMaze
         {
             _currentTime = 0;
 
-            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(Timer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            _timer = new System.Windows.Threading.DispatcherTimer();
+            _timer.Tick += new EventHandler(Timer_Tick);
+            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -114,6 +116,29 @@ namespace BlueTeamTriviaMaze
             DatabaseSavedGames db = new DatabaseSavedGames();
             db.Save("Zak", _maze);
             db.Disconnect();
+        }
+
+
+
+
+        public void Win()
+        {
+            IsEnabled = false;
+            _timer.Stop();
+
+            MessageBox.Show("You won in " + _currentTime + " seconds!", "Winner!");
+
+            Close();
+        }
+
+        public void Lose()
+        {
+            IsEnabled = false;
+            _timer.Stop();
+
+            MessageBox.Show("You Lose!", "Loser!");
+
+            Close();
         }
     }
 }

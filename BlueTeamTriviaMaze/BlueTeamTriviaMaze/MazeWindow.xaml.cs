@@ -29,7 +29,6 @@ namespace BlueTeamTriviaMaze
 
         private Maze _maze;
         private int _currentTime;
-        private QuestionWindow _questionWindow;
         private string _theme;
         private string _player;
 
@@ -84,8 +83,7 @@ namespace BlueTeamTriviaMaze
             _maze = new Maze();
             _maze.Initialize(maze_width, maze_height,                    // maze dimensions
                              0, 0,                                       // maze entrance
-                             new int[,] {{maze_width-1, maze_height-1},  // array of maze exits- (x,y) pairs
-                                         {0, maze_height-2}},
+                             maze_width-1, maze_height-1,                // array of maze exit
                              _theme,                                     //maze background theme image
                              _player);                                   //player image
 

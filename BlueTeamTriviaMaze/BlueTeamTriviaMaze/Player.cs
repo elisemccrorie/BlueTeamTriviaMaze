@@ -36,9 +36,6 @@ namespace BlueTeamTriviaMaze
         public Room GetCurrentRoom() { return _currentRoom; }
         public Shape Drawable { get; private set; }
 
-        DatabaseTriviaItemFactory _dtif; //this isnt right, the player should be responsible
-                                         //for keeping track of the questions it has had
-                                         //but it will work for now
 
         public Player(int num_keys, string player)
         {
@@ -50,7 +47,6 @@ namespace BlueTeamTriviaMaze
             Drawable.StrokeThickness = 0;
             _playerImage = new BitmapImage(new Uri(String.Format("pack://application:,,,/Resources/{0}.png", player)));
             Drawable.Fill = new ImageBrush(_playerImage);
-            _dtif = new DatabaseTriviaItemFactory();
         }
 
         // Will 'try' to move the Player in the 'direction' given.
@@ -81,16 +77,11 @@ namespace BlueTeamTriviaMaze
             }
 
 
-
-            // Door is locked- don't do anything
-            if (target_door.GetState() == Door.State.Locked)
-                return;
-
-
-            // Door is closed, attempt to open it
-            if (target_door.GetState() == Door.State.Closed)
-                if (!target_door.TryToOpen()) // failed to open
+            // attempt to open it, if it's not already opened
+            if (target_door.GetState() != Door.State.Opened)
+                if (!target_door.TryToOpen()) // failed to open for whatever reason, don't move thru
                     return;
+            
 
             // Door must be open, so move to it
             MoveToRoom(target_room);
@@ -134,13 +125,10 @@ namespace BlueTeamTriviaMaze
                 Canvas.SetTop(Drawable, Canvas.GetTop(_currentRoom.Drawable) + Room.ROOM_SIZE / 2 - Drawable.Height / 2);
             }
             else
-            {    // animate the player's position moving it toward the new current room's location
+            {   // animate the player's position moving it toward the new current room's location
                 double end = property == Canvas.LeftProperty ? Canvas.GetLeft(_currentRoom.Drawable) : Canvas.GetTop(_currentRoom.Drawable);
 
-                // offset to center of room
-                start += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
-                end += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
-
+                  // flip player image based on direction heading
                 if (property == Canvas.LeftProperty && end < start)
                 {
                     TransformedBitmap tmp = new TransformedBitmap();
@@ -154,10 +142,17 @@ namespace BlueTeamTriviaMaze
                 else
                     Drawable.Fill = new ImageBrush(_playerImage);
 
-                Drawable.BeginAnimation(property, new DoubleAnimation(start, end, new Duration(TimeSpan.FromSeconds(ANIMATION_DURATION))));
                 
+                // offset end to center of the room
+                end += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
 
 
+                // set the start to the current player's position, so it doesn't JUMP to the old room if switching rooms fast
+                start = property == Canvas.LeftProperty ? Canvas.GetLeft(Drawable) : Canvas.GetTop(Drawable);
+
+
+                // begin the animation!           -- the fancy duration calculation is a proportion!: so if you click an open door twice fast, it doesnt take 2 seconds to move a couple pixels back to where it was
+                Drawable.BeginAnimation(property, new DoubleAnimation(start, end, new Duration(TimeSpan.FromSeconds( Math.Abs(start - end) * ANIMATION_DURATION / Room.ROOM_SIZE ))));
             }
         }
 
@@ -167,101 +162,40 @@ namespace BlueTeamTriviaMaze
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
             Door clicked_door = (Door)sender;
-            //Room target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X - 1, _currentRoom.Y);
             MoveDirection move_direction = MoveDirection.West;        // Default as western door
 
-            if (clicked_door == _currentRoom.NorthDoor)
-            {   // This Door was clicked as a North Door
-                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1);
+            if (clicked_door == _currentRoom.NorthDoor) // This Door was clicked as a North Door
                 move_direction = Player.MoveDirection.North;
-            }
-            else if (clicked_door == _currentRoom.SouthDoor)
-            {   // This Door was clicked as a South Door
-                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y + 1);
+            
+            else if (clicked_door == _currentRoom.SouthDoor) // This Door was clicked as a South Door
                 move_direction = Player.MoveDirection.South;
-            }
-            else if (clicked_door == _currentRoom.EastDoor)
-            {   // This Door was clicked as an East Door
-                //target_room = MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X + 1, _currentRoom.Y);
+            
+            else if (clicked_door == _currentRoom.EastDoor) // This Door was clicked as an East Door
                 move_direction = Player.MoveDirection.East;
-            }
+            
 
+            //"cheat": right click will forcibly open doors
+            if (e.ChangedButton == MouseButton.Right)
+                clicked_door.Open();
+            
 
-            if (e.ChangedButton == MouseButton.Left  && clicked_door.GetState() != Door.State.Opened)
-            {
-                // move the direction of the door relative to the current room
-                _dtif.Connect();
-                QuestionWindow q = new QuestionWindow(_dtif);
-                _dtif.Disconnect();
-                q.ShowDialog();
+            // try to move the direction of the door relative to the current room
+            TryToMove(move_direction);
 
-                if (q.Answer == QuestionWindow.ANSWER_CORRECT)
-                    TryToMove(move_direction);
-                else if (q.Answer == QuestionWindow.ANSWER_INCORRECT)
-                {
-                    //((Door)sender).SetState(Door.State.Locked);
-                    //((Door)sender).IsEnabled = false;
-                    if (clicked_door == _currentRoom.NorthDoor)
-                    {
-                        _currentRoom.NorthDoor.SetState(Door.State.Locked);
-                        _currentRoom.NorthDoor.IsEnabled = false;
-
-                        //MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1).SouthDoor.SetState(Door.State.Locked);
-                        //MazeWindow.GetInstance().GetMaze().GetRoom(_currentRoom.X, _currentRoom.Y - 1).SouthDoor.IsEnabled = false; ;
-                    }
-                    else if (clicked_door == _currentRoom.SouthDoor)
-                    {// This Door was clicked as a South Door
-                        _currentRoom.SouthDoor.SetState(Door.State.Locked);
-                        _currentRoom.SouthDoor.IsEnabled = false;
-                    }
-                    else if (clicked_door == _currentRoom.EastDoor)
-                    {// This Door was clicked as an East Door
-                        _currentRoom.EastDoor.SetState(Door.State.Locked);
-                        _currentRoom.EastDoor.IsEnabled = false;
-                    }
-                    else
-                    {
-                        _currentRoom.WestDoor.SetState(Door.State.Locked);
-                        _currentRoom.WestDoor.IsEnabled = false;
-                    }
-                }
-
-                checkMazeStatus();
-
-                return;
-            }
-
-            if (e.ChangedButton == MouseButton.Middle)
-            {
-                //lock the door
-                ((Door)sender).SetState(Door.State.Locked);
-
-                checkMazeStatus();
-
-                return;
-            }
-
-
-            TryToMove(move_direction);  //"cheat", right click to move through door without answering a question
-
-            checkMazeStatus();
-
+            CheckMazeStatus();
         }
 
 
-        private void checkMazeStatus()
+        private void CheckMazeStatus()
         {
-            //check for win
-            Maze maze = MazeWindow.GetInstance().GetMaze();
-            maze.Win(this);
+            // check if we won
+            if (_currentRoom.GetType() == Room.Type.Exit)
+                MazeWindow.GetInstance().GetMaze().Win();
 
-            //check if still winnable
-            int[,] mazeGrid = new int[maze.Rows, maze.Columns];
-            mazeGrid[_currentRoom.X, _currentRoom.Y] = 1;
-            bool flag = false;
-            MazeWindow.GetInstance().GetMaze().Search(_currentRoom.X, _currentRoom.Y, mazeGrid, ref flag);
-            if (!flag)
-                maze.Lose();
+            else // check if we lost
+            {
+                // TODO: logic to see if all doors accesible to the player are locked
+            }
         }
     }
 }

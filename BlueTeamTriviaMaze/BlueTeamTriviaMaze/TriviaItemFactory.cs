@@ -9,6 +9,7 @@ namespace BlueTeamTriviaMaze
 {
     public interface TriviaItemFactory
     {
-        TriviaItem GenerateTriviaItem(ArrayList ID);
+        TriviaItem GenerateTriviaItem();
+        void Destroy();
     }
 }

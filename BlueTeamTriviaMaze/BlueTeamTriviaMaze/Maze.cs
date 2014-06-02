@@ -51,6 +51,7 @@ namespace BlueTeamTriviaMaze
 
             // create each of the rooms
             _rooms = new Room[height, width];
+            TriviaItemFactory trivia_item_factory = new DatabaseTriviaItemFactory(); // used when creating doors
 
 
             for (int y = 0; y < height; ++y)
@@ -70,7 +71,7 @@ namespace BlueTeamTriviaMaze
                     if (y > 0) // omit north doors on top-most rooms
                     {
                         neighbor = GetRoom(x, y - 1);  // (0,0) is the top-left most room, so y-1 means get the neighboring room 'north' of here
-                        northDoor = neighbor != null ? neighbor.SouthDoor : new Door(x, y - 0.5f, theme);
+                        northDoor = neighbor != null ? neighbor.SouthDoor : new Door(x, y - 0.5f, theme, trivia_item_factory.GenerateTriviaItem());
 
                         if (neighbor == null)          // if a new door was just created, add the door 
                             Children.Add(northDoor);  
@@ -83,7 +84,7 @@ namespace BlueTeamTriviaMaze
                     if (y < height - 1) // omit south doors on bottom-most rooms
                     {
                         neighbor = GetRoom(x, y + 1);
-                        southDoor = neighbor != null ? neighbor.NorthDoor : new Door(x, y + 0.5f, theme); // position door south = y+0.5
+                        southDoor = neighbor != null ? neighbor.NorthDoor : new Door(x, y + 0.5f, theme, trivia_item_factory.GenerateTriviaItem()); // position door south = y+0.5
                         
                         //south doors need to be rotated 90 degrees
                         southDoor.LayoutTransform = new RotateTransform(90);
@@ -99,7 +100,7 @@ namespace BlueTeamTriviaMaze
                     if (x < width - 1) // omit east doors on right-most rooms
                     {
                         neighbor = GetRoom(x + 1, y);
-                        eastDoor = neighbor != null ? neighbor.WestDoor : new Door(x + 0.5f, y, theme); // position door east = x+0.5
+                        eastDoor = neighbor != null ? neighbor.WestDoor : new Door(x + 0.5f, y, theme, trivia_item_factory.GenerateTriviaItem()); // position door east = x+0.5
                         
                         if (neighbor == null)
                             Children.Add(eastDoor);
@@ -112,7 +113,7 @@ namespace BlueTeamTriviaMaze
                     if (x > 0) // omit west doors on left-most rooms
                     {
                         neighbor = GetRoom(x - 1, y);
-                        westDoor = neighbor != null ? neighbor.EastDoor : new Door(x - 0.5f, y, theme); // position door west = x-0.5
+                        westDoor = neighbor != null ? neighbor.EastDoor : new Door(x - 0.5f, y, theme, trivia_item_factory.GenerateTriviaItem()); // position door west = x-0.5
 
                         if (neighbor == null)
                             Children.Add(westDoor);
@@ -136,6 +137,9 @@ namespace BlueTeamTriviaMaze
 
                 } // end for (width)
             } // end for (height)
+
+            trivia_item_factory.Destroy(); // done with the factory
+
 
 
             // Move the player to the entrance
@@ -178,51 +182,14 @@ namespace BlueTeamTriviaMaze
         }
 
 
-        //This is the recursive check to see if a maze is still winnable
-        //the logic isn't quite right
-        public void Search(int x, int y, int[,] maze, ref bool winnable)
+
+        public void Win()
         {
-            Room curr = GetRoom(x, y);
-            int[,] solveable = maze;
-            solveable[x, y] = 1;
+            IsEnabled = false;
 
-            if (solveable[Rows - 1, Columns - 1] == 1)
-            {
-                winnable = true;
-                return;
-            }
+            MessageBox.Show("You Win!", "Winner!");
 
-            for (int i = 0; i < 4; i++ )
-            {
-                if (i == 0 && curr.EastDoor != null && curr.EastDoor.GetState() != Door.State.Locked
-                    && GetRoom(x + 1, y) != null && solveable[x + 1, y] != 1)
-                    Search(x + 1, y, solveable, ref winnable);
-
-                if (i == 1 && curr.SouthDoor != null && curr.SouthDoor.GetState() != Door.State.Locked
-                    && GetRoom(x, y + 1) != null && solveable[x, y + 1] != 1)
-                    Search(x, y + 1, solveable, ref winnable);
-
-                if (i == 2 && curr.WestDoor != null && curr.WestDoor.GetState() != Door.State.Locked
-                    && GetRoom(x - 1, y) != null && solveable[x - 1, y] != 1)
-                    Search(x - 1, y, solveable, ref winnable);
-
-                if (i == 3 && curr.NorthDoor != null && curr.NorthDoor.GetState() != Door.State.Locked
-                    && GetRoom(x, y - 1) != null && solveable[x, y - 1] != 1)
-                    Search(x, y - 1, solveable, ref winnable);
-            }
-
-        }
-
-        public void Win(Player player)
-        {
-            if (player.GetCurrentRoom() == GetRoom(Rows - 1, Columns - 1))
-            {
-                IsEnabled = false;
-
-                MessageBox.Show("You Win!", "Winner!");
-
-                MazeWindow.GetInstance().Close();
-            }
+            MazeWindow.GetInstance().Close();
         }
 
         public void Lose()

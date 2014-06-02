@@ -20,39 +20,34 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class QuestionWindow : Window
     {
-        public static int ANSWER_CANCELLED = -1,
-            ANSWER_INCORRECT = 0,
-            ANSWER_CORRECT = 1;
 
-        public static int TYPE_TRUE_FALSE = 0,
-            TYPE_MULTIPLE_CHOICE = 1;
-
+        public enum QuestionAnswer { Cancelled, Incorrect, Correct };
 
 
         private string _guess;
         TriviaItem _triviaItem;
 
-        public int Answer { get; private set; }
+        public QuestionAnswer Answer { get; private set; }
 
 
-        public QuestionWindow(DatabaseTriviaItemFactory dtif)
+        public QuestionWindow(TriviaItem triviaItem)
         {
             InitializeComponent();
 
-            Answer = ANSWER_CANCELLED;
-            _triviaItem = dtif.GenerateTriviaItem(DatabaseTriviaItemFactory.UsedQuestions);
+            Answer = QuestionAnswer.Cancelled;
+            _triviaItem = triviaItem;
             
             questionLayout();
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (_guess.Equals(_triviaItem.Answer))
-                Answer = ANSWER_CORRECT;
+            if (_triviaItem.CheckAnswer(_guess))
+                Answer = QuestionAnswer.Correct;
             else
-                Answer = ANSWER_INCORRECT;
+                Answer = QuestionAnswer.Incorrect;
 
-            this.Close();
+            Close();
         }
 
         private void rb_Checked(object sender, RoutedEventArgs e)
@@ -73,7 +68,7 @@ namespace BlueTeamTriviaMaze
             rbOptionThree.Content = options[2];
             rbOptionFour.Content = options[3];
 
-            if (_triviaItem.Type == TYPE_TRUE_FALSE)
+            if (_triviaItem.QuestionType == TriviaItem.Type.TrueFalse)
             {
                 grdQuestion.Children.Remove(rbOptionThree);
                 grdQuestion.Children.Remove(rbOptionFour);
@@ -86,7 +81,7 @@ namespace BlueTeamTriviaMaze
             string[] choices = new string[] {_triviaItem.Answer, _triviaItem.DummyAnswer[0],
                                                 _triviaItem.DummyAnswer[1], _triviaItem.DummyAnswer[2]};
 
-            if (_triviaItem.Type == TYPE_TRUE_FALSE)
+            if (_triviaItem.QuestionType == TriviaItem.Type.TrueFalse)
             {
                 int salt = DateTime.Now.Millisecond % 2;
 
@@ -99,7 +94,7 @@ namespace BlueTeamTriviaMaze
                 mixed[2] = choices[2];
                 mixed[3] = choices[3];
             }
-            else if(_triviaItem.Type == TYPE_MULTIPLE_CHOICE)   //multiple choice
+            else if(_triviaItem.QuestionType == TriviaItem.Type.MultipleChoice)   //multiple choice
             {
                 int salt = DateTime.Now.Millisecond % 4;
 

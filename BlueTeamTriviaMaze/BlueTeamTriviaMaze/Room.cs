@@ -112,7 +112,6 @@ namespace BlueTeamTriviaMaze
         private TransformedBitmap rotate(BitmapImage bi, int angle)
         {   
             //credit to http://stackoverflow.com/questions/7309086/rotate-a-bitmapimage
-
             TransformedBitmap tmp = new TransformedBitmap();
             tmp.BeginInit();
             tmp.Source = bi; // MyImageSource of type BitmapImage

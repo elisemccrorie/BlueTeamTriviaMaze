@@ -20,23 +20,20 @@ namespace BlueTeamTriviaMaze
 {
     public class TriviaItem
     {
+
+        public enum Type { TrueFalse, MultipleChoice };
+
         public int Id { get; set; }
-        public int Type { get; set; }
+        public Type QuestionType { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
         public string[] DummyAnswer { get; set; }
         public string Category { get; set; }
 
-        public TriviaItem()
-        {
-            //default constructor
-            //TriviaItem is a container filled by
-            //the TriviaItemFactory
-        }
 
         public bool CheckAnswer(String choice) 
         {
-            return choice == Answer;
+            return Answer.Equals(choice);
         }
     }
 }

@@ -60,12 +60,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Database.cs" />
-    <Compile Include="DatabaseSavedGames.cs" />
     <Compile Include="DatabaseTriviaItemFactory.cs" />
     <Compile Include="Door.cs" />
-    <Compile Include="LoadWindow.xaml.cs">
-      <DependentUpon>LoadWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="MazeWindow.xaml.cs">
@@ -81,10 +77,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="LoadWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -22,7 +22,6 @@ namespace BlueTeamTriviaMaze
     public partial class MainWindow : Window
     {
         private SettingsWindow _settingsWindow;
-        private LoadWindow _loadWindow;
 
         public MainWindow()
         {
@@ -41,12 +40,6 @@ namespace BlueTeamTriviaMaze
             dblanim.RepeatBehavior = RepeatBehavior.Forever;
             dblanim.AutoReverse = true;
             lblStart.BeginAnimation(OpacityProperty, dblanim);
-        }
-
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            _loadWindow = new LoadWindow();
-            _loadWindow.Show();
         }
     }
 }

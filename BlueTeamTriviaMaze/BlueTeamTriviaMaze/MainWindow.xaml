@@ -11,6 +11,5 @@
                 <DropShadowEffect BlurRadius="1" ShadowDepth="2" Direction="0" Color="White"/>
             </Label.Effect>
         </Label>
-        <Button x:Name="btnLoad" Content="Load" Margin="154,0,154,53" Height="22" VerticalAlignment="Bottom" Click="btnLoad_Click"/>
     </Grid>
 </Window>

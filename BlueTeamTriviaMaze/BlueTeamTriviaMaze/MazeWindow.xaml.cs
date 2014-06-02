@@ -109,18 +109,6 @@ namespace BlueTeamTriviaMaze
             lblTime.Content = "Time:  " + TimeSpan.FromSeconds(++_currentTime).ToString(@"m\:ss");
         }
 
-
-
-        private void btnSave_Click(object sender, RoutedEventArgs e)
-        {
-            DatabaseSavedGames db = new DatabaseSavedGames();
-            db.Save("Zak", _maze);
-            db.Disconnect();
-        }
-
-
-
-
         public void Win()
         {
             IsEnabled = false;

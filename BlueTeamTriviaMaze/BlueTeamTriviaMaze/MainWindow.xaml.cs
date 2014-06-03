@@ -30,7 +30,9 @@ namespace BlueTeamTriviaMaze
 
         private void lblStart_Click(object sender, MouseButtonEventArgs e)
         {
+            Hide();
             _settingsWindow = new SettingsWindow();
+            _settingsWindow.Closed += new EventHandler(settingsWindow_Closed);
             _settingsWindow.Show();
         }
 
@@ -40,6 +42,11 @@ namespace BlueTeamTriviaMaze
             dblanim.RepeatBehavior = RepeatBehavior.Forever;
             dblanim.AutoReverse = true;
             lblStart.BeginAnimation(OpacityProperty, dblanim);
+        }
+
+        private void settingsWindow_Closed(object sender, EventArgs e)
+        {
+            Show();
         }
     }
 }

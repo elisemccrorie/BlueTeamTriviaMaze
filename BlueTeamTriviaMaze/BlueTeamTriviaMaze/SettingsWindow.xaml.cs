@@ -41,8 +41,16 @@ namespace BlueTeamTriviaMaze
 
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
         {
+            Hide();
+
             _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _themeName, _playerName);
+            _mazeWindow.Closed += new EventHandler(mazeWindow_Closed);
             _mazeWindow.Show();
+        }
+
+        private void mazeWindow_Closed(object sender, EventArgs e)
+        {
+            Show();
         }
 
         private void setTheme_Click(object sender, MouseButtonEventArgs e)
@@ -83,7 +91,7 @@ namespace BlueTeamTriviaMaze
 
         private void lblEnterMaze_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (lblEnterMaze.IsEnabled == true)
+            if (lblEnterMaze.IsEnabled)
             {
                 DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(1)));
                 dblanim.RepeatBehavior = RepeatBehavior.Forever;

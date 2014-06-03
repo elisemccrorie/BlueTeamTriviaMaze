@@ -289,4 +289,22 @@
   <data name="ForestDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ForestDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BlueRoomDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlueRoomDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ForestDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ForestDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreyRoomDoorLocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GreyRoomDoorLocked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LinkPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LinkPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="QuestionWindowBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QuestionWindowBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SidePanelBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SidePanelBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

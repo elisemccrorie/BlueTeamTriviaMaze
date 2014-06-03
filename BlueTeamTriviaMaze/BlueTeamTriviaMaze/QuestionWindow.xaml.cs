@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace BlueTeamTriviaMaze
 {
@@ -52,7 +53,7 @@ namespace BlueTeamTriviaMaze
 
         private void rb_Checked(object sender, RoutedEventArgs e)
         {
-            btnSubmit.IsEnabled = true;
+            lblSubmit.IsEnabled = true;
 
             RadioButton rb = (RadioButton)sender;
             if (rb.IsChecked.Value)
@@ -106,6 +107,17 @@ namespace BlueTeamTriviaMaze
             }
 
             return mixed;
+        }
+
+        private void lblSubmit_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (lblSubmit.IsEnabled)
+            {
+                DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(1)));
+                dblanim.RepeatBehavior = RepeatBehavior.Forever;
+                dblanim.AutoReverse = true;
+                lblSubmit.BeginAnimation(OpacityProperty, dblanim);
+            }
         }
     }
 }

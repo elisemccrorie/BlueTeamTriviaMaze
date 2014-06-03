@@ -25,7 +25,7 @@ namespace BlueTeamTriviaMaze
     public class Player
     {
         private const int PLAYER_SIZE = 25;
-        private const int ANIMATION_DURATION = 2; // seconds
+        private const int ANIMATION_DURATION = 1; // seconds
 
         public enum MoveDirection { North, South, East, West };
 

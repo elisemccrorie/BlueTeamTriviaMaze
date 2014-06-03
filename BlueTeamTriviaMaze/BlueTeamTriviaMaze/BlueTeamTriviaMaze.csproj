@@ -109,18 +109,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Resources\BlueRoomExit.png">
+    <Resource Include="Resources\BlueRoomExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\ForestDoor.png">
+    </Resource>
+    <Resource Include="Resources\ForestDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoomExit.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoomExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\YoshiPlayer.png">
+    </Resource>
+    <Resource Include="Resources\YoshiPlayer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -130,175 +130,205 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Content Include="Resources\BlueRoom2Door.png">
+    <Resource Include="Resources\BlueRoom2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BlueRoom3Door.png">
+    </Resource>
+    <Resource Include="Resources\BlueRoom3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BlueRoom4Door.png">
+    </Resource>
+    <Resource Include="Resources\BlueRoom4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BlueRoomDoor.png">
+    </Resource>
+    <Resource Include="Resources\BlueRoomDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\BlueRoomStart.png">
+    </Resource>
+    <Resource Include="Resources\BlueRoomStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Cave2Door.png">
+    </Resource>
+    <Resource Include="Resources\Cave2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Cave3Door.png">
+    </Resource>
+    <Resource Include="Resources\Cave3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Cave4Door.png">
+    </Resource>
+    <Resource Include="Resources\Cave4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\CaveDoor.png">
+    </Resource>
+    <Resource Include="Resources\CaveDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\CaveDoorLocked.png">
+    </Resource>
+    <Resource Include="Resources\CaveDoorLocked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\CaveExit.png">
+    </Resource>
+    <Resource Include="Resources\CaveExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\CaveStart.png">
+    </Resource>
+    <Resource Include="Resources\CaveStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Character.png">
+    </Resource>
+    <Resource Include="Resources\Character.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Dungeon2Door.png">
+    </Resource>
+    <Resource Include="Resources\Dungeon2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Dungeon3Door.png">
+    </Resource>
+    <Resource Include="Resources\Dungeon3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Dungeon4Door.png">
+    </Resource>
+    <Resource Include="Resources\Dungeon4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\DungeonDoor.png">
+    </Resource>
+    <Resource Include="Resources\DungeonDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\DungeonDoorLocked.png">
+    </Resource>
+    <Resource Include="Resources\DungeonDoorLocked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\DungeonExit.png">
+    </Resource>
+    <Resource Include="Resources\DungeonExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\DungeonStart.png">
+    </Resource>
+    <Resource Include="Resources\DungeonStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Easy.png">
+    </Resource>
+    <Resource Include="Resources\Easy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\EnterMaze.png">
+    </Resource>
+    <Resource Include="Resources\EnterMaze.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Forest2Door.png">
+    </Resource>
+    <Resource Include="Resources\Forest2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Forest3Door.png">
+    </Resource>
+    <Resource Include="Resources\Forest3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Forest4Door.png">
+    </Resource>
+    <Resource Include="Resources\Forest4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\ForestExit.png">
+    </Resource>
+    <Resource Include="Resources\ForestExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\ForestStart.png">
+    </Resource>
+    <Resource Include="Resources\ForestStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoom2Door.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoom2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoom3Door.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoom3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoom4Door.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoom4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoomDoor.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoomDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\GreyRoomStart.png">
+    </Resource>
+    <Resource Include="Resources\GreyRoomStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Hard.png">
+    </Resource>
+    <Resource Include="Resources\Hard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Height.png">
+    </Resource>
+    <Resource Include="Resources\Height.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\JohnnyBravo.png">
+    </Resource>
+    <Resource Include="Resources\JohnnyBravo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Load.png">
+    </Resource>
+    <Resource Include="Resources\Load.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\PurplePlayer.png">
+    </Resource>
+    <Resource Include="Resources\PurplePlayer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\RedPlayer.png">
+    </Resource>
+    <Resource Include="Resources\RedPlayer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\SailboatPlayer.png">
+    </Resource>
+    <Resource Include="Resources\SailboatPlayer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Sea2Door.png">
+    </Resource>
+    <Resource Include="Resources\Sea2Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Sea3Door.png">
+    </Resource>
+    <Resource Include="Resources\Sea3Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Sea4Door.png">
+    </Resource>
+    <Resource Include="Resources\Sea4Door.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\SeaDoor.png">
+    </Resource>
+    <Resource Include="Resources\SeaDoor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\SeaDoorLocked.png">
+    </Resource>
+    <Resource Include="Resources\SeaDoorLocked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\SeaExit.png">
+    </Resource>
+    <Resource Include="Resources\SeaExit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\SeaStart.png">
+    </Resource>
+    <Resource Include="Resources\SeaStart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Settings.png">
+    </Resource>
+    <Resource Include="Resources\Settings.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Start.png">
+    </Resource>
+    <Resource Include="Resources\Start.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\StartPage.png">
+    </Resource>
+    <Resource Include="Resources\StartPage.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Theme.png">
+    </Resource>
+    <Resource Include="Resources\Theme.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Triforce.ttf">
+    </Resource>
+    <Resource Include="Resources\Triforce.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\DungeonLayout.png">
+    <Resource Include="Resources\DungeonLayout.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Width.png">
+    <Resource Include="Resources\Width.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\YellowPlayer.png">
+    </Resource>
+    <Resource Include="Resources\YellowPlayer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BlueRoomDoorLocked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ForestDoorLocked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GreyRoomDoorLocked.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\LinkPlayer.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\QuestionWindowBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SidePanelBackground.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

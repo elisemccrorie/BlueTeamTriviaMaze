@@ -103,6 +103,16 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueRoomDoorLocked {
+            get {
+                object obj = ResourceManager.GetObject("BlueRoomDoorLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueRoomExit {
             get {
                 object obj = ResourceManager.GetObject("BlueRoomExit", resourceCulture);
@@ -333,6 +343,16 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ForestDoorLocked {
+            get {
+                object obj = ResourceManager.GetObject("ForestDoorLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ForestExit {
             get {
                 object obj = ResourceManager.GetObject("ForestExit", resourceCulture);
@@ -393,6 +413,16 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GreyRoomDoorLocked {
+            get {
+                object obj = ResourceManager.GetObject("GreyRoomDoorLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GreyRoomExit {
             get {
                 object obj = ResourceManager.GetObject("GreyRoomExit", resourceCulture);
@@ -443,6 +473,16 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LinkPlayer {
+            get {
+                object obj = ResourceManager.GetObject("LinkPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Load {
             get {
                 object obj = ResourceManager.GetObject("Load", resourceCulture);
@@ -456,6 +496,16 @@ namespace BlueTeamTriviaMaze.Properties {
         internal static System.Drawing.Bitmap PurplePlayer {
             get {
                 object obj = ResourceManager.GetObject("PurplePlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuestionWindowBackground {
+            get {
+                object obj = ResourceManager.GetObject("QuestionWindowBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -556,6 +606,16 @@ namespace BlueTeamTriviaMaze.Properties {
         internal static System.Drawing.Bitmap Settings {
             get {
                 object obj = ResourceManager.GetObject("Settings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SidePanelBackground {
+            get {
+                object obj = ResourceManager.GetObject("SidePanelBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

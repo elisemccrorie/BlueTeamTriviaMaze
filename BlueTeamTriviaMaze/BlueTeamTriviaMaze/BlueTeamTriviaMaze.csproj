@@ -67,6 +67,7 @@
     <Compile Include="MazeWindow.xaml.cs">
       <DependentUpon>MazeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pathfinder.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="QuestionWindow.xaml.cs" />
     <Compile Include="Room.cs" />

@@ -36,6 +36,7 @@ namespace BlueTeamTriviaMaze
         public Door SouthDoor { get; private set; }
 
         new public Type GetType() { return _type; }
+
         public State GetState() { return _state; }
         public void SetState(State state)
         {
@@ -87,17 +88,11 @@ namespace BlueTeamTriviaMaze
 
 
 
-
             // create what the door will look like- an outlined rectangle
             Drawable = new Rectangle();
 
             Canvas.SetLeft(Drawable, x * ROOM_SIZE);
             Canvas.SetTop(Drawable, y * ROOM_SIZE);
-
-            //if (_type == Type.Exit)
-            //    Drawable.Stroke = Brushes.LimeGreen;
-            //else
-            //    Drawable.Stroke = Brushes.Black;
 
             Drawable.Width = Drawable.MinWidth = Drawable.MaxWidth = Drawable.Height = Drawable.MinHeight = Drawable.MaxHeight = ROOM_SIZE;
 
@@ -106,8 +101,9 @@ namespace BlueTeamTriviaMaze
             // all rooms start as not visited
             SetState(State.NotVisited);
 
-
         } // end public Room(...)
+
+
 
         private TransformedBitmap rotate(BitmapImage bi, int angle)
         {   

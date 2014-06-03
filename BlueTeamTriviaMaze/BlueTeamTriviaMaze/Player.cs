@@ -192,10 +192,17 @@ namespace BlueTeamTriviaMaze
             if (_currentRoom.GetType() == Room.Type.Exit)
                 MazeWindow.GetInstance().Win();
 
-            else // check if we lost
-            {
-                // TODO: logic to see if all doors accesible to the player are locked
-            }
+            else if (DidLose()) // check if we lost
+                MazeWindow.GetInstance().Lose();
+        }
+
+
+        private bool DidLose()
+        {
+            // find a path from the current room to the exit room
+            Pathfinder path = new Pathfinder(_currentRoom, MazeWindow.GetInstance().GetMaze().GetExitRoom());
+
+            return !path.PathExists; // return we LOST if a path DOES NOT exist
         }
     }
 }

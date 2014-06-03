@@ -24,8 +24,8 @@ namespace BlueTeamTriviaMaze
     public class Maze : Canvas
     {
         private Room[,] _rooms;
+        private Room _exitRoom;
         private Player _player;
-        private ArrayList _doorsList;
 
         //necessary for loading a saved maze
         public int Rows { get; private set; }
@@ -33,6 +33,7 @@ namespace BlueTeamTriviaMaze
         public string Theme { get; private set; }
         public string Player { get; private set; }
 
+        public Room GetExitRoom() { return _exitRoom; }
         public Player GetPlayer() { return _player; }
         
 
@@ -169,6 +170,10 @@ namespace BlueTeamTriviaMaze
             // add that new Room as a child of the Maze (canvas) so it may be drawn
             Children.Add(_rooms[y, x].Drawable);
             Canvas.SetZIndex(_rooms[y, x].Drawable, -99); // move the rooms behind the doors
+
+            // store exit room, for pathfinding "lose" detection algorithm
+            if (room_type == Room.Type.Exit)
+                _exitRoom = _rooms[y, x];
         }
 
 

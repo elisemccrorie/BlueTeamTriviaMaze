@@ -1,0 +1,102 @@
+100,0,TF,In the Harry Potter series Hagrid's pet spider's name is Aragog.,True ,False ,,,0,Movies,1
+101,0,TF,In the Star Wars series Sebulba is a Troydarian.,False ,True ,,,0,Movies,1
+102,1,MC,"In ""The Dark Knight"" what does the Joker make disappear during his magic trick?",A pencil,A card,A coin,A dollar,0,Movies,1
+103,1,MC,In The Lord of the Rings series what was Gollum's name while he was one of the riverfolk?,Smeagol,Deagull,Smeegan,Dimholt,0,Movies,1
+104,1,MC,"In Marvel's ""The Avengers"" who is the prime villan?",Loki,Red Skull,Mandarin,Winter Soldier,0,Movies,1
+105,1,MC,In 2013 which Disney film won the Academy Award for Animated Feature Film?,Frozen,Despicable Me 2,Tangled,The Croods,0,Movies,1
+106,1,MC,How many Oscars did the film 'Gravity' win?,7,9,8,5,0,Movies,1
+107,1,MC,Which film won Best Picture at the 2013 Academy Awards?,12 Years a Slave,American Hustle,Captain Phillips,Gravity,0,Movies,1
+108,1,MC,Which film won Best Picture at the 2011 Academy Awards?,The Artist,Hugo,Moneyball,The Help,0,Movies,1
+109,1,MC,Which film won Best Animated Feature Film at the 2012 Oscars?,Brave,Wreck-It Ralph,ParaNorman,Frankenweenie,0,Movies,1
+110,1,MC,Which film won Best Animated Feature Film at the 2011 Academy Awards?,Rango,Puss in Boots,Kung Fu Panda 2,A Cat in Paris,0,Movies,1
+111,1,MC,Which film won Best Animated Feature Film at the 2010 Academy Awards?,Toy Story 3,The Illusionist,How to Train Your Dragon,Pocahontas,0,Movies,1
+112,1,MC,Which film won Best Animated Feature Film at the 2009 Academy Awards?,Up,The Princess and the Frog,Coraline,Fantastic Mr. Fox,0,Movies,1
+113,1,MC,Which film won Best Animated Feature Film at the 2008 Academy Awards?,WALL-E,Kung Fu Panda,Bolt,Cinderella,0,Movies,1
+114,1,MC,Which film won Best Animated Feature Film at the 2006 Academy Awards?,Happy Feet,Cars,Monster House,Pinocchio,0,Movies,1
+115,1,MC,Which film won Best Animated Feature Film at the 2004 Academy Awards?,The Incredibles,Shark Tale,Shrek 2,Tangled,0,Movies,1
+116,1,MC,Which film won Best Animated Feature Film at the 2003 Academy Awards?,Finding Nemo,Brother Bear,Snow White,Sword in the Stone,0,Movies,1
+117,1,MC,Which film won Best Animated Feature Film at the 2002 Academy Awards?,Spirited Away,Ice Age,Treasure Planet,Lilo & Stitch,0,Movies,1
+118,1,MC,Which film won Best Animated Feature Film at the 2001 Academy Awards?,Shrek ,Monsters Inc.,Jimmy Neutron,Tarzan,0,Movies,1
+119,1,MC,What movie won the Academy Award for Best Picture in 2012?,Argo,Amour,Les Miserables,Life of Pi,0,Movies,1
+120,1,MC,What movie won the Academy Award for Best Picture in 2010?,The King's Speech,127 Hours,Inception,Black Swan,0,Movies,1
+121,1,MC,What movie won the Academy Award for Best Picture in 2009?,The Hurt Locker,Avatar,The Blind Side,District 9,0,Movies,1
+122,1,MC,What movie won the Academy Award for Best Picture in 2008?,Slumdog Millionaire,Frost/Nixon,Milk,The Reader,0,Movies,1
+123,1,MC,What movie won the Academy Award for Best Picture in 2007?,No Country for Old Men,Atonement,Juno,There Will Be Blood,0,Movies,1
+124,1,MC,What movie won the Academy Award for Best Picture in 2006?,The Departed,Babel,The Queen,Little Miss Sunshine,0,Movies,1
+125,1,MC,What movie won the Academy Award for Best Picture in 2005?,Crash,Munich,Capote,Brokeback Mountain,0,Movies,1
+126,1,MC,What movie won the Academy Award for Best Picture in 2004?,Million Dollar Baby,Ray,Sideways,The Aviator,0,Movies,1
+127,1,MC,What movie won the Academy Award for Best Picture in 2002?,Chicago,Gangs of New York,The Pianist,The Lord of the Rings: The Two Towers,0,Movies,1
+128,1,MC,What movie won the Academy Award for Best Picture in 2003?,The Lord of the Rings: The Return of the King,Master and Commander,Mystic River,Seabiscuit,0,Movies,1
+129,1,MC,What movie won the Academy Award for Best Picture in 2001?,A Beautiful Mind,Moulin Rouge,In the Bedroom,Gosford Park,0,Movies,1
+130,1,MC,What movie won the Academy Award for Best Picture in 2000?,Gladiator,Chocolat,Erin Brockovich,Traffic,0,Movies,1
+131,1,MC,In The Wolf of Wallstreet approximately how many times is the F-word used?,500,400,600,300,0,Movies,1
+132,1,MC,How many Oscars did 'The Lord of the Rings: The Return of the King' win?,11,10,9,8,0,Movies,1
+133,1,MC,How many times can the f-word be used in a PG-13 film (without going through an appeal process)?,1,0,2,3,0,Movies,1
+134,1,MC,The movie 'The Shawshank Redemption' is based on a novella writen by whom?,Stephen King,Tom Clancy,Dean Koontz,John Grisham,0,Movies,1
+135,1,MC,What was Quentin Tarantino's directorial debut?,Resevoir Dogs,Pulp Fiction,Kill Bill: Vol 1,Inglourious Basterds,0,Movies,1
+136,1,MC,Leonardo DiCaprio has been nominated for 5 Academy Awards how many has he won?,0,5,3,2,0,Movies,1
+137,1,MC,Which film won Best Picture at the 1990 Academy Awards?,Dances with Wolves,Ghost,Good Fellas,The Godfather Part III,0,Movies,1
+138,1,MC,Which film won Best Picture at the 1991 Academy Awards?,The Silence of the Lambs,The Prince of Tides,JFK,Bugsy,0,Movies,1
+139,1,MC,Which film won Best Picture at the 1992 Academy Awards?,Unforgiven,Scent of a Woman,A Few Good Men,Howards End,0,Movies,1
+140,1,MC,Which film won Best Picture at the 1993 Academy Awards?,Schindler's List,The Fugitive,The Piano,Psycho,0,Movies,1
+141,1,MC,Which film won Best Picture at the 1994 Academy Awards?,Forest Gump,Pulp Fiction,The Shawshank Redemption,Four Weddings and a Funeral,0,Movies,1
+142,1,MC,Which film won Best Picture at the 1995 Academy Awards?,Braveheart,Apollo 13,Sense and Sensibility,Babe,0,Movies,1
+143,1,MC,Which film won Best Picture at the 1997 Academy Awards?,Titanic,Good Will Hunting,The Full Monty,L.A. Confidential,0,Movies,1
+144,1,MC,Which film won Best Picture at the 1998 Academy Awards?,Shakespeare in Love,Saving Private Ryan,Elizabeth,The Thin Red Line,0,Movies,1
+145,1,MC,Which film won Best Picture at the 1999 Academy Awards?,American Beauty,The Green Mile,The Sixth Sense,The Insider,0,Movies,1
+146,0,TF,The Willhelm Scream has been used in over 200 movies.,TRUE,FALSE,,,0,Movies,1
+147,0,TF,The Wolf of Wallstreet broke the record for number of times the F-word is used,TRUE,FALSE,,,0,Movies,1
+148,0,TF,The Lord of the Rings: The Return of the King won every Oscar it was nominated for,TRUE,FALSE,,,0,Movies,1
+149,0,TF,Each movie in the Lord of the Rings Trillogy won the Academy Award for Visual Effects,TRUE,FALSE,,,0,Movies,1
+150,0,TF,Star Wars was originally prefixed by the article 'The'.,TRUE,FALSE,,,0,Movies,1
+151,0,TF,George Lucas' dog was named Luke,FALSE,TRUE,,,0,Movies,1
+152,0,TF,Forest Gump was based on a novel of the same title,TRUE,FALSE,,,0,Movies,1
+153,0,TF,The first Rambo movie was based on a book,TRUE,FALSE,,,0,Movies,1
+154,0,TF,The Movie Die Hard is loosly based on a novel titled 'Nothing Lasts Forever',TRUE,FALSE,,,0,Movies,1
+155,0,TF,James Cameron drew the nude picture of Kate Winslet that appears in 'Titanic',TRUE,FALSE,,,0,Movies,1
+156,0,TF,Catch Me If You Can' is based on a true story,TRUE,FALSE,,,0,Movies,1
+157,1,MC,What was Walt Disney Studio's first feature length film?,Snow White,Cinderella,Dumbo,Pinocchio,0,Movies,1
+158,1,MC,As of May 2014 what is the highest grossing film of all time?,Avatar,Marvel's The Avengers,Titanic,Harry Potter and the Deathly Hallows Part 2,0,Movies,1
+159,1,MC,Which of these films is Brad Pitt NOT in?,War of the Worlds,Fight Club,Kalifornia,Thelma and Louise,0,Movies,1
+160,1,MC,Which of these actors has NOT played as James Bond?,Adam West,Sean Connery,Daniel Craig,Pierce Brosnan,0,Movies,1
+161,1,MC,Which Disney Princess has the fewest spoken lines in her film?,Princess Aurora,Cinderella,Snow White,Ariel,0,Movies,1
+162,1,MC,Which caracter is the narator in the TV show 'How I Met Your Mother'?,Ted,Barney,Robin,Lilly,1,TV,1
+163,1,MC,In 'How I Met Your Mother' where does Marshall propose to Lilly?,The Kitchen,The Park,In Vegas,The Zoo,1,TV,1
+164,1,MC,Who is the captain in the TV series Firefly?,Malcom,Zoe,Simon,Jayne,1,TV,1
+165,1,MC,What is the name of the ship in  the TV show Firefly?,Serenity,Enterprise,Explorer,Icarus,1,TV,1
+166,1,MC,Who was the only cast member of 'Friends' to NOT receive an Emmy nomination?,Courteney Cox,Matthew Perry,Jennifer Aniston,Matt LeBlank,1,TV,1
+167,1,MC,Where is 'Friends' set?,Manhattan,L.A.,Chicago,Boston,1,TV,1
+168,1,MC,How many seasons did 'Friends' run?,10,9,11,12,1,TV,1
+169,1,MC,How many seasons did 'How I Met Your Mother' Run?,9,10,8,7,1,TV,1
+170,1,MC,How many seasons did the 'Sopranos' run for?,6,7,20,4,1,TV,1
+171,1,MC,How many seasons did 'Weeds' run for?,8,10,6,4,1,TV,1
+172,1,MC,How many seasons did 'Dexter' run for?,8,5,7,10,1,TV,1
+173,1,MC,What bar do the characters from 'How I Met Your Mother' frequent?,MacLaren's,Bill's,Puzzles,Shorty's,1,TV,1
+174,1,MC,What is Robin's childhood stage name in 'How I Met Your Mother'?,Robin Sparkles,Rockin' Robbin,Robin Sequins,None,1,TV,1
+175,1,MC,Who won the first season of 'Survivor'?,Richard Hatch,Stephenie LaGrossa,Rob Mariano,Rupert Boneham,1,TV,1
+176,1,MC,Who won the first season of 'American Idol'?,Kelly Clarkson,Chris Daughtry,Adam Lambert,Carrie Underwood,1,TV,1
+177,1,MC,Who is the main character from 'The Sopranos'?,Tony,Christopher,Paulie,Bill,1,TV,1
+178,1,MC,How many seasons did 'Boy Meet World' run for?,7,12,5,3,1,TV,1
+179,1,MC,Where is the TV show 'Parks and Recreation' set?,Pawnee,Agrestic,Fairview,New York,1,TV,1
+180,1,MC,In 'Game of Thrones' which house has a Wolf as its sigil?,Stark,Lannister,Tully,,1,TV,1
+181,1,MC,In 'Game of Thrones' which house has a Lion as its sigil?,Lannister,Arryn,Bolton,Frey,1,TV,1
+182,1,MC,In 'Game of Thrones' which house has a Rose as its sigil?,Tyrell,Greyjoy,Baratheon,Targaryen,1,TV,1
+183,1,MC,In 'Game of Thrones' which house has a Kraken as its sigil?,Greyjoy,Martell,Stark,Arryn,1,TV,1
+184,1,MC,In 'Game of Thrones' the surname 'Snow' is for an illegitimate child of what region? ,The North,The Vale,Dorne,The Riverlands,1,TV,1
+185,1,MC,In 'Game of Thrones' the surname 'Sand' is for an illegitimate child of what region? ,Dorn,The North,The Riverlands,The Iron Islands,1,TV,1
+186,1,MC,In 'Game of Thrones' the moto 'Fire and Blood' belongs to which house?,Targaryen,Stark,Greyjoy,Arryn,1,TV,1
+187,1,MC,In 'Game of Thrones' the moto 'Growing Strong' belongs to which house?,Tyrell,Bolton,Tully,Martell,1,TV,1
+188,1,MC,In 'How I Met Your Mother' what is Barney's job?,No one knows,Lawyer,Magician,Commedian,1,TV,1
+189,1,MC,In 'How I Met Your Mother' where did Marshall and Lilly meet?,College,High School,Work,Church,1,TV,1
+190,1,MC,Arrow' is a TV show about what super hero?,Green Arrow,Robin Hood,Hawkeye,Black Widow,1,TV,1
+191,1,MC,What illegal drug is featured in the TV series 'Breaking Bad'?,Crystal Meth,Cocaine,Acid,Marijuana,1,TV,1
+192,1,MC,In the TV show 'The Walking Dead' what are zombies most commonly called?,Walkers,Z's,Zombies,Biters,1,TV,1
+193,1,MC,In the TV show 'The Walking Dead' who is the main character?,Rick,Shane,Hershel,Merle,1,TV,1
+194,1,MC,Who is Sherlock's sidekick?,John Watson,Mycroft ,Jim Moriarty,Anderson,1,TV,1
+195,0,TF,BBC's 'Sherlock' is a bajillion times better than its American counterpart 'Elementary',True ,False ,,,1,TV,1
+196,1,MC,The TV series 'Under the Dome' is based on a novel written by whom?,Stephen King,Douglas Adams,George RR Martin,Orson Scott Card,1,TV,1
+197,1,MC,The TV series 'Game of Thrones' is based on which book series?,A song of Ice and Fire,The King Killer Chronicle,Lord of the Rings,The Cold Fire Trilogy,1,TV,1
+198,1,MC,The TV show 'Modern Family' is set in which sunny state?,California,Washington,Florida,New York,1,TV,1
+199,0,TF,The TV show 'Modern Family' has an ensemble cast.,True ,False ,,,1,TV,1
+200,1,MC,The TV show 'The League' is about what?,Fantasy Football,College Football,Soccer,Baseball,1,TV,1
+201,1,MC,Which type of award is given for TV shows?,An Emmy,An Academy Award,A Tony,The Nobel Prize,1,TV,1

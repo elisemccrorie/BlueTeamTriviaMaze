@@ -12,7 +12,7 @@ namespace BlueTeamTriviaMaze
 
 
 	    private ArrayList closed;
-	    private SortedList open;
+	    private SimpleSortedList open;
 	
 	    private Node[,] nodes;
 	
@@ -20,62 +20,57 @@ namespace BlueTeamTriviaMaze
         public Pathfinder(Room start, Room end)
         {
             closed = new ArrayList();
-            open = new SortedList();
+            open = new SimpleSortedList();
 
-		    nodes = new Node[MazeWindow.GetInstance().GetMaze().Columns, MazeWindow.GetInstance().GetMaze().Rows];
-		    for (int x=0; x < nodes.GetLength(0); x++)
-                for (int y = 0; y < nodes.GetLength(1); y++)
-                    nodes[x, y] = new Node(MazeWindow.GetInstance().GetMaze().GetRoom(x, y));
+		    nodes = new Node[MazeWindow.GetInstance().GetMaze().Rows, MazeWindow.GetInstance().GetMaze().Columns];
+            for (int y = 0; y < nodes.GetLength(0); y++)
+                for (int x = 0; x < nodes.GetLength(1); x++)
+                    nodes[y, x] = new Node(MazeWindow.GetInstance().GetMaze().GetRoom(x, y));
 
-            FindPath(start.X, start.Y, end.X, end.Y);
+
+            PathExists = DoesPathExist(start.X, start.Y, end.X, end.Y);
         }
 
 
 
+        // Use A* path finding to determine if a path exists from (sx,sy) to (tx,ty) 
+        private bool DoesPathExist(int sx, int sy, int tx, int ty)
+        {
+            closed.Clear();
+            open.Clear();
 
-	    private void FindPath(int sx, int sy, int tx, int ty) {
+            // add the starting node to the open list
+		    open.Add(nodes[sy, sx]);
 
-            PathExists = false;
-
-		
-		    // initial state for A*. The closed group is empty. Only the starting
-		    // tile is in the open list and it'e're already there
-		    nodes[sx, sy].cost = 0;
-		    closed.Clear();
-		    open.Clear();
-		    open.Add(nodes[sx, sy]);
-		
-		    nodes[tx, ty].parent = null;
+            nodes[sy, sx].cost = 0;
+		    nodes[ty, tx].parent = null;
 		
 
 		    while (open.Size() != 0)
             {
-			    // pull out the first node in our open list, this is determined to 
-			    // be the most likely to be the next step based on our heuristic
-			    Node current = GetFirstInOpen();
-                if (current == nodes[tx, ty])
-                {
-                    PathExists = true;
-                    break;
-                }
+			    // take the first node from open list
+                Node current = (Node) open.First();
+
+                // if the node is the target node, a path exists!
+                if (current == nodes[ty, tx])
+                    return true;
 			    
 			
-			    RemoveFromOpen(current);
-			    AddToClosed(current);
+			    open.Remove(current);
+			    closed.Add(current);
 			
 
-			    // search through all the neighbours of the current node evaluating
-			    // them as next steps
+			    // search through all the neighbours of the current node evaluating them as next steps
 			    for (int x = -1; x < 2; x++) 
 				    for (int y = -1; y < 2; y++)
                     {
 					    // not a neighbour, its the current tile
-					    if ((x == 0) && (y == 0)) 
+					    if (x == 0 && y == 0) 
 						    continue;
 				
 
 					    // no diagonal movement, only one of x or y can be set
-						if ((x != 0) && (y != 0)) 
+						if (x != 0 && y != 0) 
 							continue;
 					
 
@@ -90,12 +85,12 @@ namespace BlueTeamTriviaMaze
                                 if (current.room.WestDoor.GetState() == Door.State.Locked)
                                     continue;
                         }
-                        else if (y > 0) { // north
+                        else if (y < 0) { // north
                             if (current.room.NorthDoor != null)
                                 if (current.room.NorthDoor.GetState() == Door.State.Locked)
                                     continue;
                         }
-                        else if (y < 0) {  // south
+                        else if (y > 0) {  // south
                             if (current.room.SouthDoor != null)
                                 if (current.room.SouthDoor.GetState() == Door.State.Locked)
                                     continue;
@@ -103,92 +98,47 @@ namespace BlueTeamTriviaMaze
 
 
 
-					    // determine the location of the neighbour and evaluate it
+					    // if a neighbor room exists... evaluate!
 					    int xp = x + current.x;
 					    int yp = y + current.y;
 					
-					    if (MazeWindow.GetInstance().GetMaze().GetRoom(xp, yp) != null) { // room exists
-						    // the cost to get to this node is cost the current plus the movement
-						    // cost to reach this node. Note that the heursitic value is only used
-						    // in the sorted open list
-
+					    if (MazeWindow.GetInstance().GetMaze().GetRoom(xp, yp) != null)
+                        {  
+						    // so the cost to get to this node is the current node's cost plus 1 (the cost to get to this node...)
                             float nextStepCost = current.cost + 1;
-						    Node neighbour = nodes[xp,yp];
-						
-						    // if the new cost we've determined for this node is lower than 
-						    // it has been previously makes sure the node hasn'e've
-						    // determined that there might have been a better path to get to
-						    // this node so it needs to be re-evaluated
+						    Node neighbour = nodes[yp, xp];
 
+
+						    // determine if there might be a better path to get to this node, if so then it needs to be re-evaluated
 						    if (nextStepCost < neighbour.cost) {
-							    if (InOpenList(neighbour)) {
-								    RemoveFromOpen(neighbour);
-							    }
-							    if (InClosedList(neighbour)) {
-								    RemoveFromClosed(neighbour);
-							    }
+							    if (open.Contains(neighbour)) 
+								    open.Remove(neighbour);
+							    
+							    if (closed.Contains(neighbour)) 
+								    closed.Remove(neighbour);
 						    }
 						
-						    // if the node hasn't already been processed and discarded then
-						    // reset it's cost to our current cost and add it as a next possible
-						    // step (i.e. to the open list)
-
-						    if (!InOpenList(neighbour) && !InClosedList(neighbour)) {
+						    // if the node hasn't already been processed...
+						    if (!open.Contains(neighbour) && !closed.Contains(neighbour)) {
 							    neighbour.cost = nextStepCost;
-							    neighbour.heuristic = GetHeuristicCost(xp, yp, tx, ty);
-							    AddToOpen(neighbour);
+
+                                float dx = tx - xp;
+                                float dy = ty - yp;  // use the distance formula for the heuristic 
+                                neighbour.heuristic = (float)(Math.Sqrt((dx * dx) + (dy * dy)));
+
+							    open.Add(neighbour);
 						    }
 					    }
 				    }
-			    
 		    }
+
+            return false;
 	    }
 
-        private Node GetFirstInOpen()
-        {
-		    return (Node) open.First();
-	    }
-
-        private void AddToOpen(Node node)
-        {
-		    open.Add(node);
-	    }
-
-        private bool InOpenList(Node node)
-        {
-		    return open.Contains(node);
-	    }
-
-        private void RemoveFromOpen(Node node)
-        {
-		    open.Remove(node);
-	    }
-
-        private void AddToClosed(Node node)
-        {
-		    closed.Add(node);
-	    }
-
-        private bool InClosedList(Node node)
-        {
-		    return closed.Contains(node);
-	    }
-
-        private void RemoveFromClosed(Node node)
-        {
-		    closed.Remove(node);
-	    }
-
-        private float GetHeuristicCost(int x, int y, int tx, int ty)
-        {
-            float dx = tx - x;
-            float dy = ty - y;
-            return (float)(Math.Sqrt((dx * dx) + (dy * dy)));
-	    }
-	
 
 
-	    private class SortedList {
+
+	    private class SimpleSortedList {
 		    private ArrayList list = new ArrayList();
 		
 		    public Object First() {
@@ -201,7 +151,7 @@ namespace BlueTeamTriviaMaze
 		
 		    public void Add(Object o) {
                 list.Add(o);
-                list.Sort();
+                list.Sort(); // sort on add = a sorted list
 		    }
 		
 		    public void Remove(Object o) {
@@ -223,9 +173,9 @@ namespace BlueTeamTriviaMaze
 		    public int x;
             public int y;
             public float cost;
-            public Node parent;
             public float heuristic;
             public Room room;
+            public Node parent;
 		
 		    public Node(Room room) {
                 this.room = room;
@@ -233,36 +183,38 @@ namespace BlueTeamTriviaMaze
 			    this.y = room.Y;
 		    }
 		
-		    public void setParent(Node parent) {
-			    this.parent = parent;
-		    }
-		
-		    public int CompareTo(Object other) {
+		    public int CompareTo(Object other)
+            {
 			    Node o = (Node)other;
 			
 			    float f = heuristic + cost;
-			    float of = o.heuristic + o.cost;
-			
-			    if (f < of) {
+			    float f_other = o.heuristic + o.cost; // essentially- compare based on shortest distance
+
+                if (f < f_other) 
 				    return -1;
-			    } else if (f > of) {
+                if (f > f_other) 
 				    return 1;
-			    } else {
-				    return 0;
-			    }
+				
+                return 0;
 		    }
 
             public override bool Equals(object obj)
             {
-                if (obj == null) return false;
+                if (obj == null)
+                    return false;
+
                 Node objAsNode = obj as Node;
-                if (objAsNode == null) return false;
-                else return Equals(objAsNode);
+                if (objAsNode == null)
+                    return false;
+                
+                return Equals(objAsNode);
             }
 
             public bool Equals(Node other)
             {
-                if (other == null) return false;
+                if (other == null)
+                    return false;
+
                 return this.x == other.x && this.y == other.y;
             }
 	    }

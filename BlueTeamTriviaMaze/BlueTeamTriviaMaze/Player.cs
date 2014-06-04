@@ -35,11 +35,13 @@ namespace BlueTeamTriviaMaze
 
         public Room GetCurrentRoom() { return _currentRoom; }
         public Shape Drawable { get; private set; }
+        public Statistics Stats;
 
 
         public Player(int num_keys, string player)
         {
             _currentKeys = num_keys;
+            Stats = new Statistics();
 
             // Load the player drawable
             Drawable = new Rectangle();
@@ -79,7 +81,7 @@ namespace BlueTeamTriviaMaze
 
             // attempt to open it, if it's not already opened
             if (target_door.GetState() != Door.State.Opened)
-                if (!target_door.TryToOpen()) // failed to open for whatever reason, don't move thru
+                if (!target_door.TryToOpen(ref Stats)) // failed to open for whatever reason, don't move thru
                     return;
             
 

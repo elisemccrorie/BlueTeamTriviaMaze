@@ -10,9 +10,14 @@
                 <ImageBrush ImageSource="Resources/SidePanelBackground.png"/>
             </Canvas.Background>
             <Label x:Name="lblTime" Content="Time:  0:00" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="30" Width="227" HorizontalContentAlignment="Center" Margin="5,15,5,5"/>
+            <Label x:Name="lblAvgAnsTime" Content="Average Answer Time" Canvas.Left="5" Canvas.Top="88" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+            <Label x:Name="lblAvgAnsTimeValue" Content="" Canvas.Left="171" Canvas.Top="88" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+            <Label x:Name="lblQuestionsCorrect" Content="Questions Correct" Canvas.Left="5" Canvas.Top="130" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+            <Label x:Name="lblQuestionsCorrectValue" Content="" Canvas.Left="171" Canvas.Top="130" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+            <Label x:Name="lblQuestionsIncorrect" Content="Questions Incorrect" Canvas.Left="5" Canvas.Top="172" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+            <Label x:Name="lblQuestionsIncorrectValue" Content="" Canvas.Left="171" Canvas.Top="172" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
         </Canvas>
 
         <Canvas x:Name="cvsMaze" Width="369" HorizontalAlignment="Center"  Height="184" VerticalAlignment="Center" Margin="0,0,5,0"/>
-
     </DockPanel>
 </Window>

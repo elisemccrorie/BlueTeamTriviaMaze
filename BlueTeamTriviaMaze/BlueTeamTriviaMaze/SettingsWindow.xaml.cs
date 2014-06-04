@@ -32,7 +32,7 @@ namespace BlueTeamTriviaMaze
             InitializeComponent();
 
             _playerImages = new Image[] {imgPlayerYoshi, imgPlayerSailboat, imgPlayerJohnny, 
-                                                imgPlayerYellow, imgPlayerRed, imgPlayerPurple};
+                                                imgPlayerLink, imgPlayerRed, imgPlayerPurple};
 
             _themeImages = new Image[] {imgCave, imgDungeon, imgForest, imgGreyRoom, imgBlueRoom, imgSea};
 

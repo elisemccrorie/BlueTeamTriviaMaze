@@ -72,6 +72,7 @@
     <Compile Include="QuestionWindow.xaml.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SettingsWindow.xaml.cs" />
+    <Compile Include="Statistics.cs" />
     <Compile Include="TriviaItem.cs" />
     <Compile Include="TriviaItemFactory.cs" />
     <Compile Include="App.xaml.cs">

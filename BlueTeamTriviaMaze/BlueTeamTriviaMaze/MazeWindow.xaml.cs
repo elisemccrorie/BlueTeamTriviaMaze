@@ -107,6 +107,9 @@ namespace BlueTeamTriviaMaze
         private void Timer_Tick(object sender, EventArgs e)
         {
             lblTime.Content = "Time:  " + TimeSpan.FromSeconds(++_currentTime).ToString(@"m\:ss");
+            lblAvgAnsTimeValue.Content = _maze.GetPlayer().Stats.AverageAnswerTime.ToString();
+            lblQuestionsCorrectValue.Content = _maze.GetPlayer().Stats.QuestionsCorrect.ToString();
+            lblQuestionsIncorrectValue.Content = _maze.GetPlayer().Stats.QuestionsIncorrect.ToString();
         }
 
         public void Win()

@@ -117,9 +117,11 @@ namespace BlueTeamTriviaMaze
             IsEnabled = false;
             _timer.Stop();
 
-            MessageBox.Show("You won in " + _currentTime + " seconds!", "Winner!");
+            //MessageBox.Show("You won in " + _currentTime + " seconds!", "Winner!");
 
-            Close();
+            lblWinOrLose.Content = "You Win!";
+
+            //Close();
         }
 
         public void Lose()
@@ -127,9 +129,11 @@ namespace BlueTeamTriviaMaze
             IsEnabled = false;
             _timer.Stop();
 
-            MessageBox.Show("You Lose!", "Loser!");
+            //MessageBox.Show("You Lose!", "Loser!");
 
-            Close();
+            lblWinOrLose.Content = "You Lose...";
+
+            //Close();
         }
     }
 }

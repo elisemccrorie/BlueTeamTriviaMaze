@@ -16,14 +16,7 @@
         <Slider x:Name="sldHeight" Margin="112,0,42,90" RenderTransformOrigin="0.5,0.5" Maximum="6" Minimum="4" SmallChange="1" Value="4" TickPlacement="Both" IsSnapToTickEnabled="True" Height="30" VerticalAlignment="Bottom"/>
         <Label x:Name="lblHeight" Content="Height" Margin="38,0,300,90" Foreground="White" Height="30" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16"/>
         <Label x:Name="lblEasy" Content="Easy" HorizontalAlignment="Left" Margin="112,0,0,156" Width="47" FontWeight="Bold" FontSize="16" Height="36" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" Foreground="White"/>
-        <Label x:Name="lblCharacter" Content="Character" Margin="38,0,0,272" Foreground="White" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16"/>
         <Label x:Name="lblTheme" Content="Theme" Margin="38,0,0,214" Foreground="White" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16"/>
-        <Image x:Name="imgPlayerYoshi" HorizontalAlignment="Left" Margin="155,0,0,272" Width="25" Source="Resources/YoshiPlayer.png" Stretch="Fill" Height="25" VerticalAlignment="Bottom" ToolTip="Yoshi" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
-        <Image x:Name="imgPlayerSailboat" HorizontalAlignment="Left" Margin="185,0,0,272" Width="25" Source="Resources/SailboatPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Sailboat" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
-        <Image x:Name="imgPlayerJohnny" HorizontalAlignment="Left" Margin="215,0,0,272" Width="25" Source="Resources/JohnnyBravo.png" Height="25" VerticalAlignment="Bottom" ToolTip="Johnny Bravo" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
-        <Image x:Name="imgPlayerLink" HorizontalAlignment="Left" Margin="245,0,0,272" Width="25" Source="Resources/LinkPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Link" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
-        <Image x:Name="imgPlayerPurple" HorizontalAlignment="Left" Margin="275,0,0,272" Width="25" Source="Resources/PurplePlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Purple Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
-        <Image x:Name="imgPlayerRed" HorizontalAlignment="Left" Margin="305,0,0,272" Width="25" Source="Resources/RedPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Red Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4"/>
         <Image x:Name="imgCave" HorizontalAlignment="Left" Height="25" Margin="155,0,0,214" VerticalAlignment="Bottom" Width="25" Source="Resources/Cave4Door.png" ToolTip="Cave" MouseLeftButtonDown="setTheme_Click" Opacity="0.4"/>
         <Image x:Name="imgDungeon" HorizontalAlignment="Left" Height="25" Margin="185,0,0,214" VerticalAlignment="Bottom" Width="25" Source="Resources/dungeon4Door.png" ToolTip="Dungeon" MouseLeftButtonDown="setTheme_Click" Opacity="0.4"/>
         <Image x:Name="imgForest" HorizontalAlignment="Left" Margin="215,0,0,214" Width="25" Source="Resources/Forest4Door.png" ToolTip="Forest" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom"/>
@@ -31,6 +24,20 @@
         <Image x:Name="imgGreyRoom" HorizontalAlignment="Left" Margin="275,0,0,214" Width="25" Source="Resources/GreyRoom4Door.png" ToolTip="Gray Room" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom"/>
         <Image x:Name="imgBlueRoom" HorizontalAlignment="Left" Margin="305,0,0,214" Width="25" Source="Resources/BlueRoom4Door.png" ToolTip="Blue Room" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom"/>
         <Label x:Name="lblHard" Content="Hard" HorizontalAlignment="Left" Margin="318,0,0,155" Width="47" FontWeight="Bold" FontSize="16" Height="36" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" Foreground="White"/>
+        <GroupBox x:Name="gbCharacters" Header="Select a character" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="38,164,0,0" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White" Height="53" Width="327" BorderThickness="1">
+            <GroupBox.BorderBrush>
+                <SolidColorBrush Color="Black" Opacity="0"/>
+            </GroupBox.BorderBrush>
+            <Canvas Height="29" VerticalAlignment="Top" Margin="0,0,-2,0">
+                <Image x:Name="imgPlayerYoshi" Width="25" Source="Resources/YoshiPlayer.png" Stretch="Fill" Height="25" VerticalAlignment="Bottom" ToolTip="Yoshi" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="21" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Image x:Name="imgPlayerSailboat" Width="25" Source="Resources/SailboatPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Sailboat" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="51" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Image x:Name="imgPlayerJohnny" Width="25" Source="Resources/JohnnyBravo.png" Height="25" VerticalAlignment="Bottom" ToolTip="Johnny Bravo" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="81" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Image x:Name="imgPlayerLink" Width="25" Source="Resources/LinkPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Link" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="111" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Image x:Name="imgPlayerPurple" Width="25" Source="Resources/PurplePlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Purple Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="141" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Image x:Name="imgPlayerRed" Width="25" Source="Resources/RedPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Red Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="171" Canvas.Top="2" HorizontalAlignment="Center"/>
+                <Canvas Height="100" Canvas.Left="113" Canvas.Top="27" Width="100"/>
+            </Canvas>
+        </GroupBox>
 
     </Grid>
 </Window>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="BlueTeamTriviaMaze.MazeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Maze" Height="347" Width="600" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Padding="9,5,5,5" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" Background="Black">
+        Title="Maze" Height="347" Width="600" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Padding="9,5,5,5" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize" Background="Black" Icon="Resources/TriviaMazeIcon.png">
 
     <DockPanel LastChildFill="False" Margin="10,10,10,10">
 

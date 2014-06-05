@@ -11,9 +11,9 @@
                 <DropShadowEffect BlurRadius="2" ShadowDepth="2" Direction="0" Color="White"/>
             </Label.Effect>
         </Label>
-        <Slider x:Name="sldWidth" Margin="112,0,42,125" Maximum="6" Minimum="4" SmallChange="1" Value="4" TickPlacement="Both" IsSnapToTickEnabled="True" Height="30" VerticalAlignment="Bottom"/>
+        <Slider x:Name="sldWidth" Margin="112,0,42,125" Maximum="6" Minimum="3" SmallChange="1" Value="3" TickPlacement="Both" IsSnapToTickEnabled="True" Height="30" VerticalAlignment="Bottom"/>
         <Label x:Name="lblWidth" Content="Width" HorizontalAlignment="Left" Margin="38,0,0,128" Width="69" Foreground="White" Height="23" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16"/>
-        <Slider x:Name="sldHeight" Margin="112,0,42,90" RenderTransformOrigin="0.5,0.5" Maximum="6" Minimum="4" SmallChange="1" Value="4" TickPlacement="Both" IsSnapToTickEnabled="True" Height="30" VerticalAlignment="Bottom"/>
+        <Slider x:Name="sldHeight" Margin="112,0,42,90" RenderTransformOrigin="0.5,0.5" Maximum="6" Minimum="3" SmallChange="1" Value="3" TickPlacement="Both" IsSnapToTickEnabled="True" Height="30" VerticalAlignment="Bottom"/>
         <Label x:Name="lblHeight" Content="Height" Margin="38,0,300,90" Foreground="White" Height="30" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16"/>
         <Label x:Name="lblEasy" Content="Easy" HorizontalAlignment="Left" Margin="112,0,0,156" Width="47" FontWeight="Bold" FontSize="16" Height="36" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" Foreground="White"/>
         <Label x:Name="lblHard" Content="Hard" HorizontalAlignment="Left" Margin="318,0,0,155" Width="47" FontWeight="Bold" FontSize="16" Height="36" VerticalAlignment="Bottom" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" Foreground="White"/>

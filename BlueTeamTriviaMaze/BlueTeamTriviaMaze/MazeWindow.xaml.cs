@@ -116,20 +116,32 @@ namespace BlueTeamTriviaMaze
             lblQuestionsIncorrectValue.Content = _maze.GetPlayer().Stats.QuestionsIncorrect.ToString();
         }
 
-        public void Win()
+        private void GameOver()
         {
             IsEnabled = false;
             _timer.Stop();
 
+            // make the label flash
+            DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(0.5)));
+            dblanim.RepeatBehavior = RepeatBehavior.Forever;
+            dblanim.AutoReverse = true;
+            lblWinOrLose.BeginAnimation(OpacityProperty, dblanim);
+        }
+
+        public void Win()
+        {
+            GameOver();
+
             lblWinOrLose.Content = "You Win!";
+            lblWinOrLose.Foreground = Brushes.Green;
         }
 
         public void Lose()
         {
-            IsEnabled = false;
-            _timer.Stop();
+            GameOver();
 
             lblWinOrLose.Content = "You Lose...";
+            lblWinOrLose.Foreground = Brushes.Red;
         }
     }
 }

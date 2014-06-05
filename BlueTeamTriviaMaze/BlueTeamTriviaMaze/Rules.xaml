@@ -1,7 +1,7 @@
 ﻿<Window x:Class="BlueTeamTriviaMaze.Rules"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Rules" Height="300" Width="300" Icon="Resources/TriviaMazeIcon.png" ResizeMode="NoResize">
+        Title="Rules" Height="300" Width="300" Icon="Resources/TriviaMazeIcon.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/QuestionWindowBackground.png"/>

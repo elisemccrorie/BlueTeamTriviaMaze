@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseTriviaItemFactory.cs" />
     <Compile Include="Door.cs" />
@@ -79,6 +83,9 @@
     </Compile>
     <Compile Include="QuestionWindow.xaml.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SettingsWindow.xaml.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="Theme.cs" />
@@ -88,6 +95,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,6 +110,10 @@
     <Page Include="QuestionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Rules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

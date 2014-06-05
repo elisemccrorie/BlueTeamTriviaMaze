@@ -50,6 +50,9 @@ namespace BlueTeamTriviaMaze
                 if (EastDoor != null) EastDoor.Opacity = 1;
                 if (NorthDoor != null) NorthDoor.Opacity = 1;
                 if (SouthDoor != null) SouthDoor.Opacity = 1;
+
+                if(EastDoor == null && SouthDoor == null) //exit room
+                    Drawable.Fill = new ImageBrush(_theme.Exit);
             }
 
             else if (_state == State.NotVisited)

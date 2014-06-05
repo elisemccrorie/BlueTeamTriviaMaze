@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Author: BlueTeam
+//Class: Spring 2014 CSCD 350-01
+//Description: this is the 
+//  description and here is
+//  another line
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +53,18 @@ namespace BlueTeamTriviaMaze
         private void settingsWindow_Closed(object sender, EventArgs e)
         {
             Show();
+        }
+
+        private void miRules_Click(object sender, RoutedEventArgs e)
+        {
+            Rules rules = new Rules();
+            rules.ShowDialog();
+        }
+
+        private void miAbout_Click(object sender, RoutedEventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
         }
     }
 }

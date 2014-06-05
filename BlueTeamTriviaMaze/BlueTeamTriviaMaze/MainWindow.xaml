@@ -8,8 +8,34 @@
     <Grid Width="400" Height="400">
         <Label x:Name="lblStart" Content="Start" RenderTransformOrigin="-0.053,-0.136" Margin="140,274,140,80" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFBF0C0D" BorderBrush="White" OpacityMask="Black" TabIndex="0" MouseLeftButtonDown="lblStart_Click" Background="{x:Null}" Loaded="Window_Loaded">
             <Label.Effect>
-                <DropShadowEffect BlurRadius="1" ShadowDepth="2" Direction="0" Color="White"/>
+                <DropShadowEffect BlurRadius="2" ShadowDepth="2" Direction="0" Color="White"/>
             </Label.Effect>
         </Label>
+        <Menu x:Name="mnuHelpContainer" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="400">
+            <Menu.Background>
+                <LinearGradientBrush EndPoint="0,1" Opacity="0" StartPoint="0,0">
+                    <GradientStop Color="#FFF6F6F6" Offset="0.25"/>
+                    <GradientStop Color="#FFEAE8E8" Offset="0.25"/>
+                    <GradientStop Color="#FFDCD9D9" Offset="0.8"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Menu.Background>
+            <MenuItem x:Name="miRules" Header="Rules" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="20" Foreground="#FFBF0C0D" OpacityMask="Black" Click="miRules_Click">
+                <MenuItem.BorderBrush>
+                    <SolidColorBrush Color="White" Opacity="0"/>
+                </MenuItem.BorderBrush>
+                <MenuItem.Effect>
+                    <DropShadowEffect Color="White" BlurRadius="2" Direction="0" ShadowDepth="2"/>
+                </MenuItem.Effect>
+            </MenuItem>
+            <MenuItem x:Name="miAbout" Header="About" Foreground="#FFBF0C0D" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="20" OpacityMask="Black" Click="miAbout_Click">
+                <MenuItem.BorderBrush>
+                    <SolidColorBrush Color="White" Opacity="0"/>
+                </MenuItem.BorderBrush>
+                <MenuItem.Effect>
+                    <DropShadowEffect BlurRadius="2" Color="White" Direction="0" ShadowDepth="2"/>
+                </MenuItem.Effect>
+            </MenuItem>
+        </Menu>
     </Grid>
 </Window>

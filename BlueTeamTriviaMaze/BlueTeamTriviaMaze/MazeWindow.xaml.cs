@@ -31,31 +31,31 @@ namespace BlueTeamTriviaMaze
         private Maze _maze;
         private int _currentTime;
         private DispatcherTimer _timer;
-        private string _theme;
+        private Theme _theme;
         private string _player;
 
         public Maze GetMaze() { return _maze; }
 
-        public MazeWindow(Maze maze) 
-        {
-            InitializeComponent();
-            _instance = this;
-            _maze = maze;
+        //public MazeWindow(Maze maze) 
+        //{
+        //    InitializeComponent();
+        //    _instance = this;
+        //    _maze = maze;
 
-            Title = "Maze - " + _maze.Rows + "x" + _maze.Columns;
-            _theme = _maze.Theme;
-            _player = _maze.Player;
+        //    Title = "Maze - " + _maze.Rows + "x" + _maze.Columns;
+        //    _theme = _maze.Theme;
+        //    _player = _maze.Player;
 
-            // size the canvas(es) to the maze size
-            cvsMaze.Width = _maze.Columns * Room.ROOM_SIZE;
-            cvsMaze.Height = cvsInformation.Height = _maze.Rows * Room.ROOM_SIZE;
+        //    // size the canvas(es) to the maze size
+        //    cvsMaze.Width = _maze.Columns * Room.ROOM_SIZE;
+        //    cvsMaze.Height = cvsInformation.Height = _maze.Rows * Room.ROOM_SIZE;
 
 
-            //add the maze to its canvas
-            cvsMaze.Children.Add(_maze);
-        }
+        //    //add the maze to its canvas
+        //    cvsMaze.Children.Add(_maze);
+        //}
 
-        public MazeWindow(int maze_width, int maze_height, string theme, string player)
+        public MazeWindow(int maze_width, int maze_height, Theme theme, string player)
         {
             _instance = this;
 

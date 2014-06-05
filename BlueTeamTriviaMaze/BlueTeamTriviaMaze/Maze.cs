@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +31,7 @@ namespace BlueTeamTriviaMaze
         //necessary for loading a saved maze
         public int Rows { get; private set; }
         public int Columns { get; private set; }
-        public string Theme { get; private set; }
+        public Theme Theme { get; private set; }
         public string Player { get; private set; }
 
         public Room GetExitRoom() { return _exitRoom; }
@@ -38,7 +39,7 @@ namespace BlueTeamTriviaMaze
         
 
 
-        public void Initialize(int width, int height, int entrance_x, int entrance_y, int exit_x, int exit_y, string theme, string player)
+        public void Initialize(int width, int height, int entrance_x, int entrance_y, int exit_x, int exit_y, Theme theme, string player)
         {
             // Create and add the Player to the maze
             CreatePlayer(3, player); // num keys, player image source
@@ -161,7 +162,7 @@ namespace BlueTeamTriviaMaze
 
 
 
-        private void CreateRoom(int x, int y, Room.Type room_type, Door northDoor, Door southDoor, Door eastDoor, Door westDoor, string theme)
+        private void CreateRoom(int x, int y, Room.Type room_type, Door northDoor, Door southDoor, Door eastDoor, Door westDoor, Theme theme)
         {
             // create and store a new Room, composed of all its
             // appropriate doors (either freshly-generated or as taken from the neighboring rooms)
@@ -173,7 +174,12 @@ namespace BlueTeamTriviaMaze
 
             // store exit room, for pathfinding "lose" detection algorithm
             if (room_type == Room.Type.Exit)
+            {
                 _exitRoom = _rooms[y, x];
+                _exitRoom.Drawable.StrokeThickness = 1;
+                _exitRoom.Drawable.Stroke = Brushes.Red;
+                _exitRoom.Drawable.Fill = new ImageBrush(Theme.ExitHidden);
+            }
         }
 
 

@@ -22,6 +22,7 @@ namespace BlueTeamTriviaMaze
     {
         private MazeWindow _mazeWindow;
         private string _themeName = null;
+        private Theme _theme;
         private string _playerName = null;
         private double _startOpacity = 0.4, _pickedOpacity = 1.0;
         private readonly Image[] _playerImages, _themeImages;
@@ -43,7 +44,7 @@ namespace BlueTeamTriviaMaze
         {
             Hide();
 
-            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _themeName, _playerName);
+            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _theme, _playerName);
             _mazeWindow.Closed += new EventHandler(mazeWindow_Closed);
             _mazeWindow.Show();
         }
@@ -60,7 +61,7 @@ namespace BlueTeamTriviaMaze
             int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
             int stop = ((Image) sender).Source.ToString().LastIndexOf("4");
             _themeName = ((Image)sender).Source.ToString().Substring(start, stop - start);
-
+            _theme = new Theme(_themeName);
             if (_themeName != null && _playerName != null)
             {
                 lblEnterMaze.Opacity = 1.0;

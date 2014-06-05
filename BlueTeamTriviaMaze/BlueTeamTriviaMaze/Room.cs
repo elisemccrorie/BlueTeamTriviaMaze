@@ -24,6 +24,7 @@ namespace BlueTeamTriviaMaze
 
         private Type _type;
         private State _state;
+        private Theme _theme;
 
         public Shape Drawable;
 
@@ -74,11 +75,12 @@ namespace BlueTeamTriviaMaze
                 WestDoor.IsEnabled = enabled;
         }
 
-        public Room(int x, int y, Type type, Door north, Door south, Door east, Door west, string theme)
+        public Room(int x, int y, Type type, Door north, Door south, Door east, Door west, Theme theme)
         {
             _type = type;
             X = x;
             Y = y;
+            _theme = theme;
 
             // store all the doors- some can be null for edge cases
             NorthDoor = north;
@@ -96,7 +98,7 @@ namespace BlueTeamTriviaMaze
 
             Drawable.Width = Drawable.MinWidth = Drawable.MaxWidth = Drawable.Height = Drawable.MinHeight = Drawable.MaxHeight = ROOM_SIZE;
 
-            SetBackgroundFill(theme);
+            SetBackgroundFill();
 
             // all rooms start as not visited
             SetState(State.NotVisited);
@@ -118,50 +120,34 @@ namespace BlueTeamTriviaMaze
             return tmp;
         }
 
-        private void SetBackgroundFill(string theme)
+        private void SetBackgroundFill()
         {
             if (NorthDoor != null && SouthDoor != null && EastDoor != null && WestDoor != null)
-                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}4Door.png", theme))));
+                Drawable.Fill = new ImageBrush(_theme.FourDoor);
 
             if (NorthDoor == null)
-                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}3Door.png", theme))));
+                Drawable.Fill = new ImageBrush(_theme.ThreeDoor);
 
             if (EastDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}3Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 90));
-            }
+                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 90));
 
             if (SouthDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}3Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 180));
-            }
+                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 180));
 
             if (WestDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}3Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 270));
-            }
+                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 270));
 
             if (NorthDoor == null && WestDoor == null)  //start door
-                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Start.png", theme))));
+                Drawable.Fill = new ImageBrush(_theme.Start);
 
             if (NorthDoor == null && EastDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}2Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 90));
-            }
+                Drawable.Fill = new ImageBrush(rotate(_theme.TwoDoor, 90));
 
             if (SouthDoor == null && EastDoor == null)  //exit door
-                Drawable.Fill = new ImageBrush(new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Exit.png", theme))));
+                Drawable.Fill = new ImageBrush(_theme.Exit);
 
             if (SouthDoor == null && WestDoor == null)
-            {
-                BitmapImage room = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}2Door.png", theme)));
-                Drawable.Fill = new ImageBrush(rotate(room, 270));
-            }
-
+                Drawable.Fill = new ImageBrush(rotate(_theme.TwoDoor, 270));
         }
     }
 }

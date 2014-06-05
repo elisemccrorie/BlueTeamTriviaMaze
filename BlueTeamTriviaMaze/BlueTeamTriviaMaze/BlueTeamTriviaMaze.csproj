@@ -76,6 +76,7 @@
     <Compile Include="Room.cs" />
     <Compile Include="SettingsWindow.xaml.cs" />
     <Compile Include="Statistics.cs" />
+    <Compile Include="Theme.cs" />
     <Compile Include="TriviaItem.cs" />
     <Compile Include="TriviaItemFactory.cs" />
     <Compile Include="App.xaml.cs">
@@ -128,6 +129,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -346,6 +348,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TriviaMazeIcon.ico" />
+  </ItemGroup>
+    <Resource Include="Resources\ExitHidden.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

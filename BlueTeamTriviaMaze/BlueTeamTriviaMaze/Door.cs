@@ -106,6 +106,8 @@ namespace BlueTeamTriviaMaze
                 stats.DoorsOpen++;
                 stats.QuestionsCorrect++;
                 stats.AverageAnswerTime = (DateTime.Now.Subtract(start)).TotalSeconds;
+                MazeWindow.GetInstance().UpdateStatistics();
+
                 Open();
                 return true;
             }
@@ -114,6 +116,8 @@ namespace BlueTeamTriviaMaze
                 stats.DoorsLocked++;
                 stats.QuestionsIncorrect++;
                 stats.AverageAnswerTime = (DateTime.Now.Subtract(start)).TotalSeconds;
+                MazeWindow.GetInstance().UpdateStatistics();
+
                 Lock();
             }
 

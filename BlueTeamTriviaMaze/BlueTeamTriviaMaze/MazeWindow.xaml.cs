@@ -107,7 +107,11 @@ namespace BlueTeamTriviaMaze
         private void Timer_Tick(object sender, EventArgs e)
         {
             lblTime.Content = "Time:  " + TimeSpan.FromSeconds(++_currentTime).ToString(@"m\:ss");
-            lblAvgAnsTimeValue.Content = _maze.GetPlayer().Stats.AverageAnswerTime.ToString();
+        }
+
+        public void UpdateStatistics()
+        {
+            lblAvgAnsTimeValue.Content = _maze.GetPlayer().Stats.AverageAnswerTime.ToString() + " s";
             lblQuestionsCorrectValue.Content = _maze.GetPlayer().Stats.QuestionsCorrect.ToString();
             lblQuestionsIncorrectValue.Content = _maze.GetPlayer().Stats.QuestionsIncorrect.ToString();
         }
@@ -117,11 +121,7 @@ namespace BlueTeamTriviaMaze
             IsEnabled = false;
             _timer.Stop();
 
-            //MessageBox.Show("You won in " + _currentTime + " seconds!", "Winner!");
-
             lblWinOrLose.Content = "You Win!";
-
-            //Close();
         }
 
         public void Lose()
@@ -129,11 +129,7 @@ namespace BlueTeamTriviaMaze
             IsEnabled = false;
             _timer.Stop();
 
-            //MessageBox.Show("You Lose!", "Loser!");
-
             lblWinOrLose.Content = "You Lose...";
-
-            //Close();
         }
     }
 }

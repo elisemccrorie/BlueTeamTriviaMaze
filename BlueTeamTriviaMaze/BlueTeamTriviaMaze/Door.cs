@@ -24,7 +24,7 @@ namespace BlueTeamTriviaMaze
         public enum State { Closed, Locked, Opened };
         public TriviaItem Question { get; private set; }
 
-        private string _theme;
+        private Theme _theme;
 
         private State _state;
 
@@ -43,13 +43,13 @@ namespace BlueTeamTriviaMaze
             }
             else if (_state == State.Locked)
             {
-                Source = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}DoorLocked.png", _theme))); // locked door image
+                Source = _theme.DoorLocked; // locked door image
                 IsEnabled = false;  // door is NOT clickable (might change for key usage later)
                 Opacity = 1.0;      // show the door
             }
             else if (_state == State.Closed)
             {
-                Source = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Door.png", _theme)));  // closed door image
+                Source = _theme.Door;  // closed door image
                 IsEnabled = true;  // door is clickable
                 Opacity = 1.0;     // show the door
             }
@@ -57,7 +57,7 @@ namespace BlueTeamTriviaMaze
 
 
 
-        public Door(float x_index, float y_index, string theme, TriviaItem triviaItem)
+        public Door(float x_index, float y_index, Theme theme, TriviaItem triviaItem)
         {
             MinWidth = MaxWidth = MinHeight = MaxHeight = Width = Height = DOOR_SIZE;
             _theme = theme;

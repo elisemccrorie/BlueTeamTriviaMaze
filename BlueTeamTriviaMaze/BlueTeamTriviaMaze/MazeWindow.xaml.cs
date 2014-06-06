@@ -36,25 +36,6 @@ namespace BlueTeamTriviaMaze
 
         public Maze GetMaze() { return _maze; }
 
-        //public MazeWindow(Maze maze) 
-        //{
-        //    InitializeComponent();
-        //    _instance = this;
-        //    _maze = maze;
-
-        //    Title = "Maze - " + _maze.Rows + "x" + _maze.Columns;
-        //    _theme = _maze.Theme;
-        //    _player = _maze.Player;
-
-        //    // size the canvas(es) to the maze size
-        //    cvsMaze.Width = _maze.Columns * Room.ROOM_SIZE;
-        //    cvsMaze.Height = cvsInformation.Height = _maze.Rows * Room.ROOM_SIZE;
-
-
-        //    //add the maze to its canvas
-        //    cvsMaze.Children.Add(_maze);
-        //}
-
         public MazeWindow(int maze_width, int maze_height, Theme theme, string player)
         {
             _instance = this;
@@ -122,7 +103,7 @@ namespace BlueTeamTriviaMaze
             _timer.Stop();
 
             // make the label flash
-            DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(0.5)));
+            DoubleAnimation dblanim = new DoubleAnimation(1.0, 0.2, new Duration(TimeSpan.FromSeconds(1.0)));
             dblanim.RepeatBehavior = RepeatBehavior.Forever;
             dblanim.AutoReverse = true;
             lblWinOrLose.BeginAnimation(OpacityProperty, dblanim);

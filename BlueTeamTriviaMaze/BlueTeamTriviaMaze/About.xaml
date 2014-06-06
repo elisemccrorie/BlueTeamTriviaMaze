@@ -11,7 +11,7 @@
                 <DropShadowEffect BlurRadius="2" Color="White" Direction="0" ShadowDepth="2"/>
             </Label.Effect>
         </Label>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="This is the about info!" VerticalAlignment="Top" Margin="10,76,0,0" Height="184" Width="272" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White"/>
+        <TextBlock x:Name="txblkAbout" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,76,0,0" Height="184" Width="272" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White" TextOptions.TextFormattingMode="Display"/>
 
     </Grid>
 </Window>

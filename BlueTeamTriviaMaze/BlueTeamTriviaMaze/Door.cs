@@ -40,6 +40,11 @@ namespace BlueTeamTriviaMaze
                 //animate the opening of the door via fading out
                 DoubleAnimation dblAnim = new DoubleAnimation(1.0, 0.0, new Duration(TimeSpan.FromSeconds(1)));
                 BeginAnimation(OpacityProperty, dblAnim);
+
+                Source = _theme.DoorReturn;
+
+                dblAnim = new DoubleAnimation(0.0, 1.0, new Duration(TimeSpan.FromSeconds(1)));
+                BeginAnimation(OpacityProperty, dblAnim);
             }
             else if (_state == State.Locked)
             {

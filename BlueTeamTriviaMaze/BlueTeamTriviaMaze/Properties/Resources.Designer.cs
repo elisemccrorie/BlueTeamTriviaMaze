@@ -213,6 +213,16 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DoorReturn {
+            get {
+                object obj = ResourceManager.GetObject("DoorReturn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dungeon2Door {
             get {
                 object obj = ResourceManager.GetObject("Dungeon2Door", resourceCulture);

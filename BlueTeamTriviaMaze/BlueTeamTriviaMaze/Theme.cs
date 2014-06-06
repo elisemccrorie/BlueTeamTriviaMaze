@@ -30,7 +30,7 @@ namespace BlueTeamTriviaMaze
             TwoDoor = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}2Door.png", theme)));
             Door = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}Door.png", theme)));
             DoorLocked = new BitmapImage(new Uri(String.Format(@"pack://application:,,,/Resources/{0}DoorLocked.png", theme)));
-            DoorReturn = new BitmapImage(new Uri(@"pack://application:,,,/Resources/DoorReturn.bmp"));
+            DoorReturn = new BitmapImage(new Uri(@"pack://application:,,,/Resources/DoorReturn.png"));
         }
 
     }

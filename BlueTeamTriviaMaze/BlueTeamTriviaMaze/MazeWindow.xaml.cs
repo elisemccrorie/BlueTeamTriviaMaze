@@ -124,5 +124,13 @@ namespace BlueTeamTriviaMaze
             lblWinOrLose.Content = "You Lose...";
             lblWinOrLose.Foreground = Brushes.Red;
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+        }
     }
 }

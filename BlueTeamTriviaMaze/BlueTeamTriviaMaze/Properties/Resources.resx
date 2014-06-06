@@ -316,7 +316,7 @@
   <data name="ExitHidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExitHidden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DoorReturn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DoorReturn.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DoorReturn1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DoorReturn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -213,9 +213,9 @@ namespace BlueTeamTriviaMaze.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DoorReturn {
+        internal static System.Drawing.Bitmap DoorReturn1 {
             get {
-                object obj = ResourceManager.GetObject("DoorReturn", resourceCulture);
+                object obj = ResourceManager.GetObject("DoorReturn1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

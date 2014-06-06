@@ -176,8 +176,7 @@ namespace BlueTeamTriviaMaze
             if (room_type == Room.Type.Exit)
             {
                 _exitRoom = _rooms[y, x];
-                _exitRoom.Drawable.StrokeThickness = 1;
-                _exitRoom.Drawable.Stroke = Brushes.Red;
+                _exitRoom.Drawable.StrokeThickness = 0;
                 _exitRoom.Drawable.Fill = new ImageBrush(Theme.ExitHidden);
             }
         }

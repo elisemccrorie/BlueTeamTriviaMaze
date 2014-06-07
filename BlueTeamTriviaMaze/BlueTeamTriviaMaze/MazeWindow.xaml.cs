@@ -63,12 +63,16 @@ namespace BlueTeamTriviaMaze
 
         private void CreateMaze(int maze_width, int maze_height)
         {
-            _maze = new Maze();
-            _maze.Initialize(maze_width, maze_height,                    // maze dimensions
-                             0, 0,                                       // maze entrance
-                             maze_width-1, maze_height-1,                // array of maze exit
-                             _theme,                                     //maze background theme image
-                             _player);                                   //player image
+            _maze = new Maze(_player);
+            MazeBuilder mb = new MazeBuilder(ref _maze, maze_width, maze_height, _theme, _player);
+            _maze = mb.GetPlainMaze();
+            _maze = mb.GetTrueMaze(ref _maze);
+            //_maze = new Maze();
+            //_maze.Initialize(maze_width, maze_height,                    // maze dimensions
+            //                 0, 0,                                       // maze entrance
+            //                 maze_width - 1, maze_height - 1,                // array of maze exit
+            //                 _theme,                                     //maze background theme image
+            //                 _player);                                   //player image
 
             cvsMaze.Children.Add(_maze);
         }

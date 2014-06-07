@@ -36,8 +36,14 @@ namespace BlueTeamTriviaMaze
 
         public Room GetExitRoom() { return _exitRoom; }
         public Player GetPlayer() { return _player; }
-        
 
+        public Maze() { }
+
+        public Maze(string player)
+        {
+            Player = player;
+            CreatePlayer(3, player);
+        }
 
         public void Initialize(int width, int height, int entrance_x, int entrance_y, int exit_x, int exit_y, Theme theme, string player)
         {

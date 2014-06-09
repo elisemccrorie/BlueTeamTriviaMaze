@@ -22,13 +22,13 @@ namespace BlueTeamTriviaMaze
         private int _currentTime;
         private DispatcherTimer _timer;
         private Theme _theme;
-        private string _player;
+        private string _player, _style;
 
         public static MazeWindow GetInstance() { return _instance; }
         public enum MoveDirection { North, South, East, West };
         public Maze GetMaze() { return _maze; }
 
-        public MazeWindow(int maze_width, int maze_height, Theme theme, string player)
+        public MazeWindow(int maze_width, int maze_height, Theme theme, string player, string style)
         {
             _instance = this;
 
@@ -36,6 +36,7 @@ namespace BlueTeamTriviaMaze
             Title = "Maze - " + maze_width + "x" + maze_height;
             _theme = theme;
             _player = player;
+            _style = style;
 
             // size the canvas(es) to the maze size
             cvsMaze.Width = maze_width * Room.ROOM_SIZE;
@@ -43,7 +44,7 @@ namespace BlueTeamTriviaMaze
             
 
             // construct and add the maze to its canvas
-            CreateMaze(maze_width, maze_height);
+            CreateMaze(maze_width, maze_height, _style);
 
 
             // start the game timer
@@ -53,14 +54,28 @@ namespace BlueTeamTriviaMaze
 
 
 
-        private void CreateMaze(int maze_width, int maze_height)
+        private void CreateMaze(int maze_width, int maze_height, string style)
         {
             _maze = new Maze();
-            _maze.Initialize(maze_width, maze_height,                    // maze dimensions
-                             0, 0,                                       // maze entrance
-                             maze_width-1, maze_height-1,                // array of maze exit
-                             _theme,                                     //maze background theme image
-                             _player);                                   //player image
+
+            if (style.ToLower() == "classic")
+            {
+                MazeBuilder mb = new MazeBuilder(ref _maze, maze_width, maze_height, _theme, _player);
+                _maze = mb.GetPlainMaze();
+                _maze = mb.GetTrueMaze(ref _maze);
+            }
+            else if (style.ToLower() == "open")
+            {
+                _maze.Initialize(maze_width, maze_height,                    // maze dimensions
+                                 0, 0,                                       // maze entrance
+                                 maze_width - 1, maze_height - 1,                // array of maze exit
+                                 _theme,                                     //maze background theme image
+                                 _player);                                   //player image
+            }
+
+            //make sure start room doors are visible
+            _maze.GetRoom(0, 0).EastDoor.Opacity = 1.0;
+            _maze.GetRoom(0, 0).SouthDoor.Opacity = 1.0;
 
             cvsMaze.Children.Add(_maze);
         }

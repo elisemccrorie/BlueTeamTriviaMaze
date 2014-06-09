@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Settings" Height="521.836" Width="413" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Resources/TriviaMazeIcon.png">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/Settings.png"/>
+        <ImageBrush ImageSource="Resources/SidePanelBackground.png"/>
     </Window.Background>
     <Grid>
         <Label x:Name="lblEnterMaze" Content="Enter Maze" Margin="105,0,105,25" MouseLeftButtonDown="btnEnterMaze_Click" RenderTransformOrigin="1.12,0.409" Height="46" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="36" VerticalAlignment="Bottom" Foreground="#FFBF0C0D" BorderBrush="White" OpacityMask="Black" IsEnabled="False" Opacity="0.4" IsEnabledChanged="lblEnterMaze_IsEnabledChanged">
@@ -31,7 +31,7 @@
                 <Canvas Height="100" Canvas.Left="113" Canvas.Top="27" Width="100"/>
             </Canvas>
         </GroupBox>
-        <GroupBox Header="Select a theme" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="38,0,0,196" Height="53" Width="327" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White">
+        <GroupBox Header="Select a theme" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="38,0,0,198" Height="53" Width="327" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White">
             <GroupBox.BorderBrush>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </GroupBox.BorderBrush>
@@ -45,6 +45,29 @@
                 <Image x:Name="imgSea" HorizontalAlignment="Left" Width="25" Source="Resources/Sea4Door.png" ToolTip="Sea" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom" Canvas.Left="172"/>
                 <Image x:Name="imgGreyRoom" HorizontalAlignment="Left" Width="25" Source="Resources/GreyRoom4Door.png" ToolTip="Gray Room" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom" Canvas.Left="226"/>
                 <Image x:Name="imgBlueRoom" HorizontalAlignment="Left" Width="25" Source="Resources/BlueRoom4Door.png" ToolTip="Blue Room" MouseLeftButtonDown="setTheme_Click" Opacity="0.4" Height="25" VerticalAlignment="Bottom" Canvas.Left="280"/>
+            </Canvas>
+        </GroupBox>
+        <Label x:Name="lblSettings" Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFBF0C0D" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="72" Margin="10,10,0,0" Width="387" HorizontalContentAlignment="Center" OpacityMask="Black">
+            <Label.Effect>
+                <DropShadowEffect Color="White" Direction="0" ShadowDepth="2" BlurRadius="2"/>
+            </Label.Effect>
+        </Label>
+        <GroupBox x:Name="gbStyle" Header="Select a style" HorizontalAlignment="Left" Margin="38,0,0,314" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White" Width="327" Height="53" VerticalAlignment="Bottom">
+            <GroupBox.BorderBrush>
+                <SolidColorBrush Color="#FFD5DFE5" Opacity="0"/>
+            </GroupBox.BorderBrush>
+            <Canvas Height="29" VerticalAlignment="Top" Width="316
+                    ">
+                <Label x:Name="lblStyleOpen" Content="Open" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFBF0C0D" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="18" Width="158" HorizontalContentAlignment="Center" OpacityMask="Black" Height="29" ToolTip="Every door in every room is potentially openable. There are many paths from entrance to exit." VerticalContentAlignment="Center" MouseLeftButtonDown="setStyle_Click">
+                    <Label.Effect>
+                        <DropShadowEffect Color="White" Direction="0" ShadowDepth="2" BlurRadius="2"/>
+                    </Label.Effect>
+                </Label>
+                <Label x:Name="lblStyleClassic" Content="Classic" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFBF0C0D" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="18" Width="158" HorizontalContentAlignment="Center" OpacityMask="Black" Height="29" ToolTip="Many doors are locked by default, creating a more true maze experience with dead ends. There may be only one path from entrance to exit." VerticalContentAlignment="Center" Canvas.Left="158" MouseLeftButtonDown="setStyle_Click">
+                    <Label.Effect>
+                        <DropShadowEffect Color="White" Direction="0" ShadowDepth="2" BlurRadius="2"/>
+                    </Label.Effect>
+                </Label>
             </Canvas>
         </GroupBox>
 

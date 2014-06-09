@@ -20,8 +20,9 @@ namespace BlueTeamTriviaMaze
         private MazeWindow _mazeWindow;
         private string _themeName = null;
         private Theme _theme;
-        private string _playerName = null;
+        private string _styleName = null, _playerName = null;
         private double _startOpacity = 0.4, _pickedOpacity = 1.0;
+        private readonly Label[] _styleLabels;
         private readonly Image[] _playerImages, _themeImages;
 
 
@@ -29,10 +30,15 @@ namespace BlueTeamTriviaMaze
         {
             InitializeComponent();
 
+            _styleLabels = new Label[] { lblStyleOpen, lblStyleClassic };
+            opacityOff(_styleLabels);
+
             _playerImages = new Image[] {imgPlayerYoshi, imgPlayerSailboat, imgPlayerJohnny, 
                                                 imgPlayerLink, imgPlayerRed, imgPlayerPurple};
+            opacityOff(_playerImages);
 
             _themeImages = new Image[] {imgCave, imgDungeon, imgForest, imgGreyRoom, imgBlueRoom, imgSea};
+            opacityOff(_themeImages);
 
             lblEnterMaze.IsEnabled = false;
         }
@@ -42,7 +48,7 @@ namespace BlueTeamTriviaMaze
         {
             Hide();
 
-            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _theme, _playerName);
+            _mazeWindow = new MazeWindow((int)this.sldWidth.Value, (int)this.sldHeight.Value, _theme, _playerName, _styleName);
             _mazeWindow.Closed += new EventHandler(mazeWindow_Closed);
             _mazeWindow.Show();
         }
@@ -51,17 +57,15 @@ namespace BlueTeamTriviaMaze
         {
             Show();
         }
-        
-        //highlight selected theme
-        private void setTheme_Click(object sender, MouseButtonEventArgs e)
+
+        //highlight selected style
+        private void setStyle_Click(object sender, MouseButtonEventArgs e)
         {
-            opacityOff(_themeImages);
-            ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
-            int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
-            int stop = ((Image) sender).Source.ToString().LastIndexOf("4");
-            _themeName = ((Image)sender).Source.ToString().Substring(start, stop - start);
-            _theme = new Theme(_themeName);
-            if (_themeName != null && _playerName != null)
+            opacityOff(_styleLabels);
+            ((Label)sender).Opacity = ((Label)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
+            _styleName = ((Label)sender).Content.ToString();
+
+            if (_styleName != null && _themeName != null && _playerName != null)
             {
                 lblEnterMaze.Opacity = 1.0;
                 lblEnterMaze.IsEnabled = true;
@@ -77,17 +81,34 @@ namespace BlueTeamTriviaMaze
             int stop = ((Image)sender).Source.ToString().IndexOf(@".");
             _playerName = ((Image)sender).Source.ToString().Substring(start, stop - start);
 
-            if (_themeName != null && _playerName != null)
+            if (_styleName != null && _themeName != null && _playerName != null)
+            {
+                lblEnterMaze.Opacity = 1.0;
+                lblEnterMaze.IsEnabled = true;
+            }
+        }
+        
+        //highlight selected theme
+        private void setTheme_Click(object sender, MouseButtonEventArgs e)
+        {
+            opacityOff(_themeImages);
+            ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
+            int start = ((Image)sender).Source.ToString().LastIndexOf(@"/") + 1;
+            int stop = ((Image) sender).Source.ToString().LastIndexOf("4");
+            _themeName = ((Image)sender).Source.ToString().Substring(start, stop - start);
+            _theme = new Theme(_themeName);
+
+            if (_styleName != null && _themeName != null && _playerName != null)
             {
                 lblEnterMaze.Opacity = 1.0;
                 lblEnterMaze.IsEnabled = true;
             }
         }
 
-        private void opacityOff(Image[] images)
+        private void opacityOff(UIElement[] ctrls)
         {
-            foreach (Image i in images)
-                i.Opacity = _startOpacity;
+            foreach (UIElement c in ctrls)
+                c.Opacity = _startOpacity;
         }
 
         //only allow player to enter maze if both character and theme have been selected

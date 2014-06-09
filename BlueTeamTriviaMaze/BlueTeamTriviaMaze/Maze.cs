@@ -1,4 +1,11 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: The main container of the game. A collection of 
+//  rooms and doors for a player to navigate through with the 
+//  goal of reaching the exit room. Also contains a theme for
+//  its background images and a player
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

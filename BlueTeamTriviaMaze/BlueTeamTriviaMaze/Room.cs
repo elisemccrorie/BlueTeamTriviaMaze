@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Houses a player during gameplay. Collectively used
+//  to create a maze. Contains references to four doors. Has an X
+//  and Y position within the maze
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +23,14 @@ namespace BlueTeamTriviaMaze
    
     public class Room
     {
+        private Type _type;
+        private State _state;
+        private Theme _theme;
+
         public static int ROOM_SIZE = 100;
 
         public enum Type { Normal, Entrance, Exit }
         public enum State { NotVisited, Visited }
-
-        private Type _type;
-        private State _state;
-        private Theme _theme;
 
         public Shape Drawable;
 

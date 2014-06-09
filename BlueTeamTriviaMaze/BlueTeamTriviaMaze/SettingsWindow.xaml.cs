@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Allows the player to customize their gameplay
+//  experience by selecting a character, theme, and maze
+//  size (width and height)
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +46,7 @@ namespace BlueTeamTriviaMaze
             lblEnterMaze.IsEnabled = false;
         }
 
+        //close this window when maze is entered, reopen when maze is closed
         private void btnEnterMaze_Click(object sender, RoutedEventArgs e)
         {
             Hide();
@@ -53,7 +60,8 @@ namespace BlueTeamTriviaMaze
         {
             Show();
         }
-
+        
+        //highlight selected theme
         private void setTheme_Click(object sender, MouseButtonEventArgs e)
         {
             opacityOff(_themeImages);
@@ -69,7 +77,8 @@ namespace BlueTeamTriviaMaze
             }
         }
 
-        private void setPlayer_Click(object sender, MouseButtonEventArgs e)
+        //highlight selected character
+        private void setCharacter_Click(object sender, MouseButtonEventArgs e)
         {
             opacityOff(_playerImages);
             ((Image)sender).Opacity = ((Image)sender).Opacity == _startOpacity ? _pickedOpacity : _startOpacity; //change opacity of most recently picked image
@@ -90,6 +99,7 @@ namespace BlueTeamTriviaMaze
                 i.Opacity = _startOpacity;
         }
 
+        //only allow player to enter maze if both character and theme have been selected
         private void lblEnterMaze_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (lblEnterMaze.IsEnabled)

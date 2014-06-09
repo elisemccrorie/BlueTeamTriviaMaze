@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Displays the "about" information for the Blue Team.
+//  Includes team name, group members, version class, framework
+//  and platform
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

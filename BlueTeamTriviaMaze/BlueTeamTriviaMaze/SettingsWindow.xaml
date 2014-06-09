@@ -22,12 +22,12 @@
                 <SolidColorBrush Color="Black" Opacity="0"/>
             </GroupBox.BorderBrush>
             <Canvas Height="29" VerticalAlignment="Top" Margin="0,0,-2,0">
-                <Image x:Name="imgPlayerYoshi" Width="25" Source="Resources/YoshiPlayer.png" Stretch="Fill" Height="25" VerticalAlignment="Bottom" ToolTip="Yoshi" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="118" Canvas.Top="2" HorizontalAlignment="Left"/>
-                <Image x:Name="imgPlayerSailboat" Width="25" Source="Resources/SailboatPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Sailboat" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="172" Canvas.Top="2" HorizontalAlignment="Left"/>
-                <Image x:Name="imgPlayerJohnny" Width="25" Source="Resources/JohnnyBravo.png" Height="25" VerticalAlignment="Bottom" ToolTip="Johnny Bravo" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="10" Canvas.Top="2" HorizontalAlignment="Left"/>
-                <Image x:Name="imgPlayerLink" Width="25" Source="Resources/LinkPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Link" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="64" Canvas.Top="2" HorizontalAlignment="Left"/>
-                <Image x:Name="imgPlayerPurple" Width="25" Source="Resources/PurplePlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Purple Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="226" Canvas.Top="2" HorizontalAlignment="Left"/>
-                <Image x:Name="imgPlayerRed" Width="25" Source="Resources/RedPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Red Smiley" MouseLeftButtonDown="setPlayer_Click" Opacity="0.4" Canvas.Left="280" Canvas.Top="2" HorizontalAlignment="Left" RenderTransformOrigin="0.56,0.4"/>
+                <Image x:Name="imgPlayerYoshi" Width="25" Source="Resources/YoshiPlayer.png" Stretch="Fill" Height="25" VerticalAlignment="Bottom" ToolTip="Yoshi" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="118" Canvas.Top="2" HorizontalAlignment="Left"/>
+                <Image x:Name="imgPlayerSailboat" Width="25" Source="Resources/SailboatPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Sailboat" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="172" Canvas.Top="2" HorizontalAlignment="Left"/>
+                <Image x:Name="imgPlayerJohnny" Width="25" Source="Resources/JohnnyBravo.png" Height="25" VerticalAlignment="Bottom" ToolTip="Johnny Bravo" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="10" Canvas.Top="2" HorizontalAlignment="Left"/>
+                <Image x:Name="imgPlayerLink" Width="25" Source="Resources/LinkPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Link" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="64" Canvas.Top="2" HorizontalAlignment="Left"/>
+                <Image x:Name="imgPlayerPurple" Width="25" Source="Resources/PurplePlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Purple Smiley" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="226" Canvas.Top="2" HorizontalAlignment="Left"/>
+                <Image x:Name="imgPlayerRed" Width="25" Source="Resources/RedPlayer.png" Height="25" VerticalAlignment="Bottom" ToolTip="Red Smiley" MouseLeftButtonDown="setCharacter_Click" Opacity="0.4" Canvas.Left="280" Canvas.Top="2" HorizontalAlignment="Left" RenderTransformOrigin="0.56,0.4"/>
                 <Canvas Height="100" Canvas.Left="113" Canvas.Top="27" Width="100"/>
             </Canvas>
         </GroupBox>

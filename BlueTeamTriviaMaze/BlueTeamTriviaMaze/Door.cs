@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: The divider between rooms. When clicked they
+//  display a question for the player to answer. If answered
+//  correctly, the door will open; if incorrect, the door will
+//  lock. By default all doors begin as closed. A door is
+//  appropriately themed by based on the maze's theme, and the
+//  state of the door
+
+using System;
 using System.Windows;
 using System.Collections.Generic;
 using System.Linq;

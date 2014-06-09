@@ -1,4 +1,11 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: The user who plays the game. Shows the user selected
+//  graphic, handles movement between maze rooms via door clicks,
+//  and checks if maze is still complete-able after answering
+//  a question
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +28,6 @@ namespace BlueTeamTriviaMaze
     /// </summary>
 
 
-    [Serializable]
     public class Player
     {
         private const int PLAYER_SIZE = 25;

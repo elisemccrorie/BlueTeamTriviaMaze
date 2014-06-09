@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Displays a trivia item as a question, and handles
+//  the players response to the question
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +65,8 @@ namespace BlueTeamTriviaMaze
                 _guess = (string)rb.Content;
         }
 
+
+        //prepares the trivia item content to be displayed on the window
         private void questionLayout()
         {
             txtblkQuestion.Text = _triviaItem.Question;
@@ -76,6 +83,8 @@ namespace BlueTeamTriviaMaze
             }
         }
 
+        //suffles the possible answers of a question so that they don't always
+        //appear in the same order
         private string[] shuffleChoices()
         {
             string[] mixed = new string[4];
@@ -84,12 +93,12 @@ namespace BlueTeamTriviaMaze
 
             if (_triviaItem.QuestionType == TriviaItem.Type.TrueFalse)
             {
-                int salt = DateTime.Now.Millisecond % 2;
+                int salt = new Random().Next(0, 2);    //random number 0 or 1
 
-                for (int i = 0; i < choices.Length - 2; i++)
+                for (int i = 0; i < choices.Length - 2; i++)    //i from 0 to 2
                 {
                     mixed[i] = choices[salt];
-                    salt = salt == 1 ? 0 : ++salt;
+                    salt = salt == 1 ? 0 : ++salt;  //count 0, 1 or 1, 0
                 }
 
                 mixed[2] = choices[2];
@@ -97,18 +106,19 @@ namespace BlueTeamTriviaMaze
             }
             else if(_triviaItem.QuestionType == TriviaItem.Type.MultipleChoice)   //multiple choice
             {
-                int salt = DateTime.Now.Millisecond % 4;
+                int salt = new Random().Next(0, 4);    //random number 0-3
 
-                for (int i = 0; i < choices.Length; i++)
+                for (int i = 0; i < choices.Length; i++)    //i from 0 to 4
                 {
                     mixed[i] = choices[salt];
-                    salt = salt == 3 ? 0 : ++salt;
+                    salt = salt == 3 ? 0 : ++salt;  //count four times, if 3 is reached start back at 0
                 }
             }
 
             return mixed;
         }
 
+        //don't allow player to submit an answer until they have selected a choice
         private void lblSubmit_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (lblSubmit.IsEnabled)

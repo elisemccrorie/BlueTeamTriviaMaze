@@ -127,9 +127,55 @@ namespace BlueTeamTriviaMaze
         public void Lose()
         {
             GameOver();
+            CheckDeadEnds();
 
             lblWinOrLose.Content = "You Lose...";
             lblWinOrLose.Foreground = Brushes.Red;
+        }
+
+        private void CheckDeadEnds()
+        {
+            if (_style.ToLower() == "classic")
+            {
+                bool closedDoors = false;
+
+                for (int i = 0; i < _maze.Rows; i++)
+                {
+                    for (int j = 0; j < _maze.Columns; j++)
+                    {
+                        Room r = _maze.GetRoom(j, i);
+                        if (r.GetState() == Room.State.Visited)
+                        {
+                            if (r.NorthDoor != null)
+                                if (r.NorthDoor.GetState() == Door.State.Closed)
+                                    closedDoors = true;
+
+                            if (r.SouthDoor != null)
+                                if (r.SouthDoor.GetState() == Door.State.Closed)
+                                    closedDoors = true;
+
+                            if (r.EastDoor != null)
+                                if (r.EastDoor.GetState() == Door.State.Closed)
+                                    closedDoors = true;
+
+                            if (r.WestDoor != null)
+                                if (r.WestDoor.GetState() == Door.State.Closed)
+                                    closedDoors = true;
+                        }
+                    }
+                }
+
+                //if the exit room doesnt have both doors locked, and the player 
+                //is at a dead end, or all paths lead to dead ends
+                if (!(_maze.GetExitRoom().NorthDoor.GetState() == Door.State.Locked
+                    && _maze.GetExitRoom().WestDoor.GetState() == Door.State.Locked)
+                    && closedDoors)
+                {
+                    DeadEndWindow d = new DeadEndWindow();
+                    d.txblkDeadEnd.Text = "All other paths lead to a dead end. No path to the exit remains!";
+                    d.ShowDialog();
+                }
+            }
         }
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)

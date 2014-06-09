@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Collects statistics on the players gameplay
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

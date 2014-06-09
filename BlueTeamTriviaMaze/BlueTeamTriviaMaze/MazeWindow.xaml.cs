@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: The main window for gameplay. A container for the maze
+//  and the statistics side panel. 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,17 +28,14 @@ namespace BlueTeamTriviaMaze
     public partial class MazeWindow : Window
     {
         private static MazeWindow _instance;
-        public static MazeWindow GetInstance() { return _instance; }
-        public enum MoveDirection { North, South, East, West };
-
-
-
         private Maze _maze;
         private int _currentTime;
         private DispatcherTimer _timer;
         private Theme _theme;
         private string _player;
 
+        public static MazeWindow GetInstance() { return _instance; }
+        public enum MoveDirection { North, South, East, West };
         public Maze GetMaze() { return _maze; }
 
         public MazeWindow(int maze_width, int maze_height, Theme theme, string player)
@@ -57,7 +59,7 @@ namespace BlueTeamTriviaMaze
             // start the game timer
             StartTimer();
 
-        } // end MazeWindow(width, height)
+        } // end MazeWindow(width, height, theme, player)
 
 
 

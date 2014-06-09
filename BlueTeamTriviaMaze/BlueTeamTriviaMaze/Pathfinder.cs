@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Handles checking whether or not a maze is complete-able from
+//  an arbitrary room to the exit room
+
+using System;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;

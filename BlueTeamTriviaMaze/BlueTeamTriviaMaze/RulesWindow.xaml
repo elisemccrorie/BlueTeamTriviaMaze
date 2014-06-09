@@ -1,4 +1,4 @@
-﻿<Window x:Class="BlueTeamTriviaMaze.Rules"
+﻿<Window x:Class="BlueTeamTriviaMaze.RulesWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Rules" Height="300" Width="300" Icon="Resources/TriviaMazeIcon.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">

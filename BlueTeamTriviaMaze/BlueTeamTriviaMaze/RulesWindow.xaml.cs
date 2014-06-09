@@ -17,9 +17,9 @@ namespace BlueTeamTriviaMaze
     /// <summary>
     /// Interaction logic for Rules.xaml
     /// </summary>
-    public partial class Rules : Window
+    public partial class RulesWindow : Window
     {
-        public Rules()
+        public RulesWindow()
         {
             InitializeComponent();
             txtblkRules.Text = String.Format("Navigate through the maze by clicking a door in the same room as your character." +

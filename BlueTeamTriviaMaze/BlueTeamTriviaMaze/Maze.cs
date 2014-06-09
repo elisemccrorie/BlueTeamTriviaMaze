@@ -53,7 +53,7 @@ namespace BlueTeamTriviaMaze
 
             // create each of the rooms
             _rooms = new Room[height, width];
-            TriviaItemFactory trivia_item_factory = new DatabaseTriviaItemFactory(); // used when creating doors
+            ITriviaItemFactory trivia_item_factory = new DatabaseTriviaItemFactory(); // used when creating doors
 
 
             for (int y = 0; y < height; ++y)

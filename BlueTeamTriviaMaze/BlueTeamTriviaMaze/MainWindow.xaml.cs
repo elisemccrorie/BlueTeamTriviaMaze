@@ -1,8 +1,7 @@
-﻿//Author: BlueTeam
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
 //Class: Spring 2014 CSCD 350-01
-//Description: this is the 
-//  description and here is
-//  another line
+//Description: The first display window when the game is started. Used
+//  to start the game, read the rules, or view the about.
 
 using System;
 using System.Collections.Generic;
@@ -57,13 +56,13 @@ namespace BlueTeamTriviaMaze
 
         private void miRules_Click(object sender, RoutedEventArgs e)
         {
-            Rules rules = new Rules();
+            RulesWindow rules = new RulesWindow();
             rules.ShowDialog();
         }
 
         private void miAbout_Click(object sender, RoutedEventArgs e)
         {
-            About about = new About();
+            AboutWindow about = new AboutWindow();
             about.ShowDialog();
         }
     }

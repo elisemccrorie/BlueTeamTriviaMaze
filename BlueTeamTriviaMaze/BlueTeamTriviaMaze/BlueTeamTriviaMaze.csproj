@@ -63,10 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Database.cs" />
+    <Compile Include="IDatabase.cs" />
     <Compile Include="DatabaseTriviaItemFactory.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="MainWindow.xaml.cs" />
@@ -83,19 +83,19 @@
     </Compile>
     <Compile Include="QuestionWindow.xaml.cs" />
     <Compile Include="Room.cs" />
-    <Compile Include="Rules.xaml.cs">
-      <DependentUpon>Rules.xaml</DependentUpon>
+    <Compile Include="RulesWindow.xaml.cs">
+      <DependentUpon>RulesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SettingsWindow.xaml.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="Theme.cs" />
     <Compile Include="TriviaItem.cs" />
-    <Compile Include="TriviaItemFactory.cs" />
+    <Compile Include="ITriviaItemFactory.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="About.xaml">
+    <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,7 +111,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Rules.xaml">
+    <Page Include="RulesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

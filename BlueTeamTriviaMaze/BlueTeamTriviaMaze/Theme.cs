@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: Contains all the required images to create a "themed"
+//  background for a maze
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

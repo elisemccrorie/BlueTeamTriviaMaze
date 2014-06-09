@@ -1,4 +1,10 @@
-﻿using System;
+﻿//Author: Blue Team (Elise Peterson, Cord Rehn, Zak Steele)
+//Class: Spring 2014 CSCD 350-01
+//Description: A container for the trivia info returned by a 
+//  database trivia item factor. Used for display in a question
+//  window.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

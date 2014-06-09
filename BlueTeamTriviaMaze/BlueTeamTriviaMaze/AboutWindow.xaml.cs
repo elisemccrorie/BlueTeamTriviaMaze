@@ -18,13 +18,13 @@ namespace BlueTeamTriviaMaze
     /// <summary>
     /// Interaction logic for About.xaml
     /// </summary>
-    public partial class About : Window
+    public partial class AboutWindow : Window
     {
         private string _version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         private string _framework = Assembly.GetExecutingAssembly().ImageRuntimeVersion.ToString();
         private string _platform = Assembly.GetExecutingAssembly().GetName().ProcessorArchitecture.ToString();
 
-        public About()
+        public AboutWindow()
         {
             InitializeComponent();
 

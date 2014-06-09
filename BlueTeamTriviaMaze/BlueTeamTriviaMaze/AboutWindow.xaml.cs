@@ -21,7 +21,7 @@ namespace BlueTeamTriviaMaze
 
         public AboutWindow()
         {
-        /*    InitializeComponent();
+            InitializeComponent();
 
             txblkAbout.Text = String.Format("Publisher: Blue Team\n" +
                                             "Authors: Elise Peterson, Cord Rehn, and" +
@@ -29,7 +29,7 @@ namespace BlueTeamTriviaMaze
                                             "Version: {0}\n" +
                                             "Class: CSCD 350-01 Spring 2014\n" +
                                             ".NET Framework: {1}\n" +
-                                            "Platform: {2}", _version, _framework, _platform);*/
+                                            "Platform: {2}", _version, _framework, _platform);
         }
     }
 }

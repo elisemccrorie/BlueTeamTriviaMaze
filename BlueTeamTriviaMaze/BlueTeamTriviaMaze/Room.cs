@@ -4,19 +4,10 @@
 //  to create a maze. Contains references to four doors. Has an X
 //  and Y position within the maze
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Annotations;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media;
-using Image = System.Drawing.Image;
-using System.Runtime.Serialization;
-
 
 namespace BlueTeamTriviaMaze
 {

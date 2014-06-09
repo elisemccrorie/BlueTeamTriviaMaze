@@ -5,18 +5,8 @@
 //  goal of reaching the exit room. Also contains a theme for
 //  its background images and a player
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Media.Imaging;
-using System.Windows.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Collections;
-using System.Runtime.Serialization;
 
 namespace BlueTeamTriviaMaze
 {

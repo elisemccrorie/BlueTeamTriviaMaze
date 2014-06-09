@@ -4,10 +4,7 @@
 //  an arbitrary room to the exit room
 
 using System;
-using System.Collections.Generic;
 using System.Collections;
-using System.Linq;
-using System.Text;
 
 namespace BlueTeamTriviaMaze
 {

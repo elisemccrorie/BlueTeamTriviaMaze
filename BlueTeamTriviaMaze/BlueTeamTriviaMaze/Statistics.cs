@@ -13,6 +13,7 @@ namespace BlueTeamTriviaMaze
         public int DoorsLocked { get; set; }
         public int QuestionsCorrect { get; set; }
         public int QuestionsIncorrect { get; set; }
+
         public double AverageAnswerTime 
         {
             get
@@ -33,7 +34,7 @@ namespace BlueTeamTriviaMaze
                     _averageAnswerTime = Math.Round((_totalAnswerTime / (QuestionsCorrect + QuestionsIncorrect)), 2);
                 }
             }
-        }
+        }//end AverageAnswerTime
 
         public Statistics()
         {

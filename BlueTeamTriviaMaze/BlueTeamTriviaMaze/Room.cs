@@ -14,11 +14,11 @@ namespace BlueTeamTriviaMaze
    
     public class Room
     {
+        public static int ROOM_SIZE = 100;
+
         private Type _type;
         private State _state;
         private Theme _theme;
-
-        public static int ROOM_SIZE = 100;
 
         public enum Type { Normal, Entrance, Exit }
         public enum State { NotVisited, Visited }
@@ -36,10 +36,12 @@ namespace BlueTeamTriviaMaze
         new public Type GetType() { return _type; }
 
         public State GetState() { return _state; }
+
         public void SetState(State state)
         {
             _state = state;
 
+            //show background
             if (_state == State.Visited)
             {
                 Drawable.StrokeThickness = 0;
@@ -51,7 +53,7 @@ namespace BlueTeamTriviaMaze
                 if(EastDoor == null && SouthDoor == null) //exit room
                     Drawable.Fill = new ImageBrush(_theme.Exit);
             }
-
+            //hide background
             else if (_state == State.NotVisited)
             {
                 Drawable.StrokeThickness = 50;
@@ -61,7 +63,7 @@ namespace BlueTeamTriviaMaze
                 if (NorthDoor != null) NorthDoor.Opacity = 0;
                 if (SouthDoor != null) SouthDoor.Opacity = 0;
             }
-        }
+        }//end SetState
 
         public void SetDoorsEnabled(bool enabled)
         {
@@ -107,7 +109,7 @@ namespace BlueTeamTriviaMaze
 
 
 
-        private TransformedBitmap rotate(BitmapImage bi, int angle)
+        private TransformedBitmap Rotate(BitmapImage bi, int angle)
         {   
             //credit to http://stackoverflow.com/questions/7309086/rotate-a-bitmapimage
             TransformedBitmap tmp = new TransformedBitmap();
@@ -120,6 +122,9 @@ namespace BlueTeamTriviaMaze
             return tmp;
         }
 
+
+        //fill the backgound image of a room based on the player selected theme, appropriately
+        //rotate the image based on the rooms position in the maze
         private void SetBackgroundFill()
         {
             if (NorthDoor != null && SouthDoor != null && EastDoor != null && WestDoor != null)
@@ -129,25 +134,25 @@ namespace BlueTeamTriviaMaze
                 Drawable.Fill = new ImageBrush(_theme.ThreeDoor);
 
             if (EastDoor == null)
-                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 90));
+                Drawable.Fill = new ImageBrush(Rotate(_theme.ThreeDoor, 90));
 
             if (SouthDoor == null)
-                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 180));
+                Drawable.Fill = new ImageBrush(Rotate(_theme.ThreeDoor, 180));
 
             if (WestDoor == null)
-                Drawable.Fill = new ImageBrush(rotate(_theme.ThreeDoor, 270));
+                Drawable.Fill = new ImageBrush(Rotate(_theme.ThreeDoor, 270));
 
             if (NorthDoor == null && WestDoor == null)  //start door
                 Drawable.Fill = new ImageBrush(_theme.Start);
 
             if (NorthDoor == null && EastDoor == null)
-                Drawable.Fill = new ImageBrush(rotate(_theme.TwoDoor, 90));
+                Drawable.Fill = new ImageBrush(Rotate(_theme.TwoDoor, 90));
 
             if (SouthDoor == null && EastDoor == null)  //exit door
                 Drawable.Fill = new ImageBrush(_theme.Exit);
 
             if (SouthDoor == null && WestDoor == null)
-                Drawable.Fill = new ImageBrush(rotate(_theme.TwoDoor, 270));
-        }
+                Drawable.Fill = new ImageBrush(Rotate(_theme.TwoDoor, 270));
+        }//end SetBackgroundFill
     }
 }

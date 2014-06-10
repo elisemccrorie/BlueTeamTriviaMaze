@@ -130,8 +130,9 @@ namespace BlueTeamTriviaMaze
             try
             {                
                 //check if we have used all the questions, if so, allow repeats
-                if(_usedQuestions.Count >= _questionCount)
+                if (_usedQuestions.Count >= _questionCount)
                     _usedQuestions = new ArrayList();
+
 
                 string notlist = ",";
                 foreach (int u in _usedQuestions)   //get the list of used questions' id's

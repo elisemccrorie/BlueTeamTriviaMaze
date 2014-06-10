@@ -15,15 +15,11 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class QuestionWindow : Window
     {
+        private string _guess;
+        private TriviaItem _triviaItem;
 
         public enum QuestionAnswer { Cancelled, Incorrect, Correct };
-
-
-        private string _guess;
-        TriviaItem _triviaItem;
-
         public QuestionAnswer Answer { get; private set; }
-
 
         public QuestionWindow(TriviaItem triviaItem)
         {
@@ -32,7 +28,7 @@ namespace BlueTeamTriviaMaze
             Answer = QuestionAnswer.Cancelled;
             _triviaItem = triviaItem;
             
-            questionLayout();
+            QuestionLayout();
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -56,10 +52,10 @@ namespace BlueTeamTriviaMaze
 
 
         //prepares the trivia item content to be displayed on the window
-        private void questionLayout()
+        private void QuestionLayout()
         {
             txtblkQuestion.Text = _triviaItem.Question;
-            string[] options = shuffleChoices();
+            string[] options = ShuffleChoices();
             rbOptionOne.Content = options[0];
             rbOptionTwo.Content = options[1];
             rbOptionThree.Content = options[2];
@@ -74,7 +70,7 @@ namespace BlueTeamTriviaMaze
 
         //suffles the possible answers of a question so that they don't always
         //appear in the same order
-        private string[] shuffleChoices()
+        private string[] ShuffleChoices()
         {
             string[] mixed = new string[4];
             string[] choices = new string[] {_triviaItem.Answer, _triviaItem.DummyAnswer[0],
@@ -105,7 +101,7 @@ namespace BlueTeamTriviaMaze
             }
 
             return mixed;
-        }
+        }//end ShuffleChoices
 
         //don't allow player to submit an answer until they have selected a choice
         private void lblSubmit_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)

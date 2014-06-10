@@ -19,10 +19,31 @@ namespace BlueTeamTriviaMaze
     /// </summary>
     public partial class KeyWindow : Window
     {
-        public KeyWindow()
+        public KeyWindow(Player player)
         {
             InitializeComponent();
-            txblkKey.Text = "Would you like to use a key to open this locked door?";
+
+            if (player.Keys == 0)
+            {
+                txblkKey.Text = "You do not have any keys left to unlock this door!";
+                lblYes.Visibility = Visibility.Hidden;
+                lblNo.Content = "Okay";
+            }
+            else
+                txblkKey.Text = "Would you like to use a key to open this locked door?";
+            
+        }
+
+        private void lblNo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }
+
+        private void lblYes_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DialogResult = true;
+            Close();
         }
     }
 }

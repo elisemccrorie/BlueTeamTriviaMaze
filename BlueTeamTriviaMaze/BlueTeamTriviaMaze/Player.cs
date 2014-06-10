@@ -30,9 +30,10 @@ namespace BlueTeamTriviaMaze
         public enum MoveDirection { North, South, East, West };
 
         private Room _currentRoom;
-        private int _currentKeys;
         private BitmapImage _playerImage;
 
+        public int Keys { get; set; }
+    
         public Room GetCurrentRoom() { return _currentRoom; }
         public Shape Drawable { get; private set; }
         public Statistics Stats;
@@ -40,7 +41,7 @@ namespace BlueTeamTriviaMaze
 
         public Player(int num_keys, string player)
         {
-            _currentKeys = num_keys;
+            Keys = num_keys;
             Stats = new Statistics();
 
             // Load the player drawable

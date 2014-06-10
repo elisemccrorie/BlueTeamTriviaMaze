@@ -8,8 +8,10 @@
 //  state of the door
 
 using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
@@ -35,8 +37,6 @@ namespace BlueTeamTriviaMaze
 
             if (_state == State.Opened)
             {
-                IsEnabled = true;  // door is clickable
-
                 //animate the opening of the door via fading out
                 DoubleAnimation dblAnim = new DoubleAnimation(1.0, 0.0, new Duration(TimeSpan.FromSeconds(1)));
                 BeginAnimation(OpacityProperty, dblAnim);
@@ -49,13 +49,11 @@ namespace BlueTeamTriviaMaze
             else if (_state == State.Locked)
             {
                 Source = _theme.DoorLocked; // locked door image
-                IsEnabled = false;  // door is NOT clickable (might change for key usage later)
                 Opacity = 1.0;      // show the door
             }
             else if (_state == State.Closed)
             {
                 Source = _theme.Door;  // closed door image
-                IsEnabled = true;  // door is clickable
                 Opacity = 1.0;     // show the door
             }
         } // end SetState(new_state)
@@ -94,8 +92,25 @@ namespace BlueTeamTriviaMaze
         
         public bool TryToOpen(ref Statistics stats)
         {
-            if (GetState() == State.Locked) // Door is locked, cannot be open
+            if (GetState() == State.Locked) // Door is locked, ask if we can use a key
+            {
+                Player player = MazeWindow.GetInstance().GetMaze().GetPlayer();
+                KeyWindow keyWindow = new KeyWindow(player);
+                bool? result = keyWindow.ShowDialog();
+
+                if (result.HasValue && result.Value)
+                {
+                    player.Keys--;
+                    stats.DoorsOpen++;
+                    stats.DoorsLocked--;
+                    MazeWindow.GetInstance().UpdateStatistics();
+
+                    Open();
+                    return true;
+                }
+
                 return false;
+            }
 
 
             // run statistics on player responses

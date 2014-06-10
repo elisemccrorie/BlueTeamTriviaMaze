@@ -27,11 +27,10 @@ namespace BlueTeamTriviaMaze
         private const int PLAYER_SIZE = 25;
         private const int ANIMATION_DURATION = 1; // seconds
 
-        public enum MoveDirection { North, South, East, West };
-
         private Room _currentRoom;
         private BitmapImage _playerImage;
 
+        public enum MoveDirection { North, South, East, West };
         public int Keys { get; set; }
     
         public Room GetCurrentRoom() { return _currentRoom; }
@@ -88,7 +87,7 @@ namespace BlueTeamTriviaMaze
 
             // Door must be open, so move to it
             MoveToRoom(target_room);
-        }
+        }//end TryToMove(direction)
 
 
         // Will absolutely move the Player to the specified 'target_room' with animation (if applicable)
@@ -157,11 +156,11 @@ namespace BlueTeamTriviaMaze
                 // begin the animation!           -- the fancy duration calculation is a proportion!: so if you click an open door twice fast, it doesnt take 2 seconds to move a couple pixels back to where it was
                 Drawable.BeginAnimation(property, new DoubleAnimation(start, end, new Duration(TimeSpan.FromSeconds( Math.Abs(start - end) * ANIMATION_DURATION / Room.ROOM_SIZE ))));
             }
-        }
+        }//end MoveToRoom(Room)
 
 
 
-        public void DoorClick(Object sender, MouseButtonEventArgs e)
+        public void Door_Click(Object sender, MouseButtonEventArgs e)
         {
             // figure out the direction to move based on the door clicked's direction (NSEW) relative to the current room 
             Door clicked_door = (Door)sender;
@@ -186,7 +185,7 @@ namespace BlueTeamTriviaMaze
             TryToMove(move_direction);
 
             CheckMazeStatus();
-        }
+        }//end Door_Click
 
 
         private void CheckMazeStatus()

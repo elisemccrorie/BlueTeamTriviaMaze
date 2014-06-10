@@ -10,56 +10,53 @@ namespace BlueTeamTriviaMaze
 {
     class Pathfinder
     {
+        private ArrayList _closed;
+        private SimpleSortedList _open;
+        private Node[,] _nodes;
+
         public bool PathExists { get; private set; }
-
-
-	    private ArrayList closed;
-	    private SimpleSortedList open;
-	
-	    private Node[,] nodes;
-	
 
         public Pathfinder(Room start, Room end)
         {
-            closed = new ArrayList();
-            open = new SimpleSortedList();
+            _closed = new ArrayList();
+            _open = new SimpleSortedList();
 
-		    nodes = new Node[MazeWindow.GetInstance().GetMaze().Rows, MazeWindow.GetInstance().GetMaze().Columns];
-            for (int y = 0; y < nodes.GetLength(0); y++)
-                for (int x = 0; x < nodes.GetLength(1); x++)
-                    nodes[y, x] = new Node(MazeWindow.GetInstance().GetMaze().GetRoom(x, y));
+		    _nodes = new Node[MazeWindow.GetInstance().GetMaze().Rows, MazeWindow.GetInstance().GetMaze().Columns];
+            for (int y = 0; y < _nodes.GetLength(0); y++)
+                for (int x = 0; x < _nodes.GetLength(1); x++)
+                    _nodes[y, x] = new Node(MazeWindow.GetInstance().GetMaze().GetRoom(x, y));
 
-
-            PathExists = DoesPathExist(start.X, start.Y, end.X, end.Y);
+            if (MazeWindow.GetInstance().GetMaze().GetPlayer().Keys > 0)
+                PathExists = true;
+            else
+                PathExists = DoesPathExist(start.X, start.Y, end.X, end.Y);
         }
-
-
 
         // Use A* path finding to determine if a path exists from (sx,sy) to (tx,ty) 
         private bool DoesPathExist(int sx, int sy, int tx, int ty)
         {
-            closed.Clear();
-            open.Clear();
+            _closed.Clear();
+            _open.Clear();
 
             // add the starting node to the open list
-		    open.Add(nodes[sy, sx]);
+		    _open.Add(_nodes[sy, sx]);
 
-            nodes[sy, sx].cost = 0;
-		    nodes[ty, tx].parent = null;
+            _nodes[sy, sx]._cost = 0;
+		    _nodes[ty, tx]._parent = null;
 		
 
-		    while (open.Size() != 0)
+		    while (_open.Size() != 0)
             {
 			    // take the first node from open list
-                Node current = (Node) open.First();
+                Node current = (Node) _open.First();
 
                 // if the node is the target node, a path exists!
-                if (current == nodes[ty, tx])
+                if (current == _nodes[ty, tx])
                     return true;
 			    
 			
-			    open.Remove(current);
-			    closed.Add(current);
+			    _open.Remove(current);
+			    _closed.Add(current);
 			
 
 			    // search through all the neighbours of the current node evaluating them as next steps
@@ -77,120 +74,134 @@ namespace BlueTeamTriviaMaze
 					
 
                         // can't move through locked doors!!
-                        if (x > 0) {// east
-                            if (current.room.EastDoor != null)
-                                if (current.room.EastDoor.GetState() == Door.State.Locked)
+                        if (x > 0) 
+                        {// east
+                            if (current._room.EastDoor != null)
+                                if (current._room.EastDoor.GetState() == Door.State.Locked)
                                     continue;
                         
-                        } else if (x < 0) { // west
-                            if (current.room.WestDoor != null)
-                                if (current.room.WestDoor.GetState() == Door.State.Locked)
+                        } 
+                        else if (x < 0) 
+                        { // west
+                            if (current._room.WestDoor != null)
+                                if (current._room.WestDoor.GetState() == Door.State.Locked)
                                     continue;
                         }
-                        else if (y < 0) { // north
-                            if (current.room.NorthDoor != null)
-                                if (current.room.NorthDoor.GetState() == Door.State.Locked)
+                        else if (y < 0) 
+                        { // north
+                            if (current._room.NorthDoor != null)
+                                if (current._room.NorthDoor.GetState() == Door.State.Locked)
                                     continue;
                         }
-                        else if (y > 0) {  // south
-                            if (current.room.SouthDoor != null)
-                                if (current.room.SouthDoor.GetState() == Door.State.Locked)
+                        else if (y > 0) 
+                        {  // south
+                            if (current._room.SouthDoor != null)
+                                if (current._room.SouthDoor.GetState() == Door.State.Locked)
                                     continue;
                         }
 
 
 
 					    // if a neighbor room exists... evaluate!
-					    int xp = x + current.x;
-					    int yp = y + current.y;
+					    int xp = x + current._x;
+					    int yp = y + current._y;
 					
 					    if (MazeWindow.GetInstance().GetMaze().GetRoom(xp, yp) != null)
                         {  
 						    // so the cost to get to this node is the current node's cost plus 1 (the cost to get to this node...)
-                            float nextStepCost = current.cost + 1;
-						    Node neighbour = nodes[yp, xp];
+                            float nextStepCost = current._cost + 1;
+						    Node neighbour = _nodes[yp, xp];
 
 
 						    // determine if there might be a better path to get to this node, if so then it needs to be re-evaluated
-						    if (nextStepCost < neighbour.cost) {
-							    if (open.Contains(neighbour)) 
-								    open.Remove(neighbour);
+						    if (nextStepCost < neighbour._cost) 
+                            {
+							    if (_open.Contains(neighbour)) 
+								    _open.Remove(neighbour);
 							    
-							    if (closed.Contains(neighbour)) 
-								    closed.Remove(neighbour);
+							    if (_closed.Contains(neighbour)) 
+								    _closed.Remove(neighbour);
 						    }
 						
 						    // if the node hasn't already been processed...
-						    if (!open.Contains(neighbour) && !closed.Contains(neighbour)) {
-							    neighbour.cost = nextStepCost;
+						    if (!_open.Contains(neighbour) && !_closed.Contains(neighbour)) 
+                            {
+							    neighbour._cost = nextStepCost;
 
                                 float dx = tx - xp;
                                 float dy = ty - yp;  // use the distance formula for the heuristic 
-                                neighbour.heuristic = (float)(Math.Sqrt((dx * dx) + (dy * dy)));
+                                neighbour._heuristic = (float)(Math.Sqrt((dx * dx) + (dy * dy)));
 
-							    open.Add(neighbour);
+							    _open.Add(neighbour);
 						    }
 					    }
 				    }
 		    }
 
             return false;
-	    }
+	    }//end DoesPathExist(int, int, int, int)
 
-
-
-
-	    private class SimpleSortedList {
-		    private ArrayList list = new ArrayList();
+        //nested class
+	    private class SimpleSortedList 
+        {
+		    private ArrayList _list = new ArrayList();
 		
-		    public Object First() {
-                return list[0];
+		    public Object First() 
+            {
+                return _list[0];
 		    }
 		
-		    public void Clear() {
-                list.Clear();
+		    public void Clear() 
+            {
+                _list.Clear();
 		    }
 		
-		    public void Add(Object o) {
-                list.Add(o);
-                list.Sort(); // sort on add = a sorted list
+		    public void Add(Object o) 
+            {
+                _list.Add(o);
+                _list.Sort(); // sort on add = a sorted list
 		    }
 		
-		    public void Remove(Object o) {
-			    list.Remove(o);
+		    public void Remove(Object o) 
+            {
+			    _list.Remove(o);
 		    }
 	
-		    public int Size() {
-			    return list.Count;
+		    public int Size() 
+            {
+			    return _list.Count;
 		    }
 		
-		    public bool Contains(Object o) {
-			    return list.Contains(o);
+		    public bool Contains(Object o) 
+            {
+			    return _list.Contains(o);
 		    }
-	    }
+	    }//end SimpleSortedList
 	
 
-
-	    private class Node : IComparable, IEquatable<Node> {
-		    public int x;
-            public int y;
-            public float cost;
-            public float heuristic;
-            public Room room;
-            public Node parent;
+        //nested class
+	    private class Node : IComparable, IEquatable<Node> 
+        {
+		    public int _x;
+            public int _y;
+            public float _cost;
+            public float _heuristic;
+            public Room _room;
+            public Node _parent;
 		
-		    public Node(Room room) {
-                this.room = room;
-			    this.x = room.X;
-			    this.y = room.Y;
+		    public Node(Room room) 
+            {
+                this._room = room;
+			    this._x = room.X;
+			    this._y = room.Y;
 		    }
 		
 		    public int CompareTo(Object other)
             {
 			    Node o = (Node)other;
 			
-			    float f = heuristic + cost;
-			    float f_other = o.heuristic + o.cost; // essentially- compare based on shortest distance
+			    float f = _heuristic + _cost;
+			    float f_other = o._heuristic + o._cost; // essentially- compare based on shortest distance
 
                 if (f < f_other) 
 				    return -1;
@@ -217,17 +228,8 @@ namespace BlueTeamTriviaMaze
                 if (other == null)
                     return false;
 
-                return this.x == other.x && this.y == other.y;
+                return this._x == other._x && this._y == other._y;
             }
 	    }
-
-
-
-
-
-
-
-
-
     }
 }

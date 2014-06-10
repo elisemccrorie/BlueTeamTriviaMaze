@@ -21,6 +21,7 @@ namespace BlueTeamTriviaMaze
    
     public class Maze : Canvas
     {
+        private const int DEFAULT_KEYS = 0;
         private Room[,] _rooms;
         private Room _exitRoom;
         private Player _player;
@@ -34,12 +35,10 @@ namespace BlueTeamTriviaMaze
         public Room GetExitRoom() { return _exitRoom; }
         public Player GetPlayer() { return _player; }
         
-
-
         public void Initialize(int width, int height, int entrance_x, int entrance_y, int exit_x, int exit_y, Theme theme, string player)
         {
             // Create and add the Player to the maze
-            CreatePlayer(3, player); // num keys, player image source
+            CreatePlayer(DEFAULT_KEYS, player); // num keys, player image source
             
             //necessary for loading in a saved maze
             Rows = height;
@@ -145,8 +144,6 @@ namespace BlueTeamTriviaMaze
             _player.MoveToRoom(_rooms[entrance_y, entrance_x]);
 
         } // end public Maze(...)
-
-
 
         // Returns the room given its array indicies [y,x] into the maze, or null if out of bounds.
         public Room GetRoom(int x, int y)

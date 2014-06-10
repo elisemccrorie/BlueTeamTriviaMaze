@@ -31,7 +31,7 @@ namespace BlueTeamTriviaMaze
 
             Connect();  // stay connected!!
             CreateTable();
-            _questionCount = getQuestionCount();
+            _questionCount = GetQuestionCount();
         }
 
         public void Destroy()
@@ -60,7 +60,7 @@ namespace BlueTeamTriviaMaze
             }
 
             return IsAlive;
-        }
+        }//end Connect
 
         public bool Disconnect()
         {
@@ -82,7 +82,7 @@ namespace BlueTeamTriviaMaze
             }
 
             return IsAlive;
-        }
+        }//end Disconnect
 
         public bool CreateTable()
         {
@@ -116,7 +116,7 @@ namespace BlueTeamTriviaMaze
                 MessageBox.Show(e.ToString());
                 return false;
             }
-        }
+        }//end CreateTable
 
         private Hashtable Query()
         {
@@ -135,11 +135,13 @@ namespace BlueTeamTriviaMaze
 
 
                 string notlist = ",";
+
                 foreach (int u in _usedQuestions)   //get the list of used questions' id's
-                    notlist += String.Format("{0},", u.ToString());
+                    notlist += String.Format("{0},", u);
+
                 notlist = notlist.Substring(0, notlist.Length - 1); //strip last comma
 
-                string sql = String.Format("select * from {0} where id not in (0{1}) order by random() limit 1", _dbTable, notlist);
+                string sql = String.Format("select * from {0} where id not in (0{1}) order by random() limit 1", _dbTable, notlist);    //random, unused, question
 
                 SQLiteCommand command = new SQLiteCommand(sql, _dbConn);
                 SQLiteDataReader dr = command.ExecuteReader();
@@ -148,7 +150,7 @@ namespace BlueTeamTriviaMaze
                 while (dr.Read())
                 {
                     for (int i = 0; i < dr.FieldCount; i++)
-                        htbl.Add(dr.GetName(i), dr[i]);
+                        htbl.Add(dr.GetName(i), dr[i]); //adds key value pair based on db column name
                 }
 
                 dr.Close();
@@ -161,10 +163,10 @@ namespace BlueTeamTriviaMaze
             }
 
             return null;
-        }
+        }//end Query
 
         //returns the number of questions in the db
-        private int getQuestionCount()
+        private int GetQuestionCount()
         {
             if (!IsAlive)
             {
@@ -220,6 +222,6 @@ namespace BlueTeamTriviaMaze
             }
 
             return _triviaItem;
-        }
+        }//end GenerateTriviaItem
     }
 }

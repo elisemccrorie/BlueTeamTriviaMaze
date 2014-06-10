@@ -33,7 +33,7 @@ namespace BlueTeamTriviaMaze
                              theme,                                     //maze background theme image
                              player);                                   //player image
 
-            _totalDoors = 2*(maze_height * maze_width) - maze_height - maze_width;
+            _totalDoors = 2*(maze_height * maze_width) - maze_height - maze_width;  //formula for the number of doors in a particular maze
             _blockPercentage = _totalDoors * .75;
         }
 
@@ -98,7 +98,7 @@ namespace BlueTeamTriviaMaze
                 while (chosen.Contains(door))
                     door = new Random((int)DateTime.Now.Ticks).Next(0, 4);
             }
-        }
+        }//end SetDoorState
 
         public Maze GetPlainMaze()
         {

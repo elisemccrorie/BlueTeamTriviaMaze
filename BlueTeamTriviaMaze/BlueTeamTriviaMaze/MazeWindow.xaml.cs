@@ -46,13 +46,11 @@ namespace BlueTeamTriviaMaze
             // construct and add the maze to its canvas
             CreateMaze(maze_width, maze_height, _style);
 
-
+            GetMaze().GetPlayer().Keys = 3;
             // start the game timer
             StartTimer();
 
         } // end MazeWindow(width, height, theme, player)
-
-
 
         private void CreateMaze(int maze_width, int maze_height, string style)
         {
@@ -78,9 +76,7 @@ namespace BlueTeamTriviaMaze
             _maze.GetRoom(0, 0).SouthDoor.Opacity = 1.0;
 
             cvsMaze.Children.Add(_maze);
-        }
-
-
+        }//end CreateMAze(int, int, string)
 
         private void StartTimer()
         {
@@ -99,9 +95,25 @@ namespace BlueTeamTriviaMaze
 
         public void UpdateStatistics()
         {
+            //if a key has been used
+            DisableKey(GetMaze().GetPlayer().Keys);
+
             lblAvgAnsTimeValue.Content = _maze.GetPlayer().Stats.AverageAnswerTime.ToString() + " s";
             lblQuestionsCorrectValue.Content = _maze.GetPlayer().Stats.QuestionsCorrect.ToString();
             lblQuestionsIncorrectValue.Content = _maze.GetPlayer().Stats.QuestionsIncorrect.ToString();
+        }
+
+        private void DisableKey(int numKeys)
+        {
+            if (numKeys <= 2)
+                imgKey1.Opacity = 0.4;
+
+            if (numKeys <= 1)
+                imgKey2.Opacity = 0.4;
+
+            if (numKeys <= 0)
+                imgKey3.Opacity = 0.4;
+
         }
 
         private void GameOver()
@@ -176,7 +188,7 @@ namespace BlueTeamTriviaMaze
                     d.ShowDialog();
                 }
             }
-        }
+        }//end CheckDeadEnds
 
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {

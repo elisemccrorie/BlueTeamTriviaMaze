@@ -11,7 +11,7 @@
                 <DropShadowEffect BlurRadius="2" Color="White" Direction="0" ShadowDepth="2"/>
             </Label.Effect>
         </Label>
-        <TextBlock x:Name="txblkKey" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,76,0,0" Height="131" Width="272" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White" TextOptions.TextFormattingMode="Display"/>
+        <TextBlock x:Name="txblkKey" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,76,0,0" Height="131" Width="272" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="16" Foreground="White" TextOptions.TextFormattingMode="Display"/>
         <Label x:Name="lblYes" Content="Yes" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="140" Foreground="#FFBF0C0C" FontFamily="/BlueTeamTriviaMaze;component/Resources/#Triforce" FontSize="24" HorizontalContentAlignment="Center" OpacityMask="Black" Height="50" VerticalContentAlignment="Center" MouseLeftButtonDown="lblYes_MouseLeftButtonDown">
             <Label.Background>
                 <ImageBrush ImageSource="Resources/key.png" Stretch="Uniform">

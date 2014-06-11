@@ -30,7 +30,6 @@ namespace BlueTeamTriviaMaze
         public int Rows { get; private set; }
         public int Columns { get; private set; }
         public Theme Theme { get; private set; }
-        public string Player { get; private set; }
 
         public Room GetExitRoom() { return _exitRoom; }
         public Player GetPlayer() { return _player; }
@@ -44,7 +43,6 @@ namespace BlueTeamTriviaMaze
             Rows = height;
             Columns = width;
             Theme = theme;
-            Player = player;
 
 
             // create each of the rooms

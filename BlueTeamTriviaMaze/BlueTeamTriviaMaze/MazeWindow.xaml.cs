@@ -21,8 +21,7 @@ namespace BlueTeamTriviaMaze
         private Maze _maze;
         private int _currentTime;
         private DispatcherTimer _timer;
-        private Theme _theme;
-        private string _player, _style;
+        private string _style;
 
         public static MazeWindow GetInstance() { return _instance; }
         public enum MoveDirection { North, South, East, West };
@@ -34,8 +33,6 @@ namespace BlueTeamTriviaMaze
 
             InitializeComponent();
             Title = "Maze - " + maze_width + "x" + maze_height;
-            _theme = theme;
-            _player = player;
             _style = style;
 
             // size the canvas(es) to the maze size
@@ -44,7 +41,7 @@ namespace BlueTeamTriviaMaze
             
 
             // construct and add the maze to its canvas
-            CreateMaze(maze_width, maze_height, _style);
+            CreateMaze(maze_width, maze_height, _style, theme, player);
 
             GetMaze().GetPlayer().Keys = 3;
 
@@ -53,13 +50,13 @@ namespace BlueTeamTriviaMaze
 
         } // end MazeWindow(width, height, theme, player)
 
-        private void CreateMaze(int maze_width, int maze_height, string style)
+        private void CreateMaze(int maze_width, int maze_height, string style, Theme theme, string player)
         {
             _maze = new Maze();
 
             if (style.ToLower() == "classic")
             {
-                MazeBuilder mb = new MazeBuilder(ref _maze, maze_width, maze_height, _theme, _player);
+                MazeBuilder mb = new MazeBuilder(ref _maze, maze_width, maze_height, theme, player);
                 _maze = mb.GetPlainMaze();
                 _maze = mb.GetTrueMaze(ref _maze);
             }
@@ -68,8 +65,8 @@ namespace BlueTeamTriviaMaze
                 _maze.Initialize(maze_width, maze_height,                    // maze dimensions
                                  0, 0,                                       // maze entrance
                                  maze_width - 1, maze_height - 1,            // maze exit
-                                 _theme,                                     // maze background theme image
-                                 _player);                                   //player image
+                                 theme,                                     // maze background theme image
+                                 player);                                   //player image
             }
 
             //make sure start room doors are visible
@@ -151,7 +148,9 @@ namespace BlueTeamTriviaMaze
             {
                 bool closedDoors = false;
 
-                for (int i = 0; i < _maze.Rows; i++)
+                // check if there exists at least 1 door that is closed and may be potentially opened
+                // Cord: optimized to bail once one closed door is found
+                for (int i = 0; i < _maze.Rows && !closedDoors; i++)
                 {
                     for (int j = 0; j < _maze.Columns; j++)
                     {
@@ -160,19 +159,31 @@ namespace BlueTeamTriviaMaze
                         {
                             if (r.NorthDoor != null)
                                 if (r.NorthDoor.GetState() == Door.State.Closed)
+                                {
                                     closedDoors = true;
+                                    break;
+                                }
 
                             if (r.SouthDoor != null)
                                 if (r.SouthDoor.GetState() == Door.State.Closed)
+                                {
                                     closedDoors = true;
+                                    break;
+                                }
 
                             if (r.EastDoor != null)
                                 if (r.EastDoor.GetState() == Door.State.Closed)
+                                {
                                     closedDoors = true;
+                                    break;
+                                }
 
                             if (r.WestDoor != null)
                                 if (r.WestDoor.GetState() == Door.State.Closed)
+                                {
                                     closedDoors = true;
+                                    break;
+                                }
                         }
                     }
                 }

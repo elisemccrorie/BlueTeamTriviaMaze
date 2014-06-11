@@ -16,10 +16,10 @@ namespace BlueTeamTriviaMaze
 {
     public class MazeBuilder
     {
-        Pathfinder _checkPath;
-        Maze _maze;
-        int _height, _width;
-        double _totalDoors, _blockPercentage;
+        private Pathfinder _checkPath;
+        private Maze _maze;
+        private int _height, _width;
+        private int _maxLockedDoors;
 
         public MazeBuilder(ref Maze m, int maze_width, int maze_height, Theme theme, string player)
         {
@@ -29,12 +29,12 @@ namespace BlueTeamTriviaMaze
             _maze = m;
             _maze.Initialize(_width, _height,                    // maze dimensions
                              0, 0,                                       // maze entrance
-                             maze_width - 1, maze_height - 1,                // array of maze exit
+                             maze_width - 1, maze_height - 1,                // maze exit
                              theme,                                     //maze background theme image
                              player);                                   //player image
 
-            _totalDoors = 2*(maze_height * maze_width) - maze_height - maze_width;  //formula for the number of doors in a particular maze
-            _blockPercentage = _totalDoors * .75;
+            int totalDoors = 2*(maze_height * maze_width) - maze_height - maze_width;  //formula for the number of doors in a particular maze
+            _maxLockedDoors = (int)(totalDoors * 0.75);
         }
 
         private void ConstructMaze(ref Maze m)
@@ -44,7 +44,7 @@ namespace BlueTeamTriviaMaze
             Random randHeight = new Random(DateTime.Now.Second);
             Random randDoor = new Random((int)DateTime.Now.Ticks);
 
-            for (int count = 0; count < _blockPercentage;)  //block off 75% of the doors
+            for (int count = 0; count < _maxLockedDoors;)  //block off 75% of the doors
             {
                 Room room = _maze.GetRoom(randWidth.Next(0, _width), randHeight.Next(0, _height));  //random room
                 int door = randDoor.Next(0, 4); //random door

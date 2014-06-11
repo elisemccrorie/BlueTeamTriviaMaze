@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Animation;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace BlueTeamTriviaMaze
 {
@@ -25,10 +26,11 @@ namespace BlueTeamTriviaMaze
     public class Player
     {
         private const int PLAYER_SIZE = 25;
-        private const int ANIMATION_DURATION = 1; // seconds
+        private const double ANIMATION_DURATION = 0.6; // seconds
 
         private Room _currentRoom;
         private BitmapImage _playerImage;
+        private Queue<KeyValuePair<DependencyProperty, DoubleAnimation>> _currentAnimations;
 
         public enum MoveDirection { North, South, East, West };
         public int Keys { get; set; }
@@ -42,6 +44,7 @@ namespace BlueTeamTriviaMaze
         {
             Keys = num_keys;
             Stats = new Statistics();
+            _currentAnimations = new Queue<KeyValuePair<DependencyProperty, DoubleAnimation>>();
 
             // Load the player drawable
             Drawable = new Rectangle();
@@ -49,7 +52,7 @@ namespace BlueTeamTriviaMaze
             Drawable.StrokeThickness = 0;
             _playerImage = new BitmapImage(new Uri(String.Format("pack://application:,,,/Resources/{0}.png", player)));
             Drawable.Fill = new ImageBrush(_playerImage);
-        }
+       }
 
         // Will 'try' to move the Player in the 'direction' given.
         // 
@@ -87,6 +90,7 @@ namespace BlueTeamTriviaMaze
 
             // Door must be open, so move to it
             MoveToRoom(target_room);
+
         }//end TryToMove(direction)
 
 
@@ -130,8 +134,33 @@ namespace BlueTeamTriviaMaze
             {   // animate the player's position moving it toward the new current room's location
                 double end = property == Canvas.LeftProperty ? Canvas.GetLeft(_currentRoom.Drawable) : Canvas.GetTop(_currentRoom.Drawable);
 
-                  // flip player image based on direction heading
-                if (property == Canvas.LeftProperty && end < start)
+
+                // offset to center of the room
+                end += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
+                start += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
+
+
+                // queue up the animation for playing
+                DoubleAnimation new_anim = new DoubleAnimation(start, end, new Duration(TimeSpan.FromSeconds(ANIMATION_DURATION)));
+                new_anim.Completed += new EventHandler(OnAnimationComplete);
+
+                _currentAnimations.Enqueue(new KeyValuePair<DependencyProperty, DoubleAnimation>(property, new_anim));
+
+                if (_currentAnimations.Count == 1) // if this is the first animation, then start playing it
+                    PlayNextAnimation();
+            }
+        } //end MoveToRoom(Room)
+
+        private void PlayNextAnimation()
+        {
+            // start animating
+            KeyValuePair<DependencyProperty, DoubleAnimation> next_anim = _currentAnimations.Peek();
+            Drawable.BeginAnimation(next_anim.Key, next_anim.Value);
+
+
+            // flip player image based on direction heading ONLY if moving left/right
+            if (next_anim.Key == Canvas.LeftProperty)
+                if (next_anim.Value.To < next_anim.Value.From)
                 {
                     TransformedBitmap tmp = new TransformedBitmap();
                     tmp.BeginInit();
@@ -143,21 +172,15 @@ namespace BlueTeamTriviaMaze
                 }
                 else
                     Drawable.Fill = new ImageBrush(_playerImage);
+        }
 
-                
-                // offset end to center of the room
-                end += (Room.ROOM_SIZE / 2) - (Drawable.Width / 2);
+        private void OnAnimationComplete(object sender, EventArgs e)
+        {
+            _currentAnimations.Dequeue(); // get rid of the current animation
 
-
-                // set the start to the current player's position, so it doesn't JUMP to the old room if switching rooms fast
-                start = property == Canvas.LeftProperty ? Canvas.GetLeft(Drawable) : Canvas.GetTop(Drawable);
-
-
-                // begin the animation!           -- the fancy duration calculation is a proportion!: so if you click an open door twice fast, it doesnt take 2 seconds to move a couple pixels back to where it was
-                Drawable.BeginAnimation(property, new DoubleAnimation(start, end, new Duration(TimeSpan.FromSeconds( Math.Abs(start - end) * ANIMATION_DURATION / Room.ROOM_SIZE ))));
-            }
-        }//end MoveToRoom(Room)
-
+            if (_currentAnimations.Count > 0) // play the next one
+                PlayNextAnimation();
+        }
 
 
         public void Door_Click(Object sender, MouseButtonEventArgs e)

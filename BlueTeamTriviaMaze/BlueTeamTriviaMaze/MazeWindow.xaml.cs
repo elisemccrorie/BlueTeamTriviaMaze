@@ -47,6 +47,7 @@ namespace BlueTeamTriviaMaze
             CreateMaze(maze_width, maze_height, _style);
 
             GetMaze().GetPlayer().Keys = 3;
+
             // start the game timer
             StartTimer();
 
@@ -66,8 +67,8 @@ namespace BlueTeamTriviaMaze
             {
                 _maze.Initialize(maze_width, maze_height,                    // maze dimensions
                                  0, 0,                                       // maze entrance
-                                 maze_width - 1, maze_height - 1,                // array of maze exit
-                                 _theme,                                     //maze background theme image
+                                 maze_width - 1, maze_height - 1,            // maze exit
+                                 _theme,                                     // maze background theme image
                                  _player);                                   //player image
             }
 
@@ -113,7 +114,6 @@ namespace BlueTeamTriviaMaze
 
             if (numKeys <= 0)
                 imgKey3.Opacity = 0.4;
-
         }
 
         private void GameOver()

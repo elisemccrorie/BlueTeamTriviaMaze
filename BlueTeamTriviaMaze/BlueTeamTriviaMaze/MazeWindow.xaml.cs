@@ -115,7 +115,8 @@ namespace BlueTeamTriviaMaze
 
         private void GameOver()
         {
-            IsEnabled = false;
+            cvsMaze.IsEnabled = false;
+            lblWinOrLose.IsEnabled = true;
             _timer.Stop();
 
             // make the label flash
@@ -207,6 +208,11 @@ namespace BlueTeamTriviaMaze
             {
                 Close();
             }
+        }
+
+        private void lblWinOrLose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Close();
         }
     }
 }
